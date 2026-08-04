@@ -54,6 +54,12 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+  };
 
   return (
     <div className="min-h-screen bg-background">
