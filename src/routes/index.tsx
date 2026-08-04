@@ -493,65 +493,87 @@ function Index() {
               <p className="mt-2 text-sm text-muted-foreground">
                 Remplissez ce formulaire et nous vous recontactons rapidement.
               </p>
-              <form className="mt-6 space-y-4">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <label htmlFor="nom" className="text-sm font-medium text-foreground">
-                      Nom
-                    </label>
-                    <input
-                      id="nom"
-                      type="text"
-                      placeholder="Votre nom"
-                      className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
-                    />
+              {formSubmitted ? (
+                <div className="mt-6 flex flex-col items-center justify-center rounded-xl bg-background p-8 text-center">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <Sparkles className="h-7 w-7" />
                   </div>
-                  <div className="space-y-2">
-                    <label htmlFor="telephone" className="text-sm font-medium text-foreground">
-                      Téléphone
-                    </label>
-                    <input
-                      id="telephone"
-                      type="tel"
-                      placeholder="06 12 34 56 78"
-                      className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="service" className="text-sm font-medium text-foreground">
-                    Service souhaité
-                  </label>
-                  <select
-                    id="service"
-                    className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
+                  <h4 className="mt-4 font-display text-lg font-semibold text-foreground">
+                    Demande envoyée !
+                  </h4>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Merci de nous avoir contactés. Notre équipe vous rappellera dans les plus brefs délais.
+                  </p>
+                  <button
+                    onClick={() => setFormSubmitted(false)}
+                    className="mt-4 text-sm font-medium text-primary hover:underline"
                   >
-                    <option>Pressing vêtements</option>
-                    <option>Costumes & cérémonies</option>
-                    <option>Linge de maison</option>
-                    <option>Cuir & chaussures</option>
-                    <option>Autre</option>
-                  </select>
+                    Envoyer une nouvelle demande
+                  </button>
                 </div>
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-foreground">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    placeholder="Décrivez vos besoins..."
-                    className="w-full resize-none rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl"
-                >
-                  Envoyer ma demande
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </form>
+              ) : (
+                <form onSubmit={handleFormSubmit} className="mt-6 space-y-4">
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="space-y-2">
+                      <label htmlFor="nom" className="text-sm font-medium text-foreground">
+                        Nom
+                      </label>
+                      <input
+                        id="nom"
+                        type="text"
+                        required
+                        placeholder="Votre nom"
+                        className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="telephone" className="text-sm font-medium text-foreground">
+                        Téléphone
+                      </label>
+                      <input
+                        id="telephone"
+                        type="tel"
+                        required
+                        placeholder="06 12 34 56 78"
+                        className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="service" className="text-sm font-medium text-foreground">
+                      Service souhaité
+                    </label>
+                    <select
+                      id="service"
+                      className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
+                    >
+                      <option>Pressing vêtements</option>
+                      <option>Costumes & cérémonies</option>
+                      <option>Linge de maison</option>
+                      <option>Cuir & chaussures</option>
+                      <option>Autre</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-medium text-foreground">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      placeholder="Décrivez vos besoins..."
+                      className="w-full resize-none rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl"
+                  >
+                    Envoyer ma demande
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
