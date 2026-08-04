@@ -65,7 +65,7 @@ function Index() {
               <Sparkles className="h-5 w-5" />
             </div>
             <span className="font-display text-lg font-bold text-foreground">
-              Pressing<span className="text-primary">Casablanca</span>
+              Pressing <span className="text-primary">Casablanca</span>
             </span>
           </a>
 
