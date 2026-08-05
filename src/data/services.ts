@@ -5,9 +5,15 @@ import serviceCuir from "@/assets/service-cuir.jpg";
 
 export const SITE_URL = "https://casa-clean-dreams.lovable.app";
 
+export type ServicePath =
+  | "/services/pressing-vetements"
+  | "/services/costumes-ceremonies"
+  | "/services/linge-de-maison"
+  | "/services/cuir-chaussures";
+
 export type ServiceContent = {
   slug: string;
-  path: string;
+  path: ServicePath;
   navTitle: string;
   h1: string;
   title: string;
