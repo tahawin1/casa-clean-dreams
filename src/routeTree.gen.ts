@@ -10,6 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AvantagesRouteImport } from './routes/avantages'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ProcessusRouteImport } from './routes/processus'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesCostumesCeremoniesRouteImport } from './routes/services.costumes-ceremonies'
 import { Route as ServicesCuirChaussuresRouteImport } from './routes/services.cuir-chaussures'
 import { Route as ServicesLingeDeMaisonRouteImport } from './routes/services.linge-de-maison'
@@ -18,6 +22,26 @@ import { Route as ServicesPressingVetementsRouteImport } from './routes/services
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AvantagesRoute = AvantagesRouteImport.update({
+  id: '/avantages',
+  path: '/avantages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProcessusRoute = ProcessusRouteImport.update({
+  id: '/processus',
+  path: '/processus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesCostumesCeremoniesRoute =
@@ -45,56 +69,84 @@ const ServicesPressingVetementsRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/avantages': typeof AvantagesRoute
+  '/contact': typeof ContactRoute
+  '/processus': typeof ProcessusRoute
   '/services/costumes-ceremonies': typeof ServicesCostumesCeremoniesRoute
   '/services/cuir-chaussures': typeof ServicesCuirChaussuresRoute
   '/services/linge-de-maison': typeof ServicesLingeDeMaisonRoute
   '/services/pressing-vetements': typeof ServicesPressingVetementsRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/avantages': typeof AvantagesRoute
+  '/contact': typeof ContactRoute
+  '/processus': typeof ProcessusRoute
   '/services/costumes-ceremonies': typeof ServicesCostumesCeremoniesRoute
   '/services/cuir-chaussures': typeof ServicesCuirChaussuresRoute
   '/services/linge-de-maison': typeof ServicesLingeDeMaisonRoute
   '/services/pressing-vetements': typeof ServicesPressingVetementsRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/avantages': typeof AvantagesRoute
+  '/contact': typeof ContactRoute
+  '/processus': typeof ProcessusRoute
   '/services/costumes-ceremonies': typeof ServicesCostumesCeremoniesRoute
   '/services/cuir-chaussures': typeof ServicesCuirChaussuresRoute
   '/services/linge-de-maison': typeof ServicesLingeDeMaisonRoute
   '/services/pressing-vetements': typeof ServicesPressingVetementsRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/avantages'
+    | '/contact'
+    | '/processus'
     | '/services/costumes-ceremonies'
     | '/services/cuir-chaussures'
     | '/services/linge-de-maison'
     | '/services/pressing-vetements'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/avantages'
+    | '/contact'
+    | '/processus'
     | '/services/costumes-ceremonies'
     | '/services/cuir-chaussures'
     | '/services/linge-de-maison'
     | '/services/pressing-vetements'
+    | '/services'
   id:
     | '__root__'
     | '/'
+    | '/avantages'
+    | '/contact'
+    | '/processus'
     | '/services/costumes-ceremonies'
     | '/services/cuir-chaussures'
     | '/services/linge-de-maison'
     | '/services/pressing-vetements'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvantagesRoute: typeof AvantagesRoute
+  ContactRoute: typeof ContactRoute
+  ProcessusRoute: typeof ProcessusRoute
   ServicesCostumesCeremoniesRoute: typeof ServicesCostumesCeremoniesRoute
   ServicesCuirChaussuresRoute: typeof ServicesCuirChaussuresRoute
   ServicesLingeDeMaisonRoute: typeof ServicesLingeDeMaisonRoute
   ServicesPressingVetementsRoute: typeof ServicesPressingVetementsRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -104,6 +156,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/avantages': {
+      id: '/avantages'
+      path: '/avantages'
+      fullPath: '/avantages'
+      preLoaderRoute: typeof AvantagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/processus': {
+      id: '/processus'
+      path: '/processus'
+      fullPath: '/processus'
+      preLoaderRoute: typeof ProcessusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/costumes-ceremonies': {
@@ -139,11 +219,25 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvantagesRoute: AvantagesRoute,
+  ContactRoute: ContactRoute,
+  ProcessusRoute: ProcessusRoute,
   ServicesCostumesCeremoniesRoute: ServicesCostumesCeremoniesRoute,
   ServicesCuirChaussuresRoute: ServicesCuirChaussuresRoute,
   ServicesLingeDeMaisonRoute: ServicesLingeDeMaisonRoute,
   ServicesPressingVetementsRoute: ServicesPressingVetementsRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
