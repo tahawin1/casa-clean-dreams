@@ -313,16 +313,16 @@ function Index() {
       <section className="border-y border-border bg-background">
         <div className="container-tight grid gap-8 py-10 sm:grid-cols-3">
           <div className="text-center">
-            <div className="font-display text-3xl font-bold text-primary">+15 ans</div>
-            <p className="mt-1 text-sm text-muted-foreground">D'expérience au service de vos textiles</p>
+            <div className="font-display text-3xl font-bold text-primary">Depuis 2010</div>
+            <p className="mt-1 text-sm text-muted-foreground">À votre service au Bd Mohamed Zerktouni</p>
           </div>
           <div className="text-center">
-            <div className="font-display text-3xl font-bold text-primary">12 000+</div>
-            <p className="mt-1 text-sm text-muted-foreground">Clients satisfaits chaque année</p>
+            <div className="font-display text-3xl font-bold text-primary">Express 6h</div>
+            <p className="mt-1 text-sm text-muted-foreground">Service ultra-rapide disponible</p>
           </div>
           <div className="text-center">
-            <div className="font-display text-3xl font-bold text-primary">4.9/5</div>
-            <p className="mt-1 text-sm text-muted-foreground">Note moyenne de nos clients</p>
+            <div className="font-display text-3xl font-bold text-primary">Gratuit</div>
+            <p className="mt-1 text-sm text-muted-foreground">Ramassage & livraison à domicile</p>
           </div>
         </div>
       </section>
