@@ -10,33 +10,91 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesCostumesCeremoniesRouteImport } from './routes/services.costumes-ceremonies'
+import { Route as ServicesCuirChaussuresRouteImport } from './routes/services.cuir-chaussures'
+import { Route as ServicesLingeDeMaisonRouteImport } from './routes/services.linge-de-maison'
+import { Route as ServicesPressingVetementsRouteImport } from './routes/services.pressing-vetements'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesCostumesCeremoniesRoute =
+  ServicesCostumesCeremoniesRouteImport.update({
+    id: '/services/costumes-ceremonies',
+    path: '/services/costumes-ceremonies',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesCuirChaussuresRoute = ServicesCuirChaussuresRouteImport.update({
+  id: '/services/cuir-chaussures',
+  path: '/services/cuir-chaussures',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesLingeDeMaisonRoute = ServicesLingeDeMaisonRouteImport.update({
+  id: '/services/linge-de-maison',
+  path: '/services/linge-de-maison',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesPressingVetementsRoute =
+  ServicesPressingVetementsRouteImport.update({
+    id: '/services/pressing-vetements',
+    path: '/services/pressing-vetements',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/services/costumes-ceremonies': typeof ServicesCostumesCeremoniesRoute
+  '/services/cuir-chaussures': typeof ServicesCuirChaussuresRoute
+  '/services/linge-de-maison': typeof ServicesLingeDeMaisonRoute
+  '/services/pressing-vetements': typeof ServicesPressingVetementsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/services/costumes-ceremonies': typeof ServicesCostumesCeremoniesRoute
+  '/services/cuir-chaussures': typeof ServicesCuirChaussuresRoute
+  '/services/linge-de-maison': typeof ServicesLingeDeMaisonRoute
+  '/services/pressing-vetements': typeof ServicesPressingVetementsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/services/costumes-ceremonies': typeof ServicesCostumesCeremoniesRoute
+  '/services/cuir-chaussures': typeof ServicesCuirChaussuresRoute
+  '/services/linge-de-maison': typeof ServicesLingeDeMaisonRoute
+  '/services/pressing-vetements': typeof ServicesPressingVetementsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/services/costumes-ceremonies'
+    | '/services/cuir-chaussures'
+    | '/services/linge-de-maison'
+    | '/services/pressing-vetements'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/services/costumes-ceremonies'
+    | '/services/cuir-chaussures'
+    | '/services/linge-de-maison'
+    | '/services/pressing-vetements'
+  id:
+    | '__root__'
+    | '/'
+    | '/services/costumes-ceremonies'
+    | '/services/cuir-chaussures'
+    | '/services/linge-de-maison'
+    | '/services/pressing-vetements'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ServicesCostumesCeremoniesRoute: typeof ServicesCostumesCeremoniesRoute
+  ServicesCuirChaussuresRoute: typeof ServicesCuirChaussuresRoute
+  ServicesLingeDeMaisonRoute: typeof ServicesLingeDeMaisonRoute
+  ServicesPressingVetementsRoute: typeof ServicesPressingVetementsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,12 +106,54 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/costumes-ceremonies': {
+      id: '/services/costumes-ceremonies'
+      path: '/services/costumes-ceremonies'
+      fullPath: '/services/costumes-ceremonies'
+      preLoaderRoute: typeof ServicesCostumesCeremoniesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/cuir-chaussures': {
+      id: '/services/cuir-chaussures'
+      path: '/services/cuir-chaussures'
+      fullPath: '/services/cuir-chaussures'
+      preLoaderRoute: typeof ServicesCuirChaussuresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/linge-de-maison': {
+      id: '/services/linge-de-maison'
+      path: '/services/linge-de-maison'
+      fullPath: '/services/linge-de-maison'
+      preLoaderRoute: typeof ServicesLingeDeMaisonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/pressing-vetements': {
+      id: '/services/pressing-vetements'
+      path: '/services/pressing-vetements'
+      fullPath: '/services/pressing-vetements'
+      preLoaderRoute: typeof ServicesPressingVetementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ServicesCostumesCeremoniesRoute: ServicesCostumesCeremoniesRoute,
+  ServicesCuirChaussuresRoute: ServicesCuirChaussuresRoute,
+  ServicesLingeDeMaisonRoute: ServicesLingeDeMaisonRoute,
+  ServicesPressingVetementsRoute: ServicesPressingVetementsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

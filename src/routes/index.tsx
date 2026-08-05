@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Shirt,
@@ -24,6 +24,7 @@ import serviceVetements from "@/assets/service-vetements.jpg";
 import serviceCostumes from "@/assets/service-costumes.jpg";
 import serviceLinge from "@/assets/service-linge.jpg";
 import serviceCuir from "@/assets/service-cuir.jpg";
+import type { ServicePath } from "@/data/services";
 
 const SITE_URL = "https://casa-clean-dreams.lovable.app";
 const PAGE_TITLE =
@@ -314,24 +315,28 @@ function Index() {
             <ServiceCard
               image={serviceVetements}
               icon={<Shirt className="h-5 w-5" />}
+              to="/services/pressing-vetements"
               title="Pressing vêtements"
               description="Nettoyage à sec et repassage de vos chemises, pantalons, robes et vêtements du quotidien. Retour impeccable en 24h."
             />
             <ServiceCard
               image={serviceCostumes}
               icon={<Sparkles className="h-5 w-5" />}
+              to="/services/costumes-ceremonies"
               title="Costumes & cérémonies"
               description="Entretien spécialisé des costumes, smoking, robes de soirée et tenues de cérémonie. Traitement haute couture."
             />
             <ServiceCard
               image={serviceLinge}
               icon={<BedDouble className="h-5 w-5" />}
+              to="/services/linge-de-maison"
               title="Linge de maison"
               description="Nettoyage et repassage de draps, couettes, rideaux, nappes et linge de bain. Fraîcheur durable garantie."
             />
             <ServiceCard
               image={serviceCuir}
               icon={<Footprints className="h-5 w-5" />}
+              to="/services/cuir-chaussures"
               title="Cuir & chaussures"
               description="Nettoyage, rénovation et imperméabilisation de vos chaussures, sacs, vestes et accessoires en cuir."
             />
@@ -674,24 +679,24 @@ function Index() {
               <h3 className="font-display text-sm font-semibold text-foreground">Services</h3>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <a href="#services" className="hover:text-primary">
+                  <Link to="/services/pressing-vetements" className="hover:text-primary">
                     Pressing vêtements
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-primary">
+                  <Link to="/services/costumes-ceremonies" className="hover:text-primary">
                     Costumes & cérémonies
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-primary">
+                  <Link to="/services/linge-de-maison" className="hover:text-primary">
                     Linge de maison
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-primary">
+                  <Link to="/services/cuir-chaussures" className="hover:text-primary">
                     Cuir & chaussures
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -759,14 +764,16 @@ function ServiceCard({
   icon,
   title,
   description,
+  to,
 }: {
   image: string;
   icon: React.ReactNode;
   title: string;
   description: string;
+  to: ServicePath;
 }) {
   return (
-    <div className="group overflow-hidden rounded-2xl border border-border bg-card text-card-foreground shadow-sm transition-all hover:shadow-lg hover:shadow-brand-900/5">
+    <Link to={to} className="group block overflow-hidden rounded-2xl border border-border bg-card text-card-foreground shadow-sm transition-all hover:shadow-lg hover:shadow-brand-900/5">
       <div className="aspect-[4/3] overflow-hidden">
         <img
           src={image}
@@ -783,8 +790,12 @@ function ServiceCard({
         </div>
         <h3 className="font-display text-lg font-semibold text-foreground">{title}</h3>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+        <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
+          En savoir plus
+          <ChevronRight className="h-4 w-4" />
+        </span>
       </div>
-    </div>
+    </Link>
   );
 }
 
