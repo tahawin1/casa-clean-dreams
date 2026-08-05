@@ -147,7 +147,7 @@ function Index() {
               <Sparkles className="h-5 w-5" />
             </div>
             <span className="font-display text-lg font-bold text-foreground">
-              Pressing <span className="text-primary">Casablanca</span>
+              Pressing <span className="text-primary">Zerktouni</span>
             </span>
           </a>
 
@@ -168,10 +168,10 @@ function Index() {
 
           <div className="hidden items-center gap-3 md:flex">
             <a
-              href="tel:+212522123456"
+              href="tel:+212522363634"
               className="text-sm font-medium text-foreground hover:text-primary"
             >
-              05 22 12 34 56
+              05 22 36 36 34
             </a>
             <a
               href="#contact"
@@ -222,10 +222,10 @@ function Index() {
                 Contact
               </a>
               <a
-                href="tel:+212522123456"
+                href="tel:+212522363634"
                 className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
               >
-                05 22 12 34 56
+                05 22 36 36 34
               </a>
             </div>
           </div>
