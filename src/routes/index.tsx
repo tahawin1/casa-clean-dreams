@@ -17,6 +17,10 @@ import {
   Instagram,
   Facebook,
   ArrowRight,
+  Zap,
+  Truck,
+  CalendarCheck,
+  Gift,
 } from "lucide-react";
 
 import heroImage from "@/assets/hero-pressing.jpg";
@@ -27,10 +31,9 @@ import serviceCuir from "@/assets/service-cuir.jpg";
 import type { ServicePath } from "@/data/services";
 
 const SITE_URL = "https://casa-clean-dreams.lovable.app";
-const PAGE_TITLE =
-  "Pressing Casablanca Centre-Ville | Nettoyage à Sec 24h";
+const PAGE_TITLE = "Pressing Zerktouni Casablanca | Nettoyage à Sec 6h";
 const PAGE_DESCRIPTION =
-  "Pressing au centre-ville de Casablanca : nettoyage à sec, blanchisserie, repassage, costumes et cuir. Service express 24h, 123 Bd Mohammed V. Devis gratuit.";
+  "Pressing Zerktouni à Casablanca, 237 Boulevard Mohamed Zerktouni. Depuis 2010, nettoyage à sec, repassage, costumes, linge de maison, cuir, sacs et tapis. Service express 6h, ramassage et livraison gratuite.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
