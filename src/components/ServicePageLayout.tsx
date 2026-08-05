@@ -5,8 +5,11 @@ import {
   MapPin,
   Phone,
   Clock,
+  Truck,
+  Zap,
   ArrowRight,
   ChevronRight,
+  CalendarCheck,
 } from "lucide-react";
 
 import { services, type ServiceContent } from "@/data/services";
@@ -23,7 +26,7 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
               <Sparkles className="h-5 w-5" />
             </div>
             <span className="font-display text-lg font-bold text-foreground">
-              Pressing <span className="text-primary">Casablanca</span>
+              Pressing <span className="text-primary">Zerktouni</span>
             </span>
           </Link>
 
@@ -41,11 +44,11 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
           </nav>
 
           <a
-            href="tel:+212522123456"
+            href="tel:+212522363634"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-brand-600"
           >
             <Phone className="h-4 w-4" />
-            05 22 12 34 56
+            05 22 36 36 34
           </a>
         </div>
       </header>
@@ -69,6 +72,10 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
       <section className="gradient-hero">
         <div className="container-tight grid gap-10 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
           <div className="flex flex-col gap-6">
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-background/80 px-4 py-1.5 shadow-sm">
+              <CalendarCheck className="h-4 w-4 text-primary" />
+              <span className="text-xs font-medium text-muted-foreground">Depuis 2010 à votre service</span>
+            </div>
             <h1 className="font-display text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl">
               {service.h1}
             </h1>
@@ -83,7 +90,7 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <a
-                href="tel:+212522123456"
+                href="tel:+212522363634"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-base font-medium text-foreground transition-colors hover:bg-muted"
               >
                 <Phone className="h-4 w-4" />
@@ -92,10 +99,13 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
             </div>
             <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
               <span className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-primary" /> Service express 24h
+                <Zap className="h-4 w-4 text-primary" /> Express 6h
               </span>
               <span className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-primary" /> 123 Bd Mohammed V, Casablanca
+                <Truck className="h-4 w-4 text-primary" /> Ramassage & livraison gratuite
+              </span>
+              <span className="flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-primary" /> 237 Bd Mohamed Zerktouni, Casablanca
               </span>
             </div>
           </div>
@@ -199,7 +209,7 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
               to="/"
               className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
             >
-              Retour à l'accueil du pressing Casablanca centre-ville
+              Retour à l'accueil du pressing Pressing Zerktouni
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -208,8 +218,8 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
 
       <footer className="border-t border-border bg-background py-10">
         <div className="container-tight flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row">
-          <p>© 2026 Pressing Casablanca Centre Ville. Tous droits réservés.</p>
-          <p>123 Bd Mohammed V, Casablanca — 05 22 12 34 56</p>
+          <p>© 2026 Pressing Zerktouni. Tous droits réservés.</p>
+          <p>237 Bd Mohamed Zerktouni, Casablanca — 05 22 36 36 34</p>
         </div>
       </footer>
     </div>
