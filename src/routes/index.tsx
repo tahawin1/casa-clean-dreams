@@ -392,14 +392,19 @@ function Index() {
 
               <div className="mt-8 grid gap-6">
                 <AdvantageItem
-                  icon={<Clock className="h-5 w-5" />}
-                  title="Service express 24h"
-                  description="Besoin urgent ? Profitez de notre service express pour récupérer vos vêtements en 24 heures chrono."
+                  icon={<Zap className="h-5 w-5" />}
+                  title="Service express 6h"
+                  description="Besoin urgent ? Profitez de notre service express pour récupérer vos vêtements en 6 heures chrono."
+                />
+                <AdvantageItem
+                  icon={<Truck className="h-5 w-5" />}
+                  title="Ramassage & livraison gratuite"
+                  description="Nous venons chercher vos articles et vous les ramenons propres et repassés, sans frais de livraison."
                 />
                 <AdvantageItem
                   icon={<Award className="h-5 w-5" />}
-                  title="Expertise reconnue"
-                  description="Notre équipe qualifiée maîtrise les techniques de nettoyage adaptées à chaque matière et à chaque tache."
+                  title="Expertise depuis 2010"
+                  description="Depuis 2010, notre équipe qualifiée maîtrise les techniques de nettoyage adaptées à chaque matière."
                 />
                 <AdvantageItem
                   icon={<Leaf className="h-5 w-5" />}
