@@ -549,7 +549,29 @@ function Index() {
                   </div>
                 </div>
               </div>
+
+              <div className="mt-8 overflow-hidden rounded-2xl border border-border shadow-sm">
+                <iframe
+                  title="Carte de localisation du pressing – 123 Bd Mohammed V, Casablanca"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-7.6215%2C33.5875%2C-7.6035%2C33.5985&layer=mapnik&marker=33.5930%2C-7.6125"
+                  className="h-[320px] w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                <div className="flex items-center justify-between gap-3 bg-background px-4 py-3">
+                  <p className="text-sm text-muted-foreground">123 Bd Mohammed V, Centre-ville, Casablanca</p>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=123+Boulevard+Mohammed+V+Casablanca"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 text-sm font-semibold text-primary hover:underline"
+                  >
+                    Itinéraire
+                  </a>
+                </div>
+              </div>
             </div>
+
 
             <div className="rounded-2xl border border-border bg-muted p-8">
               <h3 className="font-display text-xl font-semibold text-foreground">Demander un devis gratuit</h3>
