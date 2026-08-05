@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook } from "lucide-react";
 
-import logoImage from "@/assets/logo.jpg";
+import logoImage from "@/assets/logo.png";
 import { services } from "@/data/services";
 
 export function SiteFooter() {
@@ -11,7 +11,7 @@ export function SiteFooter() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link to="/" className="flex items-center gap-2">
-              <img src={logoImage} alt="Logo Pressing Zerktouni" className="h-9 w-9 rounded-lg object-cover" />
+              <img src={logoImage} alt="Logo Pressing Zerktouni" className="h-9 w-9 rounded-lg object-contain" />
               <span className="font-display text-lg font-bold text-foreground">
                 Pressing <span className="text-primary">Zerktouni</span>
               </span>

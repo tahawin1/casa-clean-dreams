@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-import logoImage from "@/assets/logo.jpg";
+import logoImage from "@/assets/logo.png";
 
 const NAV_LINKS = [
   { to: "/", label: "Accueil" },
@@ -19,7 +19,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
       <div className="container-tight flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <img src={logoImage} alt="Logo Pressing Zerktouni" className="h-9 w-9 rounded-lg object-cover" />
+          <img src={logoImage} alt="Logo Pressing Zerktouni" className="h-9 w-9 rounded-lg object-contain" />
           <span className="font-display text-lg font-bold text-foreground">
             Pressing <span className="text-primary">Zerktouni</span>
           </span>
