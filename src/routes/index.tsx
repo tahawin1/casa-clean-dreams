@@ -225,9 +225,10 @@ function Index() {
               <span className="text-xs font-medium text-muted-foreground">Ouvert 6 jours sur 7</span>
             </div>
             <h1 className="font-display text-4xl font-bold leading-[1.1] text-foreground sm:text-5xl lg:text-6xl">
-              Vos vêtements méritent un soin{" "}
-              <span className="text-primary">premium</span>
+              Pressing à Casablanca centre-ville,{" "}
+              <span className="text-primary">soin premium</span>
             </h1>
+
             <p className="max-w-xl text-lg text-muted-foreground">
               Pressing moderne au centre-ville de Casablanca. Nettoyage à sec, repassage, blanchisserie et entretien du cuir avec une qualité irréprochable.
             </p>
