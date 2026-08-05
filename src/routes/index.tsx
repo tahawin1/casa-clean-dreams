@@ -25,32 +25,89 @@ import serviceCostumes from "@/assets/service-costumes.jpg";
 import serviceLinge from "@/assets/service-linge.jpg";
 import serviceCuir from "@/assets/service-cuir.jpg";
 
+const SITE_URL = "https://casa-clean-dreams.lovable.app";
+const PAGE_TITLE =
+  "Pressing Casablanca Centre-Ville | Nettoyage à Sec 24h";
+const PAGE_DESCRIPTION =
+  "Pressing au centre-ville de Casablanca : nettoyage à sec, blanchisserie, repassage, costumes et cuir. Service express 24h, 123 Bd Mohammed V. Devis gratuit.";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESCRIPTION },
       {
-        title: "Pressing Casablanca Centre Ville | Nettoyage à Sec & Blanchisserie",
-      },
-      {
-        name: "description",
+        name: "keywords",
         content:
-          "Pressing premium au centre-ville de Casablanca. Nettoyage à sec, blanchisserie, repassage et entretien du cuir. Service rapide, qualité garantie, livraison disponible.",
+          "pressing Casablanca centre-ville, nettoyage à sec Casablanca, blanchisserie Casablanca, repassage Casablanca, pressing Mohammed V",
       },
-      {
-        property: "og:title",
-        content: "Pressing Casablanca Centre Ville | Nettoyage à Sec & Blanchisserie",
-      },
-      {
-        property: "og:description",
-        content:
-          "Votre pressing premium au cœur de Casablanca. Nettoyage à sec, repassage, blanchisserie et entretien cuir.",
-      },
+      { name: "geo.region", content: "MA-CAS" },
+      { name: "geo.placename", content: "Casablanca" },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "fr_MA" },
+      { property: "og:url", content: SITE_URL },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: PAGE_TITLE },
+      { name: "twitter:description", content: PAGE_DESCRIPTION },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "DryCleaningOrLaundry",
+          "@id": `${SITE_URL}/#pressing`,
+          name: "Pressing Casablanca Centre Ville",
+          description: PAGE_DESCRIPTION,
+          url: SITE_URL,
+          telephone: "+212522123456",
+          email: "contact@pressingcasablanca.ma",
+          priceRange: "MAD",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "123 Boulevard Mohammed V, Centre-ville",
+            addressLocality: "Casablanca",
+            addressRegion: "Casablanca-Settat",
+            addressCountry: "MA",
+          },
+          areaServed: {
+            "@type": "City",
+            name: "Casablanca",
+          },
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Services de pressing",
+            itemListElement: [
+              "Nettoyage à sec de vêtements",
+              "Costumes et tenues de cérémonie",
+              "Linge de maison",
+              "Cuir et chaussures",
+              "Repassage",
+            ].map((service) => ({
+              "@type": "Offer",
+              itemOffered: { "@type": "Service", name: service },
+            })),
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Pressing Casablanca Centre Ville",
+          url: SITE_URL,
+          inLanguage: "fr-MA",
+        }),
+      },
     ],
   }),
   component: Index,
 });
+
 
 function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -168,9 +225,10 @@ function Index() {
               <span className="text-xs font-medium text-muted-foreground">Ouvert 6 jours sur 7</span>
             </div>
             <h1 className="font-display text-4xl font-bold leading-[1.1] text-foreground sm:text-5xl lg:text-6xl">
-              Vos vêtements méritent un soin{" "}
-              <span className="text-primary">premium</span>
+              Pressing à Casablanca centre-ville,{" "}
+              <span className="text-primary">soin premium</span>
             </h1>
+
             <p className="max-w-xl text-lg text-muted-foreground">
               Pressing moderne au centre-ville de Casablanca. Nettoyage à sec, repassage, blanchisserie et entretien du cuir avec une qualité irréprochable.
             </p>
