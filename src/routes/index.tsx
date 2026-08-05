@@ -253,19 +253,16 @@ function Index() {
         <div className="container-tight grid gap-12 py-20 lg:grid-cols-2 lg:items-center lg:py-28">
           <div className="flex flex-col gap-6">
             <div className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-background/80 px-4 py-1.5 shadow-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
-              </span>
-              <span className="text-xs font-medium text-muted-foreground">Ouvert 6 jours sur 7</span>
+              <CalendarCheck className="h-4 w-4 text-primary" />
+              <span className="text-xs font-medium text-muted-foreground">Depuis 2010 à votre service</span>
             </div>
             <h1 className="font-display text-4xl font-bold leading-[1.1] text-foreground sm:text-5xl lg:text-6xl">
-              Pressing à Casablanca centre-ville,{" "}
+              Pressing Zerktouni à Casablanca,{" "}
               <span className="text-primary">soin premium</span>
             </h1>
 
             <p className="max-w-xl text-lg text-muted-foreground">
-              Pressing moderne au centre-ville de Casablanca. Nettoyage à sec, repassage, blanchisserie et entretien du cuir avec une qualité irréprochable.
+              Depuis 2010, votre pressing sur le Boulevard Mohamed Zerktouni à Casablanca. Nettoyage à sec, repassage, blanchisserie, cuir, sacs et tapis avec service express 6h et livraison gratuite.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <a
@@ -285,16 +282,16 @@ function Index() {
             </div>
             <div className="flex flex-wrap items-center gap-6 pt-2 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-primary" />
-                <span>Service 24h</span>
+                <Zap className="h-4 w-4 text-primary" />
+                <span>Express 6h</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Truck className="h-4 w-4 text-primary" />
+                <span>Ramassage & livraison gratuite</span>
               </div>
               <div className="flex items-center gap-2">
                 <Award className="h-4 w-4 text-primary" />
                 <span>Qualité garantie</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Leaf className="h-4 w-4 text-primary" />
-                <span>Produits écologiques</span>
               </div>
             </div>
           </div>
@@ -302,7 +299,7 @@ function Index() {
             <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/20 to-transparent blur-3xl" />
             <img
               src={heroImage}
-              alt="Façade du pressing Pressing Casablanca au centre-ville"
+              alt="Façade du pressing Pressing Zerktouni sur le Boulevard Mohamed Zerktouni à Casablanca"
               width={1440}
               height={912}
               className="relative rounded-2xl border border-white/50 shadow-2xl shadow-brand-900/10"
