@@ -30,19 +30,19 @@ export const services: ServiceContent[] = [
     slug: "pressing-vetements",
     path: "/services/pressing-vetements",
     navTitle: "Pressing vêtements",
-    h1: "Pressing vêtements à Casablanca centre-ville",
-    title: "Pressing Vêtements Casablanca Centre-Ville | Nettoyage 24h",
+    h1: "Pressing vêtements à Casablanca – Bd Mohamed Zerktouni",
+    title: "Pressing Vêtements Casablanca | Nettoyage & Repassage 24h",
     description:
-      "Pressing vêtements au centre-ville de Casablanca : nettoyage à sec chemises, pantalons et robes, repassage soigné et service express 24h. Devis gratuit.",
+      "Pressing Zerktouni à Casablanca : nettoyage à sec, repassage et détachage de vos vêtements du quotidien. Service express 6h, ramassage et livraison gratuite. Depuis 2010.",
     keywords:
-      "pressing vêtements Casablanca, nettoyage à sec Casablanca centre-ville, repassage chemises Casablanca",
+      "pressing vêtements Casablanca, nettoyage à sec Casablanca, repassage Casablanca, pressing Zerktouni",
     image: serviceVetements,
     intro:
-      "Chemises, pantalons, robes, vestes : notre pressing du centre-ville de Casablanca nettoie et repasse vos vêtements du quotidien avec un rendu impeccable, prêt à porter en 24 heures.",
+      "Depuis 2010, Pressing Zerktouni prend soin de vos chemises, pantalons, robes et vêtements du quotidien sur le Boulevard Mohamed Zerktouni, à Casablanca. Nettoyage, repassage et finition soignée, avec ramassage et livraison gratuits à domicile.",
     items: [
       {
         title: "Nettoyage à sec professionnel",
-        text: "Machines modernes et solvants doux adaptés à chaque matière : coton, lin, laine, soie ou synthétique.",
+        text: "Solvants doux et machines modernes adaptés à chaque matière : coton, lin, laine, soie ou synthétique.",
       },
       {
         title: "Repassage à la vapeur",
@@ -53,20 +53,24 @@ export const services: ServiceContent[] = [
         text: "Traitement des taches courantes (café, transpiration, encre, maquillage) avant lavage.",
       },
       {
-        title: "Service express 24h",
-        text: "Déposez le matin au 123 Bd Mohammed V, récupérez vos vêtements le lendemain.",
+        title: "Service express 6h",
+        text: "Besoin urgent ? Déposez le matin au 237 Bd Mohamed Zerktouni et récupérez vos vêtements en seulement 6 heures.",
+      },
+      {
+        title: "Ramassage & livraison gratuite",
+        text: "Profitez de notre enlèvement et retour à domicile sans frais dans les secteurs voisins du Boulevard Zerktouni.",
       },
     ],
     faq: [
       {
-        question: "Combien de temps prend le nettoyage d'une chemise ?",
+        question: "Quel est le délai pour le nettoyage d'une chemise ?",
         answer:
-          "Nos chemises sont lavées, repassées et prêtes en 24 heures avec le service express, ou en 48 heures en délai standard.",
+          "Nos chemises sont repassées et prêtes en 24 heures en standard. Le service express 6h est disponible pour les urgences.",
       },
       {
-        question: "Traitez-vous les vêtements délicats ?",
+        question: "Proposez-vous la livraison à domicile ?",
         answer:
-          "Oui, la soie, la laine et le cachemire sont traités séparément avec des programmes doux et un repassage manuel.",
+          "Oui, le ramassage et la livraison sont gratuits dans les environs du Boulevard Mohamed Zerktouni et du centre-ville de Casablanca.",
       },
     ],
   },
@@ -74,15 +78,15 @@ export const services: ServiceContent[] = [
     slug: "costumes-ceremonies",
     path: "/services/costumes-ceremonies",
     navTitle: "Costumes & cérémonies",
-    h1: "Nettoyage de costumes et tenues de cérémonie à Casablanca",
-    title: "Nettoyage Costumes Casablanca Centre-Ville | Pressing Cérémonie",
+    h1: "Nettoyage costumes et tenues de cérémonie à Casablanca",
+    title: "Nettoyage Costumes & Cérémonies Casablanca | Pressing Zerktouni",
     description:
-      "Nettoyage de costumes, smokings, robes de soirée et caftans au centre-ville de Casablanca. Traitement haute couture, repassage main, service express 24h.",
+      "Pressing Zerktouni : nettoyage et repassage de costumes, smokings, robes de soirée, caftans et takchitas. Traitement haute couture, service express 6h et livraison gratuite.",
     keywords:
-      "nettoyage costume Casablanca, pressing smoking Casablanca, nettoyage robe de soirée Casablanca, pressing caftan",
+      "nettoyage costume Casablanca, pressing smoking Casablanca, nettoyage robe de soirée, pressing caftan, takchita Zerktouni",
     image: serviceCostumes,
     intro:
-      "Mariage, entretien professionnel ou soirée : nous redonnons à vos costumes, smokings, robes de soirée et caftans leur éclat d'origine, avec un traitement pièce par pièce.",
+      "Mariage, soirée ou rendez-vous professionnel : Pressing Zerktouni redonne à vos costumes, smokings, robes de soirée, caftans et takchitas leur éclat d'origine, avec un traitement pièce par pièce et un repassage main.",
     items: [
       {
         title: "Traitement veste + pantalon",
@@ -99,6 +103,10 @@ export const services: ServiceContent[] = [
       {
         title: "Petites retouches",
         text: "Boutons recousus et ourlets rapides sur demande avant restitution.",
+      },
+      {
+        title: "Emballage cérémonie",
+        text: "Housse protectrice et pliage soigné pour conserver la perfection de votre tenue jusqu'au jour J.",
       },
     ],
     faq: [
@@ -118,15 +126,15 @@ export const services: ServiceContent[] = [
     slug: "linge-de-maison",
     path: "/services/linge-de-maison",
     navTitle: "Linge de maison",
-    h1: "Nettoyage de linge de maison à Casablanca centre-ville",
-    title: "Linge de Maison Casablanca | Draps, Couettes, Rideaux",
+    h1: "Nettoyage de linge de maison à Casablanca – Pressing Zerktouni",
+    title: "Linge de Maison Casablanca | Draps, Couettes, Rideaux, Tapis",
     description:
-      "Nettoyage de draps, couettes, rideaux, nappes et linge de bain au centre-ville de Casablanca. Grande capacité, fraîcheur durable et enlèvement possible.",
+      "Pressing Zerktouni à Casablanca : nettoyage de draps, couettes, rideaux, nappes, tapis et linge de bain. Grande capacité, fraîcheur durable, ramassage et livraison gratuits.",
     keywords:
-      "nettoyage couette Casablanca, blanchisserie Casablanca centre-ville, nettoyage rideaux Casablanca, pressing draps",
+      "nettoyage couette Casablanca, blanchisserie Casablanca, nettoyage rideaux Casablanca, pressing tapis, linge de maison Zerktouni",
     image: serviceLinge,
     intro:
-      "Draps, couettes, plaids, rideaux, nappes et linge de bain : nos machines grande capacité assurent une propreté profonde et une fraîcheur qui dure, sans abîmer les fibres.",
+      "Draps, couettes, plaids, rideaux, nappes, serviettes et tapis : nos machines grande capacité assurent une propreté profonde et une fraîcheur durable. Pressing Zerktouni vous propose aussi l'enlèvement et la livraison gratuits à Casablanca.",
     items: [
       {
         title: "Couettes et oreillers",
@@ -141,6 +149,10 @@ export const services: ServiceContent[] = [
         text: "Lavage hygiénique, blanchiment doux et pliage soigné pour un rangement immédiat.",
       },
       {
+        title: "Tapis et tapis de prière",
+        text: "Nettoyage en profondeur des tapis et petits tapis pour enlever poussière, odeurs et taches.",
+      },
+      {
         title: "Tarifs au volume",
         text: "Prix dégressifs pour les gros volumes, riads, maisons d'hôtes et résidences.",
       },
@@ -152,9 +164,9 @@ export const services: ServiceContent[] = [
           "Une à deux fois par an suffit pour une couette utilisée quotidiennement, idéalement en début et en fin de saison.",
       },
       {
-        question: "Proposez-vous des tarifs pour les professionnels ?",
+        question: "Nettoyez-vous aussi les tapis ?",
         answer:
-          "Oui, nous travaillons avec des riads, maisons d'hôtes et restaurants du centre-ville avec des tarifs au volume.",
+          "Oui, nous nettoyons les petits tapis et tapis de prière en profondeur. Pour les grands tapis, contactez-nous pour un devis personnalisé.",
       },
     ],
   },
@@ -162,15 +174,15 @@ export const services: ServiceContent[] = [
     slug: "cuir-chaussures",
     path: "/services/cuir-chaussures",
     navTitle: "Cuir & chaussures",
-    h1: "Nettoyage cuir et chaussures à Casablanca centre-ville",
-    title: "Nettoyage Cuir & Chaussures Casablanca Centre-Ville",
+    h1: "Nettoyage cuir, sacs et chaussures à Casablanca",
+    title: "Nettoyage Cuir, Sacs & Chaussures Casablanca | Pressing Zerktouni",
     description:
-      "Nettoyage, rénovation et imperméabilisation du cuir à Casablanca centre-ville : vestes, sacs, chaussures et daim. Teinture et soin par des spécialistes.",
+      "Pressing Zerktouni : nettoyage, rénovation et imperméabilisation du cuir, des sacs et des chaussures à Casablanca. Teinture, cirage et soin par des spécialistes. Depuis 2010.",
     keywords:
-      "nettoyage cuir Casablanca, rénovation veste cuir Casablanca, nettoyage sac cuir, nettoyage chaussures Casablanca",
+      "nettoyage cuir Casablanca, rénovation veste cuir Casablanca, nettoyage sac cuir, nettoyage chaussures Casablanca, pressing Zerktouni",
     image: serviceCuir,
     intro:
-      "Le cuir demande un savoir-faire particulier. Vestes, sacs, chaussures, daim et nubuck sont confiés à nos spécialistes pour un nettoyage en profondeur suivi d'un nourrissage de la matière.",
+      "Le cuir demande un savoir-faire particulier. Vestes, sacs, chaussures, ceintures, daim et nubuck sont confiés à nos spécialistes de Pressing Zerktouni pour un nettoyage en profondeur suivi d'un nourrissage de la matière.",
     items: [
       {
         title: "Nettoyage en profondeur",
@@ -185,8 +197,12 @@ export const services: ServiceContent[] = [
         text: "Application de baumes nourrissants pour garder un cuir souple et éviter les craquelures.",
       },
       {
+        title: "Sacs et accessoires en cuir",
+        text: "Nettoyage et redorure des sacs à main, portefeuilles, ceintures et petits maroquineries.",
+      },
+      {
         title: "Imperméabilisation",
-        text: "Protection contre la pluie et les taches, particulièrement utile pour le daim.",
+        text: "Protection contre la pluie et les taches, particulièrement utile pour le daim et les chaussures.",
       },
     ],
     faq: [
@@ -196,9 +212,9 @@ export const services: ServiceContent[] = [
           "Comptez 3 à 5 jours ouvrés selon l'état de la pièce et le travail de teinture nécessaire.",
       },
       {
-        question: "Pouvez-vous traiter le daim et le nubuck ?",
+        question: "Pouvez-vous nettoyer des sacs en cuir ?",
         answer:
-          "Oui, ces matières sont nettoyées à sec avec des produits dédiés puis rebrossées et imperméabilisées.",
+          "Oui, nous traitons les sacs à main, portefeuilles et accessoires en cuir : nettoyage intérieur/extérieur, redorure et nourrissage.",
       },
     ],
   },

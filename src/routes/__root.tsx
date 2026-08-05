@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Pressing Casablanca Centre Ville" },
-      { name: "description", content: "Pressing premium au centre-ville de Casablanca. Nettoyage à sec, blanchisserie, repassage et entretien du cuir. Service rapide et qualité garantie." },
-      { name: "author", content: "Pressing Casablanca Centre Ville" },
-      { property: "og:title", content: "Pressing Casablanca Centre Ville" },
-      { property: "og:description", content: "Votre pressing premium au cœur de Casablanca. Nettoyage à sec, repassage, blanchisserie et entretien cuir." },
+      { title: "Pressing Zerktouni Casablanca | Nettoyage à Sec 24h" },
+      { name: "description", content: "Pressing Zerktouni à Casablanca, 237 Bd Mohamed Zerktouni. Depuis 2010, nettoyage à sec, blanchisserie, repassage, cuir et tapis. Service express 6h, ramassage et livraison gratuite." },
+      { name: "author", content: "Pressing Zerktouni" },
+      { property: "og:title", content: "Pressing Zerktouni Casablanca | Nettoyage à Sec 24h" },
+      { property: "og:description", content: "Votre pressing Zerktouni à Casablanca. Nettoyage à sec, repassage, blanchisserie, cuir, tapis et entretien des sacs. Express 6h et livraison gratuite." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@PressingCasablanca" },
+      { name: "twitter:site", content: "@PressingZerktouni" },
     ],
     links: [
       {

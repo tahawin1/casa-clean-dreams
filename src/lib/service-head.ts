@@ -34,14 +34,20 @@ export function buildServiceHead(service: ServiceContent, siteUrl: string) {
           provider: {
             "@type": "DryCleaningOrLaundry",
             "@id": `${siteUrl}/#pressing`,
-            name: "Pressing Casablanca Centre Ville",
-            telephone: "+212522123456",
+            name: "Pressing Zerktouni",
+            telephone: "+212522363634",
             address: {
               "@type": "PostalAddress",
-              streetAddress: "123 Boulevard Mohammed V, Centre-ville",
+              streetAddress: "237 Boulevard Mohamed Zerktouni",
               addressLocality: "Casablanca",
               addressRegion: "Casablanca-Settat",
               addressCountry: "MA",
+            },
+            openingHoursSpecification: {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              opens: "08:00",
+              closes: "20:00",
             },
           },
         }),

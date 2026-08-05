@@ -17,6 +17,10 @@ import {
   Instagram,
   Facebook,
   ArrowRight,
+  Zap,
+  Truck,
+  CalendarCheck,
+  Gift,
 } from "lucide-react";
 
 import heroImage from "@/assets/hero-pressing.jpg";
@@ -27,10 +31,9 @@ import serviceCuir from "@/assets/service-cuir.jpg";
 import type { ServicePath } from "@/data/services";
 
 const SITE_URL = "https://casa-clean-dreams.lovable.app";
-const PAGE_TITLE =
-  "Pressing Casablanca Centre-Ville | Nettoyage à Sec 24h";
+const PAGE_TITLE = "Pressing Zerktouni Casablanca | Nettoyage à Sec 6h";
 const PAGE_DESCRIPTION =
-  "Pressing au centre-ville de Casablanca : nettoyage à sec, blanchisserie, repassage, costumes et cuir. Service express 24h, 123 Bd Mohammed V. Devis gratuit.";
+  "Pressing Zerktouni à Casablanca, 237 Boulevard Mohamed Zerktouni. Depuis 2010, nettoyage à sec, repassage, costumes, linge de maison, cuir, sacs et tapis. Service express 6h, ramassage et livraison gratuite.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,7 +43,7 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "pressing Casablanca centre-ville, nettoyage à sec Casablanca, blanchisserie Casablanca, repassage Casablanca, pressing Mohammed V",
+          "pressing Zerktouni Casablanca, pressing Casablanca, nettoyage à sec Casablanca, blanchisserie Bd Zerktouni, repassage Casablanca, pressing 24h, pressing 6h, ramassage livraison pressing, nettoyage tapis Casablanca",
       },
       { name: "geo.region", content: "MA-CAS" },
       { name: "geo.placename", content: "Casablanca" },
@@ -61,18 +64,30 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "DryCleaningOrLaundry",
           "@id": `${SITE_URL}/#pressing`,
-          name: "Pressing Casablanca Centre Ville",
+          name: "Pressing Zerktouni",
           description: PAGE_DESCRIPTION,
           url: SITE_URL,
-          telephone: "+212522123456",
-          email: "contact@pressingcasablanca.ma",
+          telephone: "+212522363634",
+          email: "contact@pressingzerktouni.ma",
           priceRange: "MAD",
+          foundingDate: "2010",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "123 Boulevard Mohammed V, Centre-ville",
+            streetAddress: "237 Boulevard Mohamed Zerktouni",
             addressLocality: "Casablanca",
             addressRegion: "Casablanca-Settat",
             addressCountry: "MA",
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: "33.5750",
+            longitude: "-7.6315",
+          },
+          openingHoursSpecification: {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            opens: "08:00",
+            closes: "20:00",
           },
           areaServed: {
             "@type": "City",
@@ -85,8 +100,11 @@ export const Route = createFileRoute("/")({
               "Nettoyage à sec de vêtements",
               "Costumes et tenues de cérémonie",
               "Linge de maison",
-              "Cuir et chaussures",
+              "Cuir, sacs et chaussures",
+              "Tapis et tapis de prière",
               "Repassage",
+              "Service express 6h",
+              "Ramassage et livraison gratuite",
             ].map((service) => ({
               "@type": "Offer",
               itemOffered: { "@type": "Service", name: service },
@@ -99,7 +117,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "Pressing Casablanca Centre Ville",
+          name: "Pressing Zerktouni",
           url: SITE_URL,
           inLanguage: "fr-MA",
         }),
@@ -129,7 +147,7 @@ function Index() {
               <Sparkles className="h-5 w-5" />
             </div>
             <span className="font-display text-lg font-bold text-foreground">
-              Pressing <span className="text-primary">Casablanca</span>
+              Pressing <span className="text-primary">Zerktouni</span>
             </span>
           </a>
 
@@ -150,10 +168,10 @@ function Index() {
 
           <div className="hidden items-center gap-3 md:flex">
             <a
-              href="tel:+212522123456"
+              href="tel:+212522363634"
               className="text-sm font-medium text-foreground hover:text-primary"
             >
-              05 22 12 34 56
+              05 22 36 36 34
             </a>
             <a
               href="#contact"
@@ -204,34 +222,47 @@ function Index() {
                 Contact
               </a>
               <a
-                href="tel:+212522123456"
+                href="tel:+212522363634"
                 className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
               >
-                05 22 12 34 56
+                05 22 36 36 34
               </a>
             </div>
           </div>
         )}
       </header>
 
+      {/* Promo banner */}
+      <div className="bg-primary text-primary-foreground">
+        <div className="container-tight flex flex-col items-center justify-center gap-2 py-2.5 text-center sm:flex-row sm:gap-3">
+          <Gift className="h-4 w-4 shrink-0" />
+          <p className="text-sm font-medium">
+            Promo du moment : demandez-nous nos offres en magasin ou par téléphone
+          </p>
+          <a
+            href="tel:+212522363634"
+            className="text-sm font-semibold underline underline-offset-2 hover:no-underline"
+          >
+            05 22 36 36 34
+          </a>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="relative overflow-hidden gradient-hero">
         <div className="container-tight grid gap-12 py-20 lg:grid-cols-2 lg:items-center lg:py-28">
           <div className="flex flex-col gap-6">
             <div className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-background/80 px-4 py-1.5 shadow-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
-              </span>
-              <span className="text-xs font-medium text-muted-foreground">Ouvert 6 jours sur 7</span>
+              <CalendarCheck className="h-4 w-4 text-primary" />
+              <span className="text-xs font-medium text-muted-foreground">Depuis 2010 à votre service</span>
             </div>
             <h1 className="font-display text-4xl font-bold leading-[1.1] text-foreground sm:text-5xl lg:text-6xl">
-              Pressing à Casablanca centre-ville,{" "}
+              Pressing Zerktouni à Casablanca,{" "}
               <span className="text-primary">soin premium</span>
             </h1>
 
             <p className="max-w-xl text-lg text-muted-foreground">
-              Pressing moderne au centre-ville de Casablanca. Nettoyage à sec, repassage, blanchisserie et entretien du cuir avec une qualité irréprochable.
+              Depuis 2010, votre pressing sur le Boulevard Mohamed Zerktouni à Casablanca. Nettoyage à sec, repassage, blanchisserie, cuir, sacs et tapis avec service express 6h et livraison gratuite.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <a
@@ -251,16 +282,16 @@ function Index() {
             </div>
             <div className="flex flex-wrap items-center gap-6 pt-2 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-primary" />
-                <span>Service 24h</span>
+                <Zap className="h-4 w-4 text-primary" />
+                <span>Express 6h</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Truck className="h-4 w-4 text-primary" />
+                <span>Ramassage & livraison gratuite</span>
               </div>
               <div className="flex items-center gap-2">
                 <Award className="h-4 w-4 text-primary" />
                 <span>Qualité garantie</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Leaf className="h-4 w-4 text-primary" />
-                <span>Produits écologiques</span>
               </div>
             </div>
           </div>
@@ -268,7 +299,7 @@ function Index() {
             <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/20 to-transparent blur-3xl" />
             <img
               src={heroImage}
-              alt="Façade du pressing Pressing Casablanca au centre-ville"
+              alt="Façade du pressing Pressing Zerktouni sur le Boulevard Mohamed Zerktouni à Casablanca"
               width={1440}
               height={912}
               className="relative rounded-2xl border border-white/50 shadow-2xl shadow-brand-900/10"
@@ -282,16 +313,16 @@ function Index() {
       <section className="border-y border-border bg-background">
         <div className="container-tight grid gap-8 py-10 sm:grid-cols-3">
           <div className="text-center">
-            <div className="font-display text-3xl font-bold text-primary">+15 ans</div>
-            <p className="mt-1 text-sm text-muted-foreground">D'expérience au service de vos textiles</p>
+            <div className="font-display text-3xl font-bold text-primary">Depuis 2010</div>
+            <p className="mt-1 text-sm text-muted-foreground">À votre service au Bd Mohamed Zerktouni</p>
           </div>
           <div className="text-center">
-            <div className="font-display text-3xl font-bold text-primary">12 000+</div>
-            <p className="mt-1 text-sm text-muted-foreground">Clients satisfaits chaque année</p>
+            <div className="font-display text-3xl font-bold text-primary">Express 6h</div>
+            <p className="mt-1 text-sm text-muted-foreground">Service ultra-rapide disponible</p>
           </div>
           <div className="text-center">
-            <div className="font-display text-3xl font-bold text-primary">4.9/5</div>
-            <p className="mt-1 text-sm text-muted-foreground">Note moyenne de nos clients</p>
+            <div className="font-display text-3xl font-bold text-primary">Gratuit</div>
+            <p className="mt-1 text-sm text-muted-foreground">Ramassage & livraison à domicile</p>
           </div>
         </div>
       </section>
@@ -317,27 +348,27 @@ function Index() {
               icon={<Shirt className="h-5 w-5" />}
               to="/services/pressing-vetements"
               title="Pressing vêtements"
-              description="Nettoyage à sec et repassage de vos chemises, pantalons, robes et vêtements du quotidien. Retour impeccable en 24h."
+              description="Nettoyage à sec et repassage de vos chemises, pantalons, robes et vêtements du quotidien. Service express 6h et livraison gratuite."
             />
             <ServiceCard
               image={serviceCostumes}
               icon={<Sparkles className="h-5 w-5" />}
               to="/services/costumes-ceremonies"
               title="Costumes & cérémonies"
-              description="Entretien spécialisé des costumes, smoking, robes de soirée et tenues de cérémonie. Traitement haute couture."
+              description="Entretien spécialisé des costumes, smoking, robes de soirée, caftans et takchitas. Traitement haute couture et emballage soigné."
             />
             <ServiceCard
               image={serviceLinge}
               icon={<BedDouble className="h-5 w-5" />}
               to="/services/linge-de-maison"
-              title="Linge de maison"
-              description="Nettoyage et repassage de draps, couettes, rideaux, nappes et linge de bain. Fraîcheur durable garantie."
+              title="Linge de maison & tapis"
+              description="Nettoyage et repassage de draps, couettes, rideaux, nappes et linge de bain. Nettoyage de tapis et tapis de prière sur demande."
             />
             <ServiceCard
               image={serviceCuir}
               icon={<Footprints className="h-5 w-5" />}
               to="/services/cuir-chaussures"
-              title="Cuir & chaussures"
+              title="Cuir, sacs & chaussures"
               description="Nettoyage, rénovation et imperméabilisation de vos chaussures, sacs, vestes et accessoires en cuir."
             />
           </div>
@@ -361,14 +392,19 @@ function Index() {
 
               <div className="mt-8 grid gap-6">
                 <AdvantageItem
-                  icon={<Clock className="h-5 w-5" />}
-                  title="Service express 24h"
-                  description="Besoin urgent ? Profitez de notre service express pour récupérer vos vêtements en 24 heures chrono."
+                  icon={<Zap className="h-5 w-5" />}
+                  title="Service express 6h"
+                  description="Besoin urgent ? Profitez de notre service express pour récupérer vos vêtements en 6 heures chrono."
+                />
+                <AdvantageItem
+                  icon={<Truck className="h-5 w-5" />}
+                  title="Ramassage & livraison gratuite"
+                  description="Nous venons chercher vos articles et vous les ramenons propres et repassés, sans frais de livraison."
                 />
                 <AdvantageItem
                   icon={<Award className="h-5 w-5" />}
-                  title="Expertise reconnue"
-                  description="Notre équipe qualifiée maîtrise les techniques de nettoyage adaptées à chaque matière et à chaque tache."
+                  title="Expertise depuis 2010"
+                  description="Depuis 2010, notre équipe qualifiée maîtrise les techniques de nettoyage adaptées à chaque matière."
                 />
                 <AdvantageItem
                   icon={<Leaf className="h-5 w-5" />}
@@ -503,7 +539,7 @@ function Index() {
                   <div>
                     <h3 className="font-display text-base font-semibold text-foreground">Adresse</h3>
                     <p className="text-sm text-muted-foreground">
-                      123 Boulevard Mohammed V, Centre-ville
+                      237 Boulevard Mohamed Zerktouni
                       <br />
                       Casablanca, Maroc
                     </p>
@@ -529,8 +565,8 @@ function Index() {
                   <div>
                     <h3 className="font-display text-base font-semibold text-foreground">Téléphone</h3>
                     <p className="text-sm text-muted-foreground">
-                      <a href="tel:+212522123456" className="hover:text-primary">
-                        +212 5 22 12 34 56
+                      <a href="tel:+212522363634" className="hover:text-primary">
+                        05 22 36 36 34
                       </a>
                     </p>
                   </div>
@@ -542,8 +578,8 @@ function Index() {
                   <div>
                     <h3 className="font-display text-base font-semibold text-foreground">Email</h3>
                     <p className="text-sm text-muted-foreground">
-                      <a href="mailto:contact@pressingcasablanca.ma" className="hover:text-primary">
-                        contact@pressingcasablanca.ma
+                      <a href="mailto:contact@pressingzerktouni.ma" className="hover:text-primary">
+                        contact@pressingzerktouni.ma
                       </a>
                     </p>
                   </div>
@@ -552,16 +588,16 @@ function Index() {
 
               <div className="mt-8 overflow-hidden rounded-2xl border border-border shadow-sm">
                 <iframe
-                  title="Carte de localisation du pressing – 123 Bd Mohammed V, Casablanca"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=-7.6215%2C33.5875%2C-7.6035%2C33.5985&layer=mapnik&marker=33.5930%2C-7.6125"
+                  title="Carte de localisation du pressing – 237 Bd Mohamed Zerktouni, Casablanca"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-7.6415%2C33.5675%2C-7.6215%2C33.5825&layer=mapnik&marker=33.5750%2C-7.6315"
                   className="h-[320px] w-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
                 <div className="flex items-center justify-between gap-3 bg-background px-4 py-3">
-                  <p className="text-sm text-muted-foreground">123 Bd Mohammed V, Centre-ville, Casablanca</p>
+                  <p className="text-sm text-muted-foreground">237 Bd Mohamed Zerktouni, Casablanca</p>
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=123+Boulevard+Mohammed+V+Casablanca"
+                    href="https://www.google.com/maps/search/?api=1&query=237+Boulevard+Mohamed+Zerktouni+Casablanca"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="shrink-0 text-sm font-semibold text-primary hover:underline"
@@ -750,22 +786,22 @@ function Index() {
             <div>
               <h3 className="font-display text-sm font-semibold text-foreground">Contact</h3>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li>123 Bd Mohammed V, Casablanca</li>
+                <li>237 Bd Mohamed Zerktouni, Casablanca</li>
                 <li>
-                  <a href="tel:+212522123456" className="hover:text-primary">
-                    +212 5 22 12 34 56
+                  <a href="tel:+212522363634" className="hover:text-primary">
+                    05 22 36 36 34
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:contact@pressingcasablanca.ma" className="hover:text-primary">
-                    contact@pressingcasablanca.ma
+                  <a href="mailto:contact@pressingzerktouni.ma" className="hover:text-primary">
+                    contact@pressingzerktouni.ma
                   </a>
                 </li>
               </ul>
             </div>
           </div>
           <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row">
-            <p>© 2026 Pressing Casablanca Centre Ville. Tous droits réservés.</p>
+            <p>© 2026 Pressing Zerktouni. Depuis 2010 à votre service.</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-primary">
                 Politique de confidentialité
