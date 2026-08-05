@@ -1,57 +1,24 @@
 import { Link } from "@tanstack/react-router";
 import {
-  Sparkles,
   Check,
   MapPin,
   Phone,
-  Clock,
   Truck,
   Zap,
   ArrowRight,
   ChevronRight,
-  CalendarCheck,
 } from "lucide-react";
 
 import { services, type ServiceContent } from "@/data/services";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export function ServicePageLayout({ service }: { service: ServiceContent }) {
   const others = services.filter((item) => item.slug !== service.slug);
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
-        <div className="container-tight flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Sparkles className="h-5 w-5" />
-            </div>
-            <span className="font-display text-lg font-bold text-foreground">
-              Pressing <span className="text-primary">Zerktouni</span>
-            </span>
-          </Link>
-
-          <nav className="hidden items-center gap-6 md:flex">
-            {services.map((item) => (
-              <Link
-                key={item.slug}
-                to={item.path}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-                activeProps={{ className: "text-foreground" }}
-              >
-                {item.navTitle}
-              </Link>
-            ))}
-          </nav>
-
-          <a
-            href="tel:+212522363634"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-brand-600"
-          >
-            <Phone className="h-4 w-4" />
-            05 22 36 36 34
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Breadcrumb */}
       <nav aria-label="Fil d'Ariane" className="border-b border-border bg-brand-50">
@@ -60,7 +27,7 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
             Accueil
           </Link>
           <ChevronRight className="h-3.5 w-3.5" />
-          <Link to="/" hash="services" className="hover:text-primary">
+          <Link to="/services" className="hover:text-primary">
             Services
           </Link>
           <ChevronRight className="h-3.5 w-3.5" />
@@ -72,18 +39,13 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
       <section className="gradient-hero">
         <div className="container-tight grid gap-10 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
           <div className="flex flex-col gap-6">
-            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-background/80 px-4 py-1.5 shadow-sm">
-              <CalendarCheck className="h-4 w-4 text-primary" />
-              <span className="text-xs font-medium text-muted-foreground">Depuis 2010 à votre service</span>
-            </div>
             <h1 className="font-display text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl">
               {service.h1}
             </h1>
             <p className="text-lg text-muted-foreground">{service.intro}</p>
             <div className="flex flex-wrap gap-4">
               <Link
-                to="/"
-                hash="contact"
+                to="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600"
               >
                 Demander un devis
@@ -216,12 +178,7 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
         </div>
       </section>
 
-      <footer className="border-t border-border bg-background py-10">
-        <div className="container-tight flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row">
-          <p>© 2026 Pressing Zerktouni. Tous droits réservés.</p>
-          <p>237 Bd Mohamed Zerktouni, Casablanca — 05 22 36 36 34</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
