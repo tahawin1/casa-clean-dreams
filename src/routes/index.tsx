@@ -321,7 +321,7 @@ function Index() {
             />
             <TestimonialCard
               quote="Je confie mes robes de soirée et mon linge de maison depuis des années. Qualité constante et équipe très professionnelle."
-              author="Leïla M."
+              author="Salma M."
               role="Avocate"
             />
             <TestimonialCard
