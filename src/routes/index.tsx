@@ -786,22 +786,22 @@ function Index() {
             <div>
               <h3 className="font-display text-sm font-semibold text-foreground">Contact</h3>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li>123 Bd Mohammed V, Casablanca</li>
+                <li>237 Bd Mohamed Zerktouni, Casablanca</li>
                 <li>
-                  <a href="tel:+212522123456" className="hover:text-primary">
-                    +212 5 22 12 34 56
+                  <a href="tel:+212522363634" className="hover:text-primary">
+                    05 22 36 36 34
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:contact@pressingcasablanca.ma" className="hover:text-primary">
-                    contact@pressingcasablanca.ma
+                  <a href="mailto:contact@pressingzerktouni.ma" className="hover:text-primary">
+                    contact@pressingzerktouni.ma
                   </a>
                 </li>
               </ul>
             </div>
           </div>
           <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row">
-            <p>© 2026 Pressing Casablanca Centre Ville. Tous droits réservés.</p>
+            <p>© 2026 Pressing Zerktouni. Depuis 2010 à votre service.</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-primary">
                 Politique de confidentialité
