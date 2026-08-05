@@ -348,27 +348,27 @@ function Index() {
               icon={<Shirt className="h-5 w-5" />}
               to="/services/pressing-vetements"
               title="Pressing vêtements"
-              description="Nettoyage à sec et repassage de vos chemises, pantalons, robes et vêtements du quotidien. Retour impeccable en 24h."
+              description="Nettoyage à sec et repassage de vos chemises, pantalons, robes et vêtements du quotidien. Service express 6h et livraison gratuite."
             />
             <ServiceCard
               image={serviceCostumes}
               icon={<Sparkles className="h-5 w-5" />}
               to="/services/costumes-ceremonies"
               title="Costumes & cérémonies"
-              description="Entretien spécialisé des costumes, smoking, robes de soirée et tenues de cérémonie. Traitement haute couture."
+              description="Entretien spécialisé des costumes, smoking, robes de soirée, caftans et takchitas. Traitement haute couture et emballage soigné."
             />
             <ServiceCard
               image={serviceLinge}
               icon={<BedDouble className="h-5 w-5" />}
               to="/services/linge-de-maison"
-              title="Linge de maison"
-              description="Nettoyage et repassage de draps, couettes, rideaux, nappes et linge de bain. Fraîcheur durable garantie."
+              title="Linge de maison & tapis"
+              description="Nettoyage et repassage de draps, couettes, rideaux, nappes et linge de bain. Nettoyage de tapis et tapis de prière sur demande."
             />
             <ServiceCard
               image={serviceCuir}
               icon={<Footprints className="h-5 w-5" />}
               to="/services/cuir-chaussures"
-              title="Cuir & chaussures"
+              title="Cuir, sacs & chaussures"
               description="Nettoyage, rénovation et imperméabilisation de vos chaussures, sacs, vestes et accessoires en cuir."
             />
           </div>
