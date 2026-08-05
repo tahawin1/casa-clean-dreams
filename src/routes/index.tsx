@@ -539,7 +539,7 @@ function Index() {
                   <div>
                     <h3 className="font-display text-base font-semibold text-foreground">Adresse</h3>
                     <p className="text-sm text-muted-foreground">
-                      123 Boulevard Mohammed V, Centre-ville
+                      237 Boulevard Mohamed Zerktouni
                       <br />
                       Casablanca, Maroc
                     </p>
@@ -565,8 +565,8 @@ function Index() {
                   <div>
                     <h3 className="font-display text-base font-semibold text-foreground">Téléphone</h3>
                     <p className="text-sm text-muted-foreground">
-                      <a href="tel:+212522123456" className="hover:text-primary">
-                        +212 5 22 12 34 56
+                      <a href="tel:+212522363634" className="hover:text-primary">
+                        05 22 36 36 34
                       </a>
                     </p>
                   </div>
@@ -578,8 +578,8 @@ function Index() {
                   <div>
                     <h3 className="font-display text-base font-semibold text-foreground">Email</h3>
                     <p className="text-sm text-muted-foreground">
-                      <a href="mailto:contact@pressingcasablanca.ma" className="hover:text-primary">
-                        contact@pressingcasablanca.ma
+                      <a href="mailto:contact@pressingzerktouni.ma" className="hover:text-primary">
+                        contact@pressingzerktouni.ma
                       </a>
                     </p>
                   </div>
@@ -588,16 +588,16 @@ function Index() {
 
               <div className="mt-8 overflow-hidden rounded-2xl border border-border shadow-sm">
                 <iframe
-                  title="Carte de localisation du pressing – 123 Bd Mohammed V, Casablanca"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=-7.6215%2C33.5875%2C-7.6035%2C33.5985&layer=mapnik&marker=33.5930%2C-7.6125"
+                  title="Carte de localisation du pressing – 237 Bd Mohamed Zerktouni, Casablanca"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-7.6415%2C33.5675%2C-7.6215%2C33.5825&layer=mapnik&marker=33.5750%2C-7.6315"
                   className="h-[320px] w-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
                 <div className="flex items-center justify-between gap-3 bg-background px-4 py-3">
-                  <p className="text-sm text-muted-foreground">123 Bd Mohammed V, Centre-ville, Casablanca</p>
+                  <p className="text-sm text-muted-foreground">237 Bd Mohamed Zerktouni, Casablanca</p>
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=123+Boulevard+Mohammed+V+Casablanca"
+                    href="https://www.google.com/maps/search/?api=1&query=237+Boulevard+Mohamed+Zerktouni+Casablanca"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="shrink-0 text-sm font-semibold text-primary hover:underline"
