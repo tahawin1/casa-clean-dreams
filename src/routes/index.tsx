@@ -232,6 +232,22 @@ function Index() {
         )}
       </header>
 
+      {/* Promo banner */}
+      <div className="bg-primary text-primary-foreground">
+        <div className="container-tight flex flex-col items-center justify-center gap-2 py-2.5 text-center sm:flex-row sm:gap-3">
+          <Gift className="h-4 w-4 shrink-0" />
+          <p className="text-sm font-medium">
+            Promo du moment : demandez-nous nos offres en magasin ou par téléphone
+          </p>
+          <a
+            href="tel:+212522363634"
+            className="text-sm font-semibold underline underline-offset-2 hover:no-underline"
+          >
+            05 22 36 36 34
+          </a>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="relative overflow-hidden gradient-hero">
         <div className="container-tight grid gap-12 py-20 lg:grid-cols-2 lg:items-center lg:py-28">
