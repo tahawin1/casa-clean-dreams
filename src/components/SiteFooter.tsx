@@ -2,9 +2,64 @@ import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook } from "lucide-react";
 
 import logoImage from "@/assets/logo.png";
-import { services } from "@/data/services";
+import { getServices } from "@/data/services";
+import { useLanguage, type Lang } from "@/i18n/LanguageContext";
+
+const COPY: Record<
+  Lang,
+  {
+    tagline: string;
+    servicesTitle: string;
+    companyTitle: string;
+    order: string;
+    pricing: string;
+    advantages: string;
+    process: string;
+    contact: string;
+    jobs: string;
+    contactTitle: string;
+    rights: string;
+    privacy: string;
+    legal: string;
+  }
+> = {
+  fr: {
+    tagline: "Votre pressing premium au centre-ville de Casablanca. Qualité et rapidité au service de vos vêtements.",
+    servicesTitle: "Services",
+    companyTitle: "Entreprise",
+    order: "Commander",
+    pricing: "Tarifs",
+    advantages: "Nos avantages",
+    process: "Notre processus",
+    contact: "Contact",
+    jobs: "Recrutement",
+    contactTitle: "Contact",
+    rights: "Tous droits réservés.",
+    privacy: "Politique de confidentialité",
+    legal: "Mentions légales",
+  },
+  en: {
+    tagline: "Your premium dry cleaner in downtown Casablanca. Quality and speed for your clothes.",
+    servicesTitle: "Services",
+    companyTitle: "Company",
+    order: "Order",
+    pricing: "Pricing",
+    advantages: "Our advantages",
+    process: "Our process",
+    contact: "Contact",
+    jobs: "Careers",
+    contactTitle: "Contact",
+    rights: "All rights reserved.",
+    privacy: "Privacy policy",
+    legal: "Legal notice",
+  },
+};
 
 export function SiteFooter() {
+  const { lang } = useLanguage();
+  const c = COPY[lang];
+  const services = getServices(lang);
+
   return (
     <footer className="border-t border-border bg-background py-12">
       <div className="container-tight">
@@ -16,9 +71,7 @@ export function SiteFooter() {
                 Pressing <span className="text-primary">Zerktouni</span>
               </span>
             </Link>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Votre pressing premium au centre-ville de Casablanca. Qualité et rapidité au service de vos vêtements.
-            </p>
+            <p className="mt-4 text-sm text-muted-foreground">{c.tagline}</p>
             <div className="mt-4 flex gap-3">
               <a
                 href="#"
@@ -37,7 +90,7 @@ export function SiteFooter() {
             </div>
           </div>
           <div>
-            <h3 className="font-display text-sm font-semibold text-foreground">Services</h3>
+            <h3 className="font-display text-sm font-semibold text-foreground">{c.servicesTitle}</h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               {services.map((service) => (
                 <li key={service.slug}>
@@ -49,42 +102,42 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h3 className="font-display text-sm font-semibold text-foreground">Entreprise</h3>
+            <h3 className="font-display text-sm font-semibold text-foreground">{c.companyTitle}</h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link to="/commander" className="hover:text-primary">
-                  Commander
+                  {c.order}
                 </Link>
               </li>
               <li>
                 <Link to="/tarifs" className="hover:text-primary">
-                  Tarifs
+                  {c.pricing}
                 </Link>
               </li>
               <li>
                 <Link to="/avantages" className="hover:text-primary">
-                  Nos avantages
+                  {c.advantages}
                 </Link>
               </li>
               <li>
                 <Link to="/processus" className="hover:text-primary">
-                  Notre processus
+                  {c.process}
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="hover:text-primary">
-                  Contact
+                  {c.contact}
                 </Link>
               </li>
               <li>
                 <a href="#" className="hover:text-primary">
-                  Recrutement
+                  {c.jobs}
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-display text-sm font-semibold text-foreground">Contact</h3>
+            <h3 className="font-display text-sm font-semibold text-foreground">{c.contactTitle}</h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li>237 Bd Mohamed Zerktouni, Casablanca</li>
               <li>
@@ -101,13 +154,13 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row">
-          <p>© 2026 Pressing Zerktouni. Tous droits réservés.</p>
+          <p>© 2026 Pressing Zerktouni. {c.rights}</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-primary">
-              Politique de confidentialité
+              {c.privacy}
             </a>
             <a href="#" className="hover:text-primary">
-              Mentions légales
+              {c.legal}
             </a>
           </div>
         </div>

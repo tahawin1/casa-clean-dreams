@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SITE_URL } from "@/data/services";
 import { buildPageHead } from "@/lib/service-head";
+import { useLanguage, type Lang } from "@/i18n/LanguageContext";
 
 const PAGE_TITLE = "Contact | Pressing Zerktouni Casablanca";
 const PAGE_DESCRIPTION =
@@ -28,7 +29,137 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
+const COPY: Record<
+  Lang,
+  {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    promoTitle: string;
+    promoText: (parts: { costume: string; tailleur: string; price: string }) => React.ReactNode;
+    loyaltyTitle: string;
+    loyaltyText: (parts: { washes: string; free: string }) => React.ReactNode;
+    offered: string;
+    addressTitle: string;
+    hoursTitle: string;
+    hours: string;
+    closed: string;
+    phoneTitle: string;
+    emailTitle: string;
+    directions: string;
+    formTitle: string;
+    formSubtitle: string;
+    sentTitle: string;
+    sentText: string;
+    sendAnother: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    phoneLabel: string;
+    phonePlaceholder: string;
+    serviceLabel: string;
+    serviceOptions: string[];
+    messageLabel: string;
+    messagePlaceholder: string;
+    submit: string;
+  }
+> = {
+  fr: {
+    eyebrow: "Contact & adresse",
+    title: "Venez nous rendre visite",
+    subtitle:
+      "Situé en plein centre-ville de Casablanca, notre pressing est facilement accessible. Nous sommes à votre écoute pour tous vos besoins.",
+    promoTitle: "Promo mercredi & vendredi",
+    promoText: ({ costume, tailleur, price }) => (
+      <>
+        Chaque mercredi et vendredi, profitez du nettoyage de vos{" "}
+        <span className="font-semibold text-foreground">{costume}</span> et{" "}
+        <span className="font-semibold text-foreground">{tailleur}</span> à{" "}
+        <span className="font-semibold text-foreground">{price}</span> seulement. Offre valable uniquement ces deux
+        jours, dans la limite des places disponibles.
+      </>
+    ),
+    loyaltyTitle: "Notre carte de fidélité",
+    loyaltyText: ({ washes, free }) => (
+      <>
+        Demandez votre carte de fidélité dès votre premier passage. Chaque lavage vous rapporte un cachet : après{" "}
+        <span className="font-semibold text-foreground">{washes}</span>, votre{" "}
+        <span className="font-semibold text-foreground">{free}</span>.
+      </>
+    ),
+    offered: "Offert",
+    addressTitle: "Adresse",
+    hoursTitle: "Horaires d'ouverture",
+    hours: "Lundi – Samedi : 8h00 – 20h00",
+    closed: "Dimanche : Fermé",
+    phoneTitle: "Téléphone",
+    emailTitle: "Email",
+    directions: "Itinéraire",
+    formTitle: "Demander un devis gratuit",
+    formSubtitle: "Remplissez ce formulaire et nous vous recontactons rapidement.",
+    sentTitle: "Demande envoyée !",
+    sentText: "Merci de nous avoir contactés. Notre équipe vous rappellera dans les plus brefs délais.",
+    sendAnother: "Envoyer une nouvelle demande",
+    nameLabel: "Nom",
+    namePlaceholder: "Votre nom",
+    phoneLabel: "Téléphone",
+    phonePlaceholder: "06 12 34 56 78",
+    serviceLabel: "Service souhaité",
+    serviceOptions: ["Pressing vêtements", "Costumes & cérémonies", "Linge de maison", "Cuir & chaussures", "Autre"],
+    messageLabel: "Message",
+    messagePlaceholder: "Décrivez vos besoins...",
+    submit: "Envoyer ma demande",
+  },
+  en: {
+    eyebrow: "Contact & address",
+    title: "Come visit us",
+    subtitle:
+      "Located right in downtown Casablanca, our dry cleaner is easy to reach. We're here to help with all your needs.",
+    promoTitle: "Wed & Fri promo",
+    promoText: ({ costume, tailleur, price }) => (
+      <>
+        Every Wednesday and Friday, enjoy cleaning of your{" "}
+        <span className="font-semibold text-foreground">{costume}</span> and{" "}
+        <span className="font-semibold text-foreground">{tailleur}</span> for just{" "}
+        <span className="font-semibold text-foreground">{price}</span>. Offer valid only on these two days, subject
+        to availability.
+      </>
+    ),
+    loyaltyTitle: "Our loyalty card",
+    loyaltyText: ({ washes, free }) => (
+      <>
+        Ask for your loyalty card on your first visit. Every wash earns you a stamp: after{" "}
+        <span className="font-semibold text-foreground">{washes}</span>, your{" "}
+        <span className="font-semibold text-foreground">{free}</span>.
+      </>
+    ),
+    offered: "Free",
+    addressTitle: "Address",
+    hoursTitle: "Opening hours",
+    hours: "Monday – Saturday: 8am – 8pm",
+    closed: "Sunday: Closed",
+    phoneTitle: "Phone",
+    emailTitle: "Email",
+    directions: "Directions",
+    formTitle: "Request a free quote",
+    formSubtitle: "Fill in this form and we'll get back to you shortly.",
+    sentTitle: "Request sent!",
+    sentText: "Thanks for contacting us. Our team will call you back as soon as possible.",
+    sendAnother: "Send another request",
+    nameLabel: "Name",
+    namePlaceholder: "Your name",
+    phoneLabel: "Phone",
+    phonePlaceholder: "06 12 34 56 78",
+    serviceLabel: "Service needed",
+    serviceOptions: ["Clothes dry cleaning", "Suits & ceremonies", "Home linen", "Leather & shoes", "Other"],
+    messageLabel: "Message",
+    messagePlaceholder: "Describe what you need...",
+    submit: "Send my request",
+  },
+};
+
 function Contact() {
+  const { lang } = useLanguage();
+  const c = COPY[lang];
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,14 +174,10 @@ function Contact() {
       <section className="gradient-hero py-16 lg:py-20">
         <div className="container-tight text-center">
           <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
-            Contact & adresse
+            {c.eyebrow}
           </span>
-          <h1 className="mt-3 font-display text-4xl font-bold text-foreground sm:text-5xl">
-            Venez nous rendre visite
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            Situé en plein centre-ville de Casablanca, notre pressing est facilement accessible. Nous sommes à votre écoute pour tous vos besoins.
-          </p>
+          <h1 className="mt-3 font-display text-4xl font-bold text-foreground sm:text-5xl">{c.title}</h1>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">{c.subtitle}</p>
         </div>
       </section>
 
@@ -61,14 +188,13 @@ function Contact() {
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                 <Tag className="h-6 w-6" />
               </div>
-              <h2 className="font-display text-xl font-semibold text-foreground sm:text-2xl">
-                Promo mercredi & vendredi
-              </h2>
+              <h2 className="font-display text-xl font-semibold text-foreground sm:text-2xl">{c.promoTitle}</h2>
               <p className="text-muted-foreground">
-                Chaque mercredi et vendredi, profitez du nettoyage de vos{" "}
-                <span className="font-semibold text-foreground">costumes (hommes)</span> et{" "}
-                <span className="font-semibold text-foreground">tailleurs (femmes)</span> à{" "}
-                <span className="font-semibold text-foreground">45 DH</span> seulement. Offre valable uniquement ces deux jours, dans la limite des places disponibles.
+                {c.promoText({
+                  costume: lang === "fr" ? "costumes (hommes)" : "suits (men)",
+                  tailleur: lang === "fr" ? "tailleurs (femmes)" : "skirt suits (women)",
+                  price: "45 DH",
+                })}
               </p>
             </div>
 
@@ -76,13 +202,12 @@ function Contact() {
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                 <Gift className="h-6 w-6" />
               </div>
-              <h2 className="font-display text-xl font-semibold text-foreground sm:text-2xl">
-                Notre carte de fidélité
-              </h2>
+              <h2 className="font-display text-xl font-semibold text-foreground sm:text-2xl">{c.loyaltyTitle}</h2>
               <p className="text-muted-foreground">
-                Demandez votre carte de fidélité dès votre premier passage. Chaque lavage vous rapporte un cachet : après{" "}
-                <span className="font-semibold text-foreground">4 lavages tamponnés</span>, votre{" "}
-                <span className="font-semibold text-foreground">5ème lavage est offert</span>.
+                {c.loyaltyText({
+                  washes: lang === "fr" ? "4 lavages tamponnés" : "4 stamped washes",
+                  free: lang === "fr" ? "5ème lavage est offert" : "5th wash is free",
+                })}
               </p>
               <div className="flex items-center gap-2">
                 {[1, 2, 3, 4].map((n) => (
@@ -95,7 +220,7 @@ function Contact() {
                 ))}
                 <span className="text-lg text-muted-foreground">+</span>
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-center font-display text-[11px] font-bold leading-tight text-primary-foreground">
-                  Offert
+                  {c.offered}
                 </div>
               </div>
             </div>
@@ -113,7 +238,7 @@ function Contact() {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-display text-base font-semibold text-foreground">Adresse</h3>
+                    <h3 className="font-display text-base font-semibold text-foreground">{c.addressTitle}</h3>
                     <p className="text-sm text-muted-foreground">
                       237 Boulevard Mohamed Zerktouni
                       <br />
@@ -126,11 +251,11 @@ function Contact() {
                     <Clock className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-display text-base font-semibold text-foreground">Horaires d'ouverture</h3>
+                    <h3 className="font-display text-base font-semibold text-foreground">{c.hoursTitle}</h3>
                     <p className="text-sm text-muted-foreground">
-                      Lundi – Samedi : 8h00 – 20h00
+                      {c.hours}
                       <br />
-                      Dimanche : Fermé
+                      {c.closed}
                     </p>
                   </div>
                 </div>
@@ -139,7 +264,7 @@ function Contact() {
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-display text-base font-semibold text-foreground">Téléphone</h3>
+                    <h3 className="font-display text-base font-semibold text-foreground">{c.phoneTitle}</h3>
                     <p className="text-sm text-muted-foreground">
                       <a href="tel:+212522363634" className="hover:text-primary">
                         05 22 36 36 34
@@ -152,7 +277,7 @@ function Contact() {
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-display text-base font-semibold text-foreground">Email</h3>
+                    <h3 className="font-display text-base font-semibold text-foreground">{c.emailTitle}</h3>
                     <p className="text-sm text-muted-foreground">
                       <a href="mailto:contact@pressingzerktouni.ma" className="hover:text-primary">
                         contact@pressingzerktouni.ma
@@ -178,33 +303,27 @@ function Contact() {
                     rel="noopener noreferrer"
                     className="shrink-0 text-sm font-semibold text-primary hover:underline"
                   >
-                    Itinéraire
+                    {c.directions}
                   </a>
                 </div>
               </div>
             </div>
 
             <div className="rounded-2xl border border-border bg-muted p-8">
-              <h2 className="font-display text-xl font-semibold text-foreground">Demander un devis gratuit</h2>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Remplissez ce formulaire et nous vous recontactons rapidement.
-              </p>
+              <h2 className="font-display text-xl font-semibold text-foreground">{c.formTitle}</h2>
+              <p className="mt-2 text-sm text-muted-foreground">{c.formSubtitle}</p>
               {formSubmitted ? (
                 <div className="mt-6 flex flex-col items-center justify-center rounded-xl bg-background p-8 text-center">
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Sparkles className="h-7 w-7" />
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-semibold text-foreground">
-                    Demande envoyée !
-                  </h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Merci de nous avoir contactés. Notre équipe vous rappellera dans les plus brefs délais.
-                  </p>
+                  <h3 className="mt-4 font-display text-lg font-semibold text-foreground">{c.sentTitle}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{c.sentText}</p>
                   <button
                     onClick={() => setFormSubmitted(false)}
                     className="mt-4 text-sm font-medium text-primary hover:underline"
                   >
-                    Envoyer une nouvelle demande
+                    {c.sendAnother}
                   </button>
                 </div>
               ) : (
@@ -212,52 +331,50 @@ function Contact() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <label htmlFor="nom" className="text-sm font-medium text-foreground">
-                        Nom
+                        {c.nameLabel}
                       </label>
                       <input
                         id="nom"
                         type="text"
                         required
-                        placeholder="Votre nom"
+                        placeholder={c.namePlaceholder}
                         className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
                       />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="telephone" className="text-sm font-medium text-foreground">
-                        Téléphone
+                        {c.phoneLabel}
                       </label>
                       <input
                         id="telephone"
                         type="tel"
                         required
-                        placeholder="06 12 34 56 78"
+                        placeholder={c.phonePlaceholder}
                         className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="service" className="text-sm font-medium text-foreground">
-                      Service souhaité
+                      {c.serviceLabel}
                     </label>
                     <select
                       id="service"
                       className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
                     >
-                      <option>Pressing vêtements</option>
-                      <option>Costumes & cérémonies</option>
-                      <option>Linge de maison</option>
-                      <option>Cuir & chaussures</option>
-                      <option>Autre</option>
+                      {c.serviceOptions.map((option) => (
+                        <option key={option}>{option}</option>
+                      ))}
                     </select>
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium text-foreground">
-                      Message
+                      {c.messageLabel}
                     </label>
                     <textarea
                       id="message"
                       rows={4}
-                      placeholder="Décrivez vos besoins..."
+                      placeholder={c.messagePlaceholder}
                       className="w-full resize-none rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
                     />
                   </div>
@@ -265,7 +382,7 @@ function Contact() {
                     type="submit"
                     className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl"
                   >
-                    Envoyer ma demande
+                    {c.submit}
                     <ArrowRight className="h-4 w-4" />
                   </button>
                 </form>

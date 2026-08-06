@@ -4,8 +4,9 @@ import { ArrowRight, Phone } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SITE_URL } from "@/data/services";
-import { PRICE_CATEGORIES } from "@/data/pricing";
+import { getPriceCategories } from "@/data/pricing";
 import { buildPageHead } from "@/lib/service-head";
+import { useLanguage, type Lang } from "@/i18n/LanguageContext";
 
 const PAGE_TITLE = "Tarifs pressing & nettoyage à sec à Casablanca | Pressing Zerktouni";
 const PAGE_DESCRIPTION =
@@ -28,7 +29,54 @@ export const Route = createFileRoute("/tarifs")({
   component: Tarifs,
 });
 
+const COPY: Record<
+  Lang,
+  {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    intro: string;
+    orderNow: string;
+    washCol: string;
+    ironCol: string;
+    note: string;
+    ctaTitle: string;
+    quote: string;
+  }
+> = {
+  fr: {
+    eyebrow: "Services",
+    title: "Tarifs",
+    subtitle: "Des prix transparents pour chaque pièce. Aucun frais caché.",
+    intro:
+      "Pressing Zerktouni nettoie, lave et repasse vos vêtements de ville, tenues traditionnelles, linge de maison et articles d'ameublement, avec ramassage et livraison à domicile. Chaque article est proposé en deux formules : lavage + repassage, ou repassage seul.",
+    orderNow: "Commander maintenant",
+    washCol: "Lavage et repassage",
+    ironCol: "Repassage seulement",
+    note: "Les prix « à partir de » et les tarifs au m² sont des estimations ; le prix final est confirmé lors de l'enlèvement, après vérification de la pièce.",
+    ctaTitle: "Une question sur nos tarifs ?",
+    quote: "Demander un devis",
+  },
+  en: {
+    eyebrow: "Services",
+    title: "Pricing",
+    subtitle: "Transparent prices for every item. No hidden fees.",
+    intro:
+      "Pressing Zerktouni cleans, washes and presses your everyday clothes, traditional wear, home linen and furnishings, with pickup and delivery at home. Every item comes in two options: wash + press, or pressing only.",
+    orderNow: "Order now",
+    washCol: "Wash & press",
+    ironCol: "Pressing only",
+    note: "\"From\" prices and per-m² rates are estimates; the final price is confirmed at pickup, after checking the item.",
+    ctaTitle: "A question about our pricing?",
+    quote: "Request a quote",
+  },
+};
+
 function Tarifs() {
+  const { lang } = useLanguage();
+  const c = COPY[lang];
+  const categories = getPriceCategories(lang);
+
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
@@ -36,23 +84,17 @@ function Tarifs() {
       <section className="gradient-hero py-16 lg:py-20">
         <div className="container-tight text-center">
           <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
-            Services
+            {c.eyebrow}
           </span>
-          <h1 className="mt-3 font-display text-4xl font-bold text-foreground sm:text-5xl">
-            Tarifs
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            Des prix transparents pour chaque pièce. Aucun frais caché.
-          </p>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Pressing Zerktouni nettoie, lave et repasse vos vêtements de ville, tenues traditionnelles, linge de maison et articles d'ameublement, avec ramassage et livraison à domicile. Chaque article est proposé en deux formules : lavage + repassage, ou repassage seul.
-          </p>
+          <h1 className="mt-3 font-display text-4xl font-bold text-foreground sm:text-5xl">{c.title}</h1>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">{c.subtitle}</p>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">{c.intro}</p>
           <div className="mt-6">
             <Link
               to="/commander"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl"
             >
-              Commander maintenant
+              {c.orderNow}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -61,7 +103,7 @@ function Tarifs() {
 
       <section className="py-16 lg:py-24">
         <div className="container-tight flex flex-col gap-12">
-          {PRICE_CATEGORIES.map((category) => (
+          {categories.map((category) => (
             <div key={category.title}>
               <div className="flex items-start gap-4">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -82,10 +124,10 @@ function Tarifs() {
                       <tr className="border-b border-border">
                         <th className="px-5 py-3" />
                         <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                          Lavage et repassage
+                          {c.washCol}
                         </th>
                         <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                          Repassage seulement
+                          {c.ironCol}
                         </th>
                       </tr>
                     </thead>
@@ -107,23 +149,19 @@ function Tarifs() {
             </div>
           ))}
 
-          <p className="text-center text-sm text-muted-foreground">
-            Les prix « à partir de » et les tarifs au m² sont des estimations ; le prix final est confirmé lors de l'enlèvement, après vérification de la pièce.
-          </p>
+          <p className="text-center text-sm text-muted-foreground">{c.note}</p>
         </div>
       </section>
 
       <section className="border-t border-border bg-brand-50 py-16 lg:py-20">
         <div className="container-tight flex flex-col items-center gap-6 text-center">
-          <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-            Une question sur nos tarifs ?
-          </h2>
+          <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">{c.ctaTitle}</h2>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600"
             >
-              Demander un devis
+              {c.quote}
               <ArrowRight className="h-4 w-4" />
             </Link>
             <a

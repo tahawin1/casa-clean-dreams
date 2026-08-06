@@ -2,6 +2,7 @@ import serviceVetements from "@/assets/service-vetements.jpg";
 import serviceCostumes from "@/assets/service-costumes.jpg";
 import serviceLinge from "@/assets/service-linge.jpg";
 import serviceCuir from "@/assets/service-cuir.jpg";
+import type { Lang } from "@/i18n/LanguageContext";
 
 export const SITE_URL = "https://casa-clean-dreams.lovable.app";
 
@@ -25,7 +26,7 @@ export type ServiceContent = {
   faq: { question: string; answer: string }[];
 };
 
-export const services: ServiceContent[] = [
+const SERVICES_FR: ServiceContent[] = [
   {
     slug: "pressing-vetements",
     path: "/services/pressing-vetements",
@@ -220,5 +221,203 @@ export const services: ServiceContent[] = [
   },
 ];
 
-export const getService = (slug: string) =>
-  services.find((service) => service.slug === slug)!;
+const SERVICES_EN: ServiceContent[] = [
+  {
+    slug: "pressing-vetements",
+    path: "/services/pressing-vetements",
+    navTitle: "Clothes Dry Cleaning",
+    h1: "Clothes Dry Cleaning in Casablanca – Bd Mohamed Zerktouni",
+    title: "Clothes Dry Cleaning Casablanca | Cleaning & Pressing 24h",
+    description:
+      "Pressing Zerktouni in Casablanca: dry cleaning, pressing and stain removal for your everyday clothes. 6h express service, free pickup and delivery. Since 2010.",
+    keywords:
+      "clothes dry cleaning Casablanca, dry cleaner Casablanca, pressing Casablanca, Zerktouni dry cleaner",
+    image: serviceVetements,
+    intro:
+      "Since 2010, Pressing Zerktouni has taken care of your shirts, trousers, dresses and everyday clothes on Boulevard Mohamed Zerktouni, Casablanca. Cleaning, pressing and careful finishing, with free home pickup and delivery.",
+    items: [
+      {
+        title: "Professional dry cleaning",
+        text: "Gentle solvents and modern machines suited to every fabric: cotton, linen, wool, silk or synthetic.",
+      },
+      {
+        title: "Steam pressing",
+        text: "Steam press finishing for crisp creases, held collars and a perfect drape.",
+      },
+      {
+        title: "Targeted stain removal",
+        text: "Treatment of common stains (coffee, sweat, ink, makeup) before washing.",
+      },
+      {
+        title: "6h express service",
+        text: "Urgent need? Drop off in the morning at 237 Bd Mohamed Zerktouni and pick up your clothes in just 6 hours.",
+      },
+      {
+        title: "Free pickup & delivery",
+        text: "Enjoy free pickup and drop-off at home in the areas near Boulevard Zerktouni.",
+      },
+    ],
+    faq: [
+      {
+        question: "How long does it take to clean a shirt?",
+        answer:
+          "Our shirts are pressed and ready within 24 hours as standard. The 6h express service is available for urgent needs.",
+      },
+      {
+        question: "Do you offer home delivery?",
+        answer:
+          "Yes, pickup and delivery are free around Boulevard Mohamed Zerktouni and downtown Casablanca.",
+      },
+    ],
+  },
+  {
+    slug: "costumes-ceremonies",
+    path: "/services/costumes-ceremonies",
+    navTitle: "Suits & Ceremonies",
+    h1: "Suit & Ceremony Outfit Cleaning in Casablanca",
+    title: "Suit & Ceremony Cleaning Casablanca | Pressing Zerktouni",
+    description:
+      "Pressing Zerktouni: cleaning and pressing of suits, tuxedos, evening gowns, caftans and takchitas. Couture-level treatment, 6h express service and free delivery.",
+    keywords:
+      "suit cleaning Casablanca, tuxedo dry cleaning Casablanca, evening gown cleaning, caftan dry cleaning, takchita Zerktouni",
+    image: serviceCostumes,
+    intro:
+      "Wedding, evening event or business meeting: Pressing Zerktouni brings your suits, tuxedos, evening gowns, caftans and takchitas back to their original shine, with piece-by-piece treatment and hand pressing.",
+    items: [
+      {
+        title: "Jacket + trousers treatment",
+        text: "The set is cleaned together to keep a perfectly even shade.",
+      },
+      {
+        title: "Hand pressing on a mannequin",
+        text: "Shoulders, lapels and pleats reshaped on a steam mannequin for a tailored drape.",
+      },
+      {
+        title: "Ceremony pieces",
+        text: "Embroidered dresses, caftans, takchitas and beaded outfits handled by hand.",
+      },
+      {
+        title: "Minor alterations",
+        text: "Buttons resewn and quick hems on request before return.",
+      },
+      {
+        title: "Ceremony packaging",
+        text: "Protective garment bag and careful folding to keep your outfit perfect until the big day.",
+      },
+    ],
+    faq: [
+      {
+        question: "Should the jacket and trousers be cleaned together?",
+        answer:
+          "Yes, we always recommend it: it avoids any shade difference between the two pieces over repeated cleanings.",
+      },
+      {
+        question: "Do you clean embroidered caftans and takchitas?",
+        answer: "Yes, these pieces are hand-treated, protecting embroidery, beads and gold thread.",
+      },
+    ],
+  },
+  {
+    slug: "linge-de-maison",
+    path: "/services/linge-de-maison",
+    navTitle: "Home Linen",
+    h1: "Home Linen Cleaning in Casablanca – Pressing Zerktouni",
+    title: "Home Linen Casablanca | Sheets, Duvets, Curtains, Rugs",
+    description:
+      "Pressing Zerktouni in Casablanca: cleaning of sheets, duvets, curtains, tablecloths, rugs and bath linen. High capacity, long-lasting freshness, free pickup and delivery.",
+    keywords:
+      "duvet cleaning Casablanca, laundry Casablanca, curtain cleaning Casablanca, rug cleaning, Zerktouni home linen",
+    image: serviceLinge,
+    intro:
+      "Sheets, duvets, throws, curtains, tablecloths, towels and rugs: our high-capacity machines ensure deep cleanliness and lasting freshness. Pressing Zerktouni also offers free pickup and delivery in Casablanca.",
+    items: [
+      {
+        title: "Duvets and pillows",
+        text: "High-capacity washing, controlled drying and refluffing of down or synthetic filling.",
+      },
+      {
+        title: "Curtains and sheers",
+        text: "Dusting, fabric-appropriate cleaning and made-to-fit pressing, ready to hang back up.",
+      },
+      {
+        title: "Sheets, tablecloths and towels",
+        text: "Hygienic washing, gentle whitening and careful folding for immediate storage.",
+      },
+      {
+        title: "Rugs and prayer rugs",
+        text: "Deep cleaning of rugs and small rugs to remove dust, odors and stains.",
+      },
+      {
+        title: "Volume pricing",
+        text: "Discounted rates for large volumes, riads, guesthouses and residences.",
+      },
+    ],
+    faq: [
+      {
+        question: "How often should a duvet be cleaned?",
+        answer:
+          "Once or twice a year is enough for a duvet used daily, ideally at the start and end of the season.",
+      },
+      {
+        question: "Do you clean rugs too?",
+        answer:
+          "Yes, we deep clean small rugs and prayer rugs. For large rugs, contact us for a custom quote.",
+      },
+    ],
+  },
+  {
+    slug: "cuir-chaussures",
+    path: "/services/cuir-chaussures",
+    navTitle: "Leather & Shoes",
+    h1: "Leather, Bag & Shoe Cleaning in Casablanca",
+    title: "Leather, Bag & Shoe Cleaning Casablanca | Pressing Zerktouni",
+    description:
+      "Pressing Zerktouni: cleaning, restoration and waterproofing of leather, bags and shoes in Casablanca. Dyeing, polishing and care by specialists. Since 2010.",
+    keywords:
+      "leather cleaning Casablanca, leather jacket restoration Casablanca, leather bag cleaning, shoe cleaning Casablanca, Zerktouni dry cleaner",
+    image: serviceCuir,
+    intro:
+      "Leather requires special expertise. Jackets, bags, shoes, belts, suede and nubuck are entrusted to our Pressing Zerktouni specialists for deep cleaning followed by conditioning of the material.",
+    items: [
+      {
+        title: "Deep cleaning",
+        text: "Specific products for leather, suede and nubuck, without drying out or dulling the material.",
+      },
+      {
+        title: "Restoration and dyeing",
+        text: "Touch-up of faded areas, scuffs and worn edges to revive the original color.",
+      },
+      {
+        title: "Conditioning and polishing",
+        text: "Application of nourishing balms to keep leather supple and prevent cracking.",
+      },
+      {
+        title: "Leather bags and accessories",
+        text: "Cleaning and re-plating of handbags, wallets, belts and small leather goods.",
+      },
+      {
+        title: "Waterproofing",
+        text: "Protection against rain and stains, particularly useful for suede and shoes.",
+      },
+    ],
+    faq: [
+      {
+        question: "How long does a leather restoration take?",
+        answer: "Allow 3 to 5 business days depending on the item's condition and the dyeing work needed.",
+      },
+      {
+        question: "Can you clean leather bags?",
+        answer:
+          "Yes, we treat handbags, wallets and leather accessories: interior/exterior cleaning, re-plating and conditioning.",
+      },
+    ],
+  },
+];
+
+export function getServices(lang: Lang): ServiceContent[] {
+  return lang === "en" ? SERVICES_EN : SERVICES_FR;
+}
+
+export function getService(slug: string, lang: Lang): ServiceContent {
+  return getServices(lang).find((service) => service.slug === slug)!;
+}

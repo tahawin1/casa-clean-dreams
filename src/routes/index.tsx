@@ -24,6 +24,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ProcessStepsTimeline } from "@/components/ProcessSteps";
+import { useLanguage, type Lang } from "@/i18n/LanguageContext";
 
 const SITE_URL = "https://casa-clean-dreams.lovable.app";
 const PAGE_TITLE = "Pressing Zerktouni Casablanca | Nettoyage à Sec 6h";
@@ -122,7 +123,218 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const COPY: Record<
+  Lang,
+  {
+    heroTitle: React.ReactNode;
+    heroSubtitle: string;
+    quote: string;
+    ourServices: string;
+    express: string;
+    pickupFree: string;
+    qualityGuaranteed: string;
+    trustSince: string;
+    trustSinceSub: string;
+    trustExpress: string;
+    trustExpressSub: string;
+    trustFree: string;
+    trustFreeSub: string;
+    promoEyebrow: string;
+    promoTitle: string;
+    promoSubtitle: string;
+    promoBadgeDays: string;
+    promoBadgeLoyalty: string;
+    promoAlt1: string;
+    promoAlt2: string;
+    promoAlt3: string;
+    promoCta: string;
+    servicesEyebrow: string;
+    servicesTitle: string;
+    servicesSubtitle: string;
+    services: { title: string; description: string }[];
+    seeAllServices: string;
+    howEyebrow: string;
+    howTitle: string;
+    discoverProcess: string;
+    reviewsEyebrow: string;
+    reviewsTitle: string;
+    testimonials: { quote: string; author: string; role: string }[];
+    ctaTitle: string;
+    ctaSubtitle: string;
+  }
+> = {
+  fr: {
+    heroTitle: (
+      <>
+        Pressing Zerktouni à Casablanca, <span className="text-primary">soin premium</span>
+      </>
+    ),
+    heroSubtitle:
+      "Votre pressing sur le Boulevard Mohamed Zerktouni à Casablanca. Nettoyage à sec, repassage, blanchisserie, cuir, sacs et tapis avec service express 6h et livraison gratuite.",
+    quote: "Demander un devis",
+    ourServices: "Nos services",
+    express: "Express 6h",
+    pickupFree: "Ramassage & livraison gratuite",
+    qualityGuaranteed: "Qualité garantie",
+    trustSince: "Depuis 2010",
+    trustSinceSub: "À votre service au Bd Mohamed Zerktouni",
+    trustExpress: "Express 6h",
+    trustExpressSub: "Service ultra-rapide disponible",
+    trustFree: "Gratuit",
+    trustFreeSub: "Ramassage & livraison à domicile",
+    promoEyebrow: "Offres du moment",
+    promoTitle: "Nos promotions exclusives",
+    promoSubtitle:
+      "Costumes et tailleurs à prix mini le mercredi et le vendredi, et un lavage gratuit tous les 4 lavages.",
+    promoBadgeDays: "Mer & Ven",
+    promoBadgeLoyalty: "Fidélité",
+    promoAlt1: "Promo : lavage de costume homme à 45 DH le mercredi et le vendredi",
+    promoAlt2: "Promo : soin premium couture et retouche à 45 DH le mercredi et le vendredi",
+    promoAlt3: "Offre fidélité : le 5ème lavage est offert après 4 lavages",
+    promoCta: "Profiter de l'offre",
+    servicesEyebrow: "Nos prestations",
+    servicesTitle: "Des services complets pour tous vos textiles",
+    servicesSubtitle:
+      "Du linge quotidien aux pièces les plus délicates, nous prenons soin de vos vêtements et accessoires avec expertise.",
+    services: [
+      {
+        title: "Pressing vêtements",
+        description:
+          "Nettoyage à sec et repassage de vos chemises, pantalons, robes et vêtements du quotidien. Service express 6h et livraison gratuite.",
+      },
+      {
+        title: "Costumes & cérémonies",
+        description:
+          "Entretien spécialisé des costumes, smoking, robes de soirée, caftans et takchitas. Traitement haute couture et emballage soigné.",
+      },
+      {
+        title: "Linge de maison & tapis",
+        description:
+          "Nettoyage et repassage de draps, couettes, rideaux, nappes et linge de bain. Nettoyage de tapis et tapis de prière sur demande.",
+      },
+      {
+        title: "Cuir, sacs & chaussures",
+        description:
+          "Nettoyage, rénovation et imperméabilisation de vos chaussures, sacs, vestes et accessoires en cuir.",
+      },
+    ],
+    seeAllServices: "Voir tous nos services",
+    howEyebrow: "Comment ça marche",
+    howTitle: "Trois étapes simples",
+    discoverProcess: "Découvrir notre processus",
+    reviewsEyebrow: "Avis clients",
+    reviewsTitle: "Ils nous font confiance",
+    testimonials: [
+      {
+        quote:
+          "Service impeccable et rapide. Mes costumes sont toujours traités avec une grande attention. Le meilleur pressing du centre-ville de Casablanca.",
+        author: "Karim B.",
+        role: "Consultant",
+      },
+      {
+        quote:
+          "Je confie mes robes de soirée et mon linge de maison depuis des années. Qualité constante et équipe très professionnelle.",
+        author: "Salma M.",
+        role: "Avocate",
+      },
+      {
+        quote:
+          "La rénovation de mes chaussures en cuir a été bluffante. On dirait qu'elles sont neuves. Je recommande vivement !",
+        author: "Youssef T.",
+        role: "Entrepreneur",
+      },
+    ],
+    ctaTitle: "Prêt à confier vos vêtements à des experts ?",
+    ctaSubtitle: "Demandez votre devis gratuit ou contactez-nous directement : nous vous répondons rapidement.",
+  },
+  en: {
+    heroTitle: (
+      <>
+        Pressing Zerktouni in Casablanca, <span className="text-primary">premium care</span>
+      </>
+    ),
+    heroSubtitle:
+      "Your dry cleaner on Boulevard Mohamed Zerktouni in Casablanca. Dry cleaning, ironing, laundry, leather, bags and rugs with 6h express service and free delivery.",
+    quote: "Request a quote",
+    ourServices: "Our services",
+    express: "Express 6h",
+    pickupFree: "Free pickup & delivery",
+    qualityGuaranteed: "Guaranteed quality",
+    trustSince: "Since 2010",
+    trustSinceSub: "At your service on Bd Mohamed Zerktouni",
+    trustExpress: "Express 6h",
+    trustExpressSub: "Ultra-fast service available",
+    trustFree: "Free",
+    trustFreeSub: "Home pickup & delivery",
+    promoEyebrow: "Current offers",
+    promoTitle: "Our exclusive promotions",
+    promoSubtitle:
+      "Suits and skirt suits at the best price on Wednesday and Friday, plus a free wash every 4 washes.",
+    promoBadgeDays: "Wed & Fri",
+    promoBadgeLoyalty: "Loyalty",
+    promoAlt1: "Promo: men's suit cleaning for 45 DH on Wednesday and Friday",
+    promoAlt2: "Promo: premium tailoring and alterations for 45 DH on Wednesday and Friday",
+    promoAlt3: "Loyalty offer: the 5th wash is free after 4 washes",
+    promoCta: "Take advantage",
+    servicesEyebrow: "Our services",
+    servicesTitle: "Complete care for all your textiles",
+    servicesSubtitle:
+      "From everyday laundry to the most delicate pieces, we take care of your clothes and accessories with expertise.",
+    services: [
+      {
+        title: "Clothes dry cleaning",
+        description:
+          "Dry cleaning and ironing of your shirts, trousers, dresses and everyday clothes. 6h express service and free delivery.",
+      },
+      {
+        title: "Suits & ceremonies",
+        description:
+          "Specialized care for suits, tuxedos, evening gowns, caftans and takchitas. Couture-level treatment and careful packaging.",
+      },
+      {
+        title: "Home linen & rugs",
+        description:
+          "Cleaning and ironing of sheets, duvets, curtains, tablecloths and bath linen. Rug and prayer rug cleaning on request.",
+      },
+      {
+        title: "Leather, bags & shoes",
+        description: "Cleaning, restoration and waterproofing of your shoes, bags, jackets and leather accessories.",
+      },
+    ],
+    seeAllServices: "See all our services",
+    howEyebrow: "How it works",
+    howTitle: "Three simple steps",
+    discoverProcess: "Discover our process",
+    reviewsEyebrow: "Customer reviews",
+    reviewsTitle: "They trust us",
+    testimonials: [
+      {
+        quote:
+          "Impeccable, fast service. My suits are always handled with great care. The best dry cleaner in downtown Casablanca.",
+        author: "Karim B.",
+        role: "Consultant",
+      },
+      {
+        quote:
+          "I've trusted them with my evening gowns and home linen for years. Consistent quality and a very professional team.",
+        author: "Salma M.",
+        role: "Lawyer",
+      },
+      {
+        quote: "The restoration of my leather shoes was stunning. They look brand new. Highly recommend!",
+        author: "Youssef T.",
+        role: "Entrepreneur",
+      },
+    ],
+    ctaTitle: "Ready to trust your clothes to experts?",
+    ctaSubtitle: "Request your free quote or contact us directly: we'll get back to you quickly.",
+  },
+};
+
 function Index() {
+  const { lang } = useLanguage();
+  const c = COPY[lang];
+
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
@@ -142,41 +354,38 @@ function Index() {
         <div className="container-tight relative grid gap-10 py-20 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:py-28">
           <div className="flex max-w-xl flex-col gap-6">
             <h1 className="font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl lg:text-6xl">
-              Pressing Zerktouni à Casablanca,{" "}
-              <span className="text-primary">soin premium</span>
+              {c.heroTitle}
             </h1>
 
-            <p className="max-w-xl text-lg text-white/85">
-              Votre pressing sur le Boulevard Mohamed Zerktouni à Casablanca. Nettoyage à sec, repassage, blanchisserie, cuir, sacs et tapis avec service express 6h et livraison gratuite.
-            </p>
+            <p className="max-w-xl text-lg text-white/85">{c.heroSubtitle}</p>
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl hover:shadow-primary/30"
               >
-                Demander un devis
+                {c.quote}
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/services"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 py-3 text-base font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20"
               >
-                Nos services
+                {c.ourServices}
                 <ChevronRight className="h-4 w-4" />
               </Link>
             </div>
             <div className="flex flex-wrap items-center gap-6 pt-2 text-sm text-white/80">
               <div className="flex items-center gap-2">
                 <Zap className="h-4 w-4 text-primary" />
-                <span>Express 6h</span>
+                <span>{c.express}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Truck className="h-4 w-4 text-primary" />
-                <span>Ramassage & livraison gratuite</span>
+                <span>{c.pickupFree}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Award className="h-4 w-4 text-primary" />
-                <span>Qualité garantie</span>
+                <span>{c.qualityGuaranteed}</span>
               </div>
             </div>
           </div>
@@ -198,16 +407,16 @@ function Index() {
       <section className="border-y border-border bg-background">
         <div className="container-tight grid gap-8 py-10 sm:grid-cols-3">
           <div className="text-center">
-            <div className="font-display text-3xl font-bold text-primary">Depuis 2010</div>
-            <p className="mt-1 text-sm text-muted-foreground">À votre service au Bd Mohamed Zerktouni</p>
+            <div className="font-display text-3xl font-bold text-primary">{c.trustSince}</div>
+            <p className="mt-1 text-sm text-muted-foreground">{c.trustSinceSub}</p>
           </div>
           <div className="text-center">
-            <div className="font-display text-3xl font-bold text-primary">Express 6h</div>
-            <p className="mt-1 text-sm text-muted-foreground">Service ultra-rapide disponible</p>
+            <div className="font-display text-3xl font-bold text-primary">{c.trustExpress}</div>
+            <p className="mt-1 text-sm text-muted-foreground">{c.trustExpressSub}</p>
           </div>
           <div className="text-center">
-            <div className="font-display text-3xl font-bold text-primary">Gratuit</div>
-            <p className="mt-1 text-sm text-muted-foreground">Ramassage & livraison à domicile</p>
+            <div className="font-display text-3xl font-bold text-primary">{c.trustFree}</div>
+            <p className="mt-1 text-sm text-muted-foreground">{c.trustFreeSub}</p>
           </div>
         </div>
       </section>
@@ -217,46 +426,42 @@ function Index() {
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
-              Offres du moment
+              {c.promoEyebrow}
             </span>
-            <h2 className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
-              Nos promotions exclusives
-            </h2>
-            <p className="mt-4 text-white/70">
-              Costumes et tailleurs à prix mini le mercredi et le vendredi, et un lavage gratuit tous les 4 lavages.
-            </p>
+            <h2 className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">{c.promoTitle}</h2>
+            <p className="mt-4 text-white/70">{c.promoSubtitle}</p>
           </div>
 
           <div className="mt-14 grid gap-8 md:grid-cols-3">
             <div className="group relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/30 hover:ring-2 hover:ring-primary/60">
               <span className="absolute left-4 top-4 z-10 rounded-full bg-white px-3 py-1 font-display text-xs font-bold uppercase tracking-wide text-brand-900 shadow-md">
-                Mer & Ven
+                {c.promoBadgeDays}
               </span>
               <img
                 src={promoCostume}
-                alt="Promo : lavage de costume homme à 45 DH le mercredi et le vendredi"
+                alt={c.promoAlt1}
                 className="w-full transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
             </div>
             <div className="group relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/30 hover:ring-2 hover:ring-primary/60">
               <span className="absolute left-4 top-4 z-10 rounded-full bg-white px-3 py-1 font-display text-xs font-bold uppercase tracking-wide text-brand-900 shadow-md">
-                Mer & Ven
+                {c.promoBadgeDays}
               </span>
               <img
                 src={promoCouture}
-                alt="Promo : soin premium couture et retouche à 45 DH le mercredi et le vendredi"
+                alt={c.promoAlt2}
                 className="w-full transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
             </div>
             <div className="group relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/30 hover:ring-2 hover:ring-primary/60">
               <span className="absolute left-4 top-4 z-10 rounded-full bg-white px-3 py-1 font-display text-xs font-bold uppercase tracking-wide text-brand-900 shadow-md">
-                Fidélité
+                {c.promoBadgeLoyalty}
               </span>
               <img
                 src={promoFidelite}
-                alt="Offre fidélité : le 5ème lavage est offert après 4 lavages"
+                alt={c.promoAlt3}
                 className="w-full transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
@@ -268,7 +473,7 @@ function Index() {
               to="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl"
             >
-              Profiter de l'offre
+              {c.promoCta}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -280,14 +485,10 @@ function Index() {
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
-              Nos prestations
+              {c.servicesEyebrow}
             </span>
-            <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">
-              Des services complets pour tous vos textiles
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Du linge quotidien aux pièces les plus délicates, nous prenons soin de vos vêtements et accessoires avec expertise.
-            </p>
+            <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">{c.servicesTitle}</h2>
+            <p className="mt-4 text-muted-foreground">{c.servicesSubtitle}</p>
           </div>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -295,29 +496,29 @@ function Index() {
               image={serviceVetements}
               icon={<Shirt className="h-5 w-5" />}
               to="/services/pressing-vetements"
-              title="Pressing vêtements"
-              description="Nettoyage à sec et repassage de vos chemises, pantalons, robes et vêtements du quotidien. Service express 6h et livraison gratuite."
+              title={c.services[0]!.title}
+              description={c.services[0]!.description}
             />
             <ServiceCard
               image={serviceCostumes}
               icon={<Sparkles className="h-5 w-5" />}
               to="/services/costumes-ceremonies"
-              title="Costumes & cérémonies"
-              description="Entretien spécialisé des costumes, smoking, robes de soirée, caftans et takchitas. Traitement haute couture et emballage soigné."
+              title={c.services[1]!.title}
+              description={c.services[1]!.description}
             />
             <ServiceCard
               image={serviceLinge}
               icon={<BedDouble className="h-5 w-5" />}
               to="/services/linge-de-maison"
-              title="Linge de maison & tapis"
-              description="Nettoyage et repassage de draps, couettes, rideaux, nappes et linge de bain. Nettoyage de tapis et tapis de prière sur demande."
+              title={c.services[2]!.title}
+              description={c.services[2]!.description}
             />
             <ServiceCard
               image={serviceCuir}
               icon={<Footprints className="h-5 w-5" />}
               to="/services/cuir-chaussures"
-              title="Cuir, sacs & chaussures"
-              description="Nettoyage, rénovation et imperméabilisation de vos chaussures, sacs, vestes et accessoires en cuir."
+              title={c.services[3]!.title}
+              description={c.services[3]!.description}
             />
           </div>
 
@@ -326,7 +527,7 @@ function Index() {
               to="/services"
               className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
             >
-              Voir tous nos services
+              {c.seeAllServices}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -338,11 +539,9 @@ function Index() {
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
-              Comment ça marche
+              {c.howEyebrow}
             </span>
-            <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">
-              Trois étapes simples
-            </h2>
+            <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">{c.howTitle}</h2>
           </div>
 
           <div className="mt-14">
@@ -354,7 +553,7 @@ function Index() {
               to="/processus"
               className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
             >
-              Découvrir notre processus
+              {c.discoverProcess}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -366,29 +565,15 @@ function Index() {
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
-              Avis clients
+              {c.reviewsEyebrow}
             </span>
-            <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">
-              Ils nous font confiance
-            </h2>
+            <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">{c.reviewsTitle}</h2>
           </div>
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
-            <TestimonialCard
-              quote="Service impeccable et rapide. Mes costumes sont toujours traités avec une grande attention. Le meilleur pressing du centre-ville de Casablanca."
-              author="Karim B."
-              role="Consultant"
-            />
-            <TestimonialCard
-              quote="Je confie mes robes de soirée et mon linge de maison depuis des années. Qualité constante et équipe très professionnelle."
-              author="Salma M."
-              role="Avocate"
-            />
-            <TestimonialCard
-              quote="La rénovation de mes chaussures en cuir a été bluffante. On dirait qu'elles sont neuves. Je recommande vivement !"
-              author="Youssef T."
-              role="Entrepreneur"
-            />
+            {c.testimonials.map((t) => (
+              <TestimonialCard key={t.author} quote={t.quote} author={t.author} role={t.role} />
+            ))}
           </div>
         </div>
       </section>
@@ -397,18 +582,14 @@ function Index() {
       <section className="py-20 lg:py-28">
         <div className="container-tight">
           <div className="flex flex-col items-center gap-6 rounded-3xl bg-primary px-6 py-14 text-center text-primary-foreground sm:px-16">
-            <h2 className="font-display text-3xl font-bold sm:text-4xl">
-              Prêt à confier vos vêtements à des experts ?
-            </h2>
-            <p className="max-w-xl text-primary-foreground/90">
-              Demandez votre devis gratuit ou contactez-nous directement : nous vous répondons rapidement.
-            </p>
+            <h2 className="font-display text-3xl font-bold sm:text-4xl">{c.ctaTitle}</h2>
+            <p className="max-w-xl text-primary-foreground/90">{c.ctaSubtitle}</p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-background px-6 py-3 text-base font-medium text-foreground shadow-lg transition-all hover:bg-muted"
               >
-                Demander un devis
+                {c.quote}
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <a

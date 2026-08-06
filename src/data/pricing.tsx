@@ -1,5 +1,6 @@
 import { Shirt, Sparkles, BedDouble, Sofa } from "lucide-react";
 import type { ReactNode } from "react";
+import type { Lang } from "@/i18n/LanguageContext";
 
 export type PriceItem = { name: string; wash: string; iron: string };
 
@@ -10,7 +11,7 @@ export type PriceCategory = {
   items: PriceItem[];
 };
 
-export const PRICE_CATEGORIES: PriceCategory[] = [
+const PRICE_CATEGORIES_FR: PriceCategory[] = [
   {
     title: "Vêtements de ville",
     description:
@@ -88,3 +89,86 @@ export const PRICE_CATEGORIES: PriceCategory[] = [
     ],
   },
 ];
+
+const PRICE_CATEGORIES_EN: PriceCategory[] = [
+  {
+    title: "Everyday clothes",
+    description:
+      "Shirts, trousers, suits, jackets, dresses and more — careful dry cleaning and pressing for your everyday wardrobe.",
+    icon: <Shirt className="h-5 w-5" />,
+    items: [
+      { name: "Trousers", wash: "19 DH", iron: "14 DH" },
+      { name: "Suit trousers", wash: "22 DH", iron: "16 DH" },
+      { name: "Shirt, on hanger", wash: "18 DH", iron: "12 DH" },
+      { name: "Shirt, folded", wash: "22 DH", iron: "14 DH" },
+      { name: "Suit vest", wash: "18 DH", iron: "12 DH" },
+      { name: "Suit", wash: "49 DH", iron: "31 DH" },
+      { name: "Skirt suit", wash: "49 DH", iron: "31 DH" },
+      { name: "Trouser suit", wash: "49 DH", iron: "31 DH" },
+      { name: "Jacket", wash: "26 DH", iron: "17 DH" },
+      { name: "Sweater", wash: "22 DH", iron: "14 DH" },
+      { name: "Fancy sweater", wash: "28 DH", iron: "14 DH" },
+      { name: "Dress", wash: "38 DH", iron: "20 DH" },
+      { name: "Skirt", wash: "22 DH", iron: "14 DH" },
+      { name: "Long skirt", wash: "28 DH", iron: "16 DH" },
+      { name: "Pleated skirt", wash: "32 DH", iron: "16 DH" },
+      { name: "Jumpsuit", wash: "44 DH", iron: "28 DH" },
+      { name: "Silk blouse", wash: "28 DH", iron: "16 DH" },
+      { name: "Coat", wash: "44 DH", iron: "28 DH" },
+      { name: "Raincoat", wash: "64 DH", iron: "20 DH" },
+      { name: "Undershirt", wash: "13 DH", iron: "9 DH" },
+      { name: "Shorts", wash: "16 DH", iron: "9 DH" },
+      { name: "Puffer jacket", wash: "50 DH", iron: "—" },
+      { name: "Down jacket", wash: "60 DH", iron: "—" },
+      { name: "Jacket (casual)", wash: "40 DH", iron: "18 DH" },
+      { name: "Polo shirt", wash: "18 DH", iron: "12 DH" },
+      { name: "T-shirt", wash: "18 DH", iron: "12 DH" },
+      { name: "Tie", wash: "15 DH", iron: "7 DH" },
+    ],
+  },
+  {
+    title: "Traditional wear",
+    description:
+      "Takchita, caftan, djellaba, gandora and jabador treated with special care to preserve fabrics and embroidery.",
+    icon: <Sparkles className="h-5 w-5" />,
+    items: [
+      { name: "Traditional outfit “Takchita” · from", wash: "150 DH", iron: "60 DH" },
+      { name: "Djellaba · from", wash: "39 DH", iron: "20 DH" },
+      { name: "Gandora · from", wash: "44 DH", iron: "27 DH" },
+      { name: "Jabador", wash: "44 DH", iron: "28 DH" },
+      { name: "Jabador, triple", wash: "72 DH", iron: "38 DH" },
+      { name: "Caftan, simple", wash: "96 DH", iron: "60 DH" },
+      { name: "Caftan, luxury", wash: "120 DH", iron: "60 DH" },
+      { name: "Caftan, triple", wash: "160 DH", iron: "80 DH" },
+    ],
+  },
+  {
+    title: "Home linen",
+    description: "Sheets, duvet covers, bedspreads and blankets, deep washed then pressed.",
+    icon: <BedDouble className="h-5 w-5" />,
+    items: [
+      { name: "Duvet cover · from", wash: "60 DH", iron: "35 DH" },
+      { name: "Flat sheet · from", wash: "20 DH", iron: "30 DH" },
+      { name: "Fitted sheet · from", wash: "20 DH", iron: "30 DH" },
+      { name: "Bedspread · from", wash: "55 DH", iron: "28 DH" },
+      { name: "Blanket", wash: "70 DH", iron: "—" },
+      { name: "Synthetic duvet · from", wash: "150 DH", iron: "—" },
+    ],
+  },
+  {
+    title: "Furnishings",
+    description: "Curtains, sheers, tablecloths and rugs cleaned per square meter, at home or in our workshop.",
+    icon: <Sofa className="h-5 w-5" />,
+    items: [
+      { name: "Tablecloth", wash: "30 DH / m²", iron: "15 DH / m²" },
+      { name: "Curtain · from", wash: "20 DH / m²", iron: "15 DH / m²" },
+      { name: "Sheer curtain · from", wash: "15 DH / m²", iron: "11 DH / m²" },
+      { name: "Rug · from", wash: "40 DH / m²", iron: "—" },
+      { name: "Sofa cover", wash: "10 DH / ml", iron: "10 DH / ml" },
+    ],
+  },
+];
+
+export function getPriceCategories(lang: Lang): PriceCategory[] {
+  return lang === "en" ? PRICE_CATEGORIES_EN : PRICE_CATEGORIES_FR;
+}

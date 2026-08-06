@@ -5,9 +5,10 @@ import { Check, ChevronLeft, ChevronRight, Minus, Plus, Calendar, User, MessageC
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SITE_URL } from "@/data/services";
-import { PRICE_CATEGORIES, type PriceCategory, type PriceItem } from "@/data/pricing";
+import { getPriceCategories, type PriceCategory, type PriceItem } from "@/data/pricing";
 import { buildPageHead } from "@/lib/service-head";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { useLanguage, type Lang } from "@/i18n/LanguageContext";
 
 const PAGE_TITLE = "Commander un ramassage | Pressing Zerktouni Casablanca";
 const PAGE_DESCRIPTION =
@@ -38,8 +39,121 @@ type CartLine = {
   quantity: number;
 };
 
-const STEP_LABELS = ["Articles", "Planification", "Coordonnées", "Résumé"] as const;
 const SLOTS = ["08h00 – 12h00", "12h00 – 16h00", "16h00 – 20h00"] as const;
+
+const COPY = {
+  fr: {
+    stepLabels: ["Articles", "Planification", "Coordonnées", "Résumé"],
+    heroEyebrow: "Commander",
+    heroTitle: "Passer commande",
+    heroSubtitle: "Choisissez vos articles, planifiez la collecte, c'est tout.",
+    articlesTitle: "Que voulez-vous nettoyer ?",
+    washLabel: "Lavage + repassage",
+    ironLabel: "Repassage seul",
+    removeAria: "Retirer",
+    addAria: "Ajouter",
+    planningTitle: "Quand souhaitez-vous le ramassage ?",
+    planningSubtitle: "Nous sommes ouverts du lundi au samedi, de 8h à 20h.",
+    dateLabel: "Date de ramassage",
+    slotLabel: "Créneau souhaité",
+    sundayWarning: "Nous sommes fermés le dimanche — merci de choisir un autre jour.",
+    contactTitle: "Vos coordonnées",
+    contactSubtitle: "Pour que nous puissions venir chercher vos articles.",
+    nameLabel: "Nom complet",
+    namePlaceholder: "Votre nom",
+    phoneLabel: "Téléphone",
+    phonePlaceholder: "06 12 34 56 78",
+    addressLabel: "Adresse de ramassage",
+    addressPlaceholder: "Rue, immeuble, étage, quartier...",
+    notesLabel: "Notes (optionnel)",
+    notesPlaceholder: "Instructions particulières...",
+    summaryTitle: "Résumé de votre commande",
+    pickupLabel: "Ramassage",
+    contactInfoLabel: "Coordonnées",
+    notesPrefix: "Notes",
+    confirmButton: "Confirmer et envoyer sur WhatsApp",
+    confirmNote:
+      "Vous serez redirigé vers WhatsApp avec votre commande déjà rédigée : il ne vous reste qu'à appuyer sur envoyer.",
+    prev: "Précédent",
+    next: "Suivant",
+    cartTitle: "Votre panier",
+    article: "article",
+    articles: "articles",
+    emptyCart: "Aucun article sélectionné",
+    subtotal: "Sous-total",
+    delivery: "Livraison",
+    deliveryFree: "Gratuite",
+    total: "Total",
+    msg: {
+      title: "Nouvelle commande — Pressing Zerktouni",
+      items: "Articles :",
+      subtotal: "Sous-total",
+      delivery: "Livraison",
+      free: "gratuite",
+      pickup: "Ramassage souhaité",
+      name: "Nom",
+      phone: "Téléphone",
+      address: "Adresse",
+      notes: "Notes",
+    },
+    dateLocale: "fr-FR",
+  },
+  en: {
+    stepLabels: ["Items", "Schedule", "Contact", "Summary"],
+    heroEyebrow: "Order",
+    heroTitle: "Place your order",
+    heroSubtitle: "Choose your items, schedule the pickup, that's it.",
+    articlesTitle: "What would you like cleaned?",
+    washLabel: "Wash + press",
+    ironLabel: "Press only",
+    removeAria: "Remove",
+    addAria: "Add",
+    planningTitle: "When would you like the pickup?",
+    planningSubtitle: "We're open Monday to Saturday, 8am to 8pm.",
+    dateLabel: "Pickup date",
+    slotLabel: "Preferred time slot",
+    sundayWarning: "We're closed on Sundays — please choose another day.",
+    contactTitle: "Your details",
+    contactSubtitle: "So we can come pick up your items.",
+    nameLabel: "Full name",
+    namePlaceholder: "Your name",
+    phoneLabel: "Phone",
+    phonePlaceholder: "06 12 34 56 78",
+    addressLabel: "Pickup address",
+    addressPlaceholder: "Street, building, floor, neighborhood...",
+    notesLabel: "Notes (optional)",
+    notesPlaceholder: "Special instructions...",
+    summaryTitle: "Order summary",
+    pickupLabel: "Pickup",
+    contactInfoLabel: "Contact details",
+    notesPrefix: "Notes",
+    confirmButton: "Confirm and send via WhatsApp",
+    confirmNote: "You'll be redirected to WhatsApp with your order already written up — just tap send.",
+    prev: "Back",
+    next: "Next",
+    cartTitle: "Your cart",
+    article: "item",
+    articles: "items",
+    emptyCart: "No items selected",
+    subtotal: "Subtotal",
+    delivery: "Delivery",
+    deliveryFree: "Free",
+    total: "Total",
+    msg: {
+      title: "New order — Pressing Zerktouni",
+      items: "Items:",
+      subtotal: "Subtotal",
+      delivery: "Delivery",
+      free: "free",
+      pickup: "Requested pickup",
+      name: "Name",
+      phone: "Phone",
+      address: "Address",
+      notes: "Notes",
+    },
+    dateLocale: "en-GB",
+  },
+} satisfies Record<Lang, Record<string, unknown>>;
 
 function parsePrice(price: string): number | null {
   const match = price.match(/(\d+)/);
@@ -50,12 +164,16 @@ function todayISO() {
   return new Date().toISOString().slice(0, 10);
 }
 
-function formatDateFr(iso: string) {
+function formatDate(iso: string, locale: string) {
   const date = new Date(`${iso}T00:00:00`);
-  return new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(date);
+  return new Intl.DateTimeFormat(locale, { weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(
+    date,
+  );
 }
 
 function Commander() {
+  const { lang } = useLanguage();
+  const c = COPY[lang];
   const [step, setStep] = useState(1);
   const [activeCategory, setActiveCategory] = useState(0);
   const [cart, setCart] = useState<Record<string, CartLine>>({});
@@ -88,22 +206,22 @@ function Commander() {
       (line) => `• ${line.itemName} (${line.typeLabel}) x${line.quantity} — ${line.quantity * line.unitPrice} DH`,
     );
     return [
-      "Nouvelle commande — Pressing Zerktouni",
+      c.msg.title,
       "",
-      "Articles :",
+      c.msg.items,
       ...lines,
       "",
-      `Sous-total : ${subtotal} DH`,
-      "Livraison : gratuite",
+      `${c.msg.subtotal} : ${subtotal} DH`,
+      `${c.msg.delivery} : ${c.msg.free}`,
       "",
-      `Ramassage souhaité : ${pickupDate ? formatDateFr(pickupDate) : "—"} · ${pickupSlot}`,
+      `${c.msg.pickup} : ${pickupDate ? formatDate(pickupDate, c.dateLocale) : "—"} · ${pickupSlot}`,
       "",
-      `Nom : ${name}`,
-      `Téléphone : ${phone}`,
-      `Adresse : ${address}`,
-      ...(notes ? [`Notes : ${notes}`] : []),
+      `${c.msg.name} : ${name}`,
+      `${c.msg.phone} : ${phone}`,
+      `${c.msg.address} : ${address}`,
+      ...(notes ? [`${c.msg.notes} : ${notes}`] : []),
     ].join("\n");
-  }, [cartLines, subtotal, pickupDate, pickupSlot, name, phone, address, notes]);
+  }, [cartLines, subtotal, pickupDate, pickupSlot, name, phone, address, notes, c]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -112,20 +230,16 @@ function Commander() {
       <section className="gradient-hero py-12 lg:py-16">
         <div className="container-tight text-center">
           <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
-            Commander
+            {c.heroEyebrow}
           </span>
-          <h1 className="mt-3 font-display text-4xl font-bold text-foreground sm:text-5xl">
-            Passer commande
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            Choisissez vos articles, planifiez la collecte, c'est tout.
-          </p>
+          <h1 className="mt-3 font-display text-4xl font-bold text-foreground sm:text-5xl">{c.heroTitle}</h1>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">{c.heroSubtitle}</p>
         </div>
       </section>
 
       <section className="py-12 lg:py-16">
         <div className="container-tight">
-          <Stepper current={step} />
+          <Stepper current={step} labels={c.stepLabels} />
 
           <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_360px]">
             <div>
@@ -167,7 +281,7 @@ function Commander() {
                     className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
                   >
                     <ChevronLeft className="h-4 w-4" />
-                    Précédent
+                    {c.prev}
                   </button>
                 ) : (
                   <span />
@@ -179,7 +293,7 @@ function Commander() {
                     disabled={!canProceed}
                     className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-md shadow-primary/25 transition-all hover:bg-brand-600 disabled:cursor-not-allowed disabled:opacity-40"
                   >
-                    Suivant
+                    {c.next}
                     <ChevronRight className="h-4 w-4" />
                   </button>
                 )}
@@ -196,10 +310,10 @@ function Commander() {
   );
 }
 
-function Stepper({ current }: { current: number }) {
+function Stepper({ current, labels }: { current: number; labels: string[] }) {
   return (
     <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
-      {STEP_LABELS.map((label, index) => {
+      {labels.map((label, index) => {
         const stepNumber = index + 1;
         const isActive = stepNumber === current;
         const isDone = stepNumber < current;
@@ -217,7 +331,7 @@ function Stepper({ current }: { current: number }) {
                 {label}
               </span>
             </div>
-            {stepNumber < STEP_LABELS.length && (
+            {stepNumber < labels.length && (
               <div className={`h-px w-6 sm:w-12 ${isDone ? "bg-primary" : "bg-border"}`} />
             )}
           </div>
@@ -238,12 +352,15 @@ function StepArticles({
   cart: Record<string, CartLine>;
   onChange: (itemName: string, type: ItemType, typeLabel: string, unitPrice: number, delta: number) => void;
 }) {
-  const category = PRICE_CATEGORIES[activeCategory] ?? PRICE_CATEGORIES[0]!;
+  const { lang } = useLanguage();
+  const c = COPY[lang];
+  const categories = getPriceCategories(lang);
+  const category = categories[activeCategory] ?? categories[0]!;
   return (
     <div>
-      <h2 className="font-display text-xl font-bold text-foreground sm:text-2xl">Que voulez-vous nettoyer ?</h2>
+      <h2 className="font-display text-xl font-bold text-foreground sm:text-2xl">{c.articlesTitle}</h2>
       <div className="mt-4 flex flex-wrap gap-2">
-        {PRICE_CATEGORIES.map((cat, index) => (
+        {categories.map((cat, index) => (
           <button
             key={cat.title}
             type="button"
@@ -277,6 +394,8 @@ function ItemRow({
   cart: Record<string, CartLine>;
   onChange: (itemName: string, type: ItemType, typeLabel: string, unitPrice: number, delta: number) => void;
 }) {
+  const { lang } = useLanguage();
+  const c = COPY[lang];
   const washPrice = parsePrice(item.wash);
   const ironPrice = parsePrice(item.iron);
   const washQty = cart[`${item.name}__wash`]?.quantity ?? 0;
@@ -288,20 +407,24 @@ function ItemRow({
       <div className="flex flex-wrap gap-3">
         {washPrice !== null && (
           <QuantityChip
-            label="Lavage + repassage"
+            label={c.washLabel}
             price={item.wash}
             quantity={washQty}
-            onDecrement={() => onChange(item.name, "wash", "Lavage + repassage", washPrice, -1)}
-            onIncrement={() => onChange(item.name, "wash", "Lavage + repassage", washPrice, 1)}
+            removeAria={c.removeAria}
+            addAria={c.addAria}
+            onDecrement={() => onChange(item.name, "wash", c.washLabel, washPrice, -1)}
+            onIncrement={() => onChange(item.name, "wash", c.washLabel, washPrice, 1)}
           />
         )}
         {ironPrice !== null && (
           <QuantityChip
-            label="Repassage seul"
+            label={c.ironLabel}
             price={item.iron}
             quantity={ironQty}
-            onDecrement={() => onChange(item.name, "iron", "Repassage seul", ironPrice, -1)}
-            onIncrement={() => onChange(item.name, "iron", "Repassage seul", ironPrice, 1)}
+            removeAria={c.removeAria}
+            addAria={c.addAria}
+            onDecrement={() => onChange(item.name, "iron", c.ironLabel, ironPrice, -1)}
+            onIncrement={() => onChange(item.name, "iron", c.ironLabel, ironPrice, 1)}
           />
         )}
       </div>
@@ -313,12 +436,16 @@ function QuantityChip({
   label,
   price,
   quantity,
+  removeAria,
+  addAria,
   onDecrement,
   onIncrement,
 }: {
   label: string;
   price: string;
   quantity: number;
+  removeAria: string;
+  addAria: string;
   onDecrement: () => void;
   onIncrement: () => void;
 }) {
@@ -336,7 +463,7 @@ function QuantityChip({
         type="button"
         onClick={onDecrement}
         disabled={quantity === 0}
-        aria-label={`Retirer ${label}`}
+        aria-label={`${removeAria} ${label}`}
         className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-muted disabled:opacity-30"
       >
         <Minus className="h-3.5 w-3.5" />
@@ -345,7 +472,7 @@ function QuantityChip({
       <button
         type="button"
         onClick={onIncrement}
-        aria-label={`Ajouter ${label}`}
+        aria-label={`${addAria} ${label}`}
         className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-colors hover:bg-brand-600"
       >
         <Plus className="h-3.5 w-3.5" />
@@ -365,17 +492,17 @@ function StepPlanning({
   pickupSlot: string;
   setPickupSlot: (value: string) => void;
 }) {
+  const { lang } = useLanguage();
+  const c = COPY[lang];
   const isSunday = pickupDate ? new Date(`${pickupDate}T00:00:00`).getDay() === 0 : false;
   return (
     <div>
-      <h2 className="font-display text-xl font-bold text-foreground sm:text-2xl">
-        Quand souhaitez-vous le ramassage ?
-      </h2>
-      <p className="mt-2 text-sm text-muted-foreground">Nous sommes ouverts du lundi au samedi, de 8h à 20h.</p>
+      <h2 className="font-display text-xl font-bold text-foreground sm:text-2xl">{c.planningTitle}</h2>
+      <p className="mt-2 text-sm text-muted-foreground">{c.planningSubtitle}</p>
       <div className="mt-6 grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="pickup-date" className="text-sm font-medium text-foreground">
-            Date de ramassage
+            {c.dateLabel}
           </label>
           <input
             id="pickup-date"
@@ -385,13 +512,11 @@ function StepPlanning({
             onChange={(e) => setPickupDate(e.target.value)}
             className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
           />
-          {isSunday && (
-            <p className="mt-2 text-sm text-destructive">Nous sommes fermés le dimanche — merci de choisir un autre jour.</p>
-          )}
+          {isSunday && <p className="mt-2 text-sm text-destructive">{c.sundayWarning}</p>}
         </div>
         <div>
           <label htmlFor="pickup-slot" className="text-sm font-medium text-foreground">
-            Créneau souhaité
+            {c.slotLabel}
           </label>
           <select
             id="pickup-slot"
@@ -428,61 +553,63 @@ function StepContact({
   notes: string;
   setNotes: (value: string) => void;
 }) {
+  const { lang } = useLanguage();
+  const c = COPY[lang];
   return (
     <div>
-      <h2 className="font-display text-xl font-bold text-foreground sm:text-2xl">Vos coordonnées</h2>
-      <p className="mt-2 text-sm text-muted-foreground">Pour que nous puissions venir chercher vos articles.</p>
+      <h2 className="font-display text-xl font-bold text-foreground sm:text-2xl">{c.contactTitle}</h2>
+      <p className="mt-2 text-sm text-muted-foreground">{c.contactSubtitle}</p>
       <div className="mt-6 grid gap-4">
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="order-name" className="text-sm font-medium text-foreground">
-              Nom complet
+              {c.nameLabel}
             </label>
             <input
               id="order-name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Votre nom"
+              placeholder={c.namePlaceholder}
               className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
             />
           </div>
           <div>
             <label htmlFor="order-phone" className="text-sm font-medium text-foreground">
-              Téléphone
+              {c.phoneLabel}
             </label>
             <input
               id="order-phone"
               type="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              placeholder="06 12 34 56 78"
+              placeholder={c.phonePlaceholder}
               className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
             />
           </div>
         </div>
         <div>
           <label htmlFor="order-address" className="text-sm font-medium text-foreground">
-            Adresse de ramassage
+            {c.addressLabel}
           </label>
           <textarea
             id="order-address"
             rows={3}
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            placeholder="Rue, immeuble, étage, quartier..."
+            placeholder={c.addressPlaceholder}
             className="mt-2 w-full resize-none rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
           />
         </div>
         <div>
           <label htmlFor="order-notes" className="text-sm font-medium text-foreground">
-            Notes (optionnel)
+            {c.notesLabel}
           </label>
           <textarea
             id="order-notes"
             rows={2}
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
-            placeholder="Instructions particulières..."
+            placeholder={c.notesPlaceholder}
             className="mt-2 w-full resize-none rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
           />
         </div>
@@ -508,27 +635,33 @@ function StepSummary({
   notes: string;
   whatsappUrl: string;
 }) {
+  const { lang } = useLanguage();
+  const c = COPY[lang];
   return (
     <div>
-      <h2 className="font-display text-xl font-bold text-foreground sm:text-2xl">Résumé de votre commande</h2>
+      <h2 className="font-display text-xl font-bold text-foreground sm:text-2xl">{c.summaryTitle}</h2>
       <div className="mt-6 grid gap-6 sm:grid-cols-2">
         <div className="rounded-2xl border border-border bg-card p-5">
           <h3 className="flex items-center gap-2 font-display text-sm font-semibold text-foreground">
             <Calendar className="h-4 w-4 text-primary" />
-            Ramassage
+            {c.pickupLabel}
           </h3>
-          <p className="mt-2 text-sm text-muted-foreground">{pickupDate ? formatDateFr(pickupDate) : "—"}</p>
+          <p className="mt-2 text-sm text-muted-foreground">{pickupDate ? formatDate(pickupDate, c.dateLocale) : "—"}</p>
           <p className="text-sm text-muted-foreground">{pickupSlot}</p>
         </div>
         <div className="rounded-2xl border border-border bg-card p-5">
           <h3 className="flex items-center gap-2 font-display text-sm font-semibold text-foreground">
             <User className="h-4 w-4 text-primary" />
-            Coordonnées
+            {c.contactInfoLabel}
           </h3>
           <p className="mt-2 text-sm text-muted-foreground">{name}</p>
           <p className="text-sm text-muted-foreground">{phone}</p>
           <p className="text-sm text-muted-foreground">{address}</p>
-          {notes && <p className="mt-1 text-sm text-muted-foreground">Notes : {notes}</p>}
+          {notes && (
+            <p className="mt-1 text-sm text-muted-foreground">
+              {c.notesPrefix} : {notes}
+            </p>
+          )}
         </div>
       </div>
       <a
@@ -538,11 +671,9 @@ function StepSummary({
         className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-base font-medium text-white shadow-lg transition-all hover:brightness-95"
       >
         <MessageCircle className="h-5 w-5" />
-        Confirmer et envoyer sur WhatsApp
+        {c.confirmButton}
       </a>
-      <p className="mt-3 text-sm text-muted-foreground">
-        Vous serez redirigé vers WhatsApp avec votre commande déjà rédigée : il ne vous reste qu'à appuyer sur envoyer.
-      </p>
+      <p className="mt-3 text-sm text-muted-foreground">{c.confirmNote}</p>
     </div>
   );
 }
@@ -556,14 +687,16 @@ function CartSidebar({
   itemCount: number;
   subtotal: number;
 }) {
+  const { lang } = useLanguage();
+  const c = COPY[lang];
   return (
     <div className="h-fit rounded-2xl border border-border bg-card p-6 shadow-sm lg:sticky lg:top-24">
-      <h3 className="font-display text-lg font-semibold text-foreground">Votre panier</h3>
+      <h3 className="font-display text-lg font-semibold text-foreground">{c.cartTitle}</h3>
       <p className="mt-1 text-sm text-muted-foreground">
-        {itemCount} article{itemCount > 1 ? "s" : ""}
+        {itemCount} {itemCount > 1 ? c.articles : c.article}
       </p>
       {lines.length === 0 ? (
-        <p className="mt-6 text-sm text-muted-foreground">Aucun article sélectionné</p>
+        <p className="mt-6 text-sm text-muted-foreground">{c.emptyCart}</p>
       ) : (
         <ul className="mt-4 space-y-3 border-t border-border pt-4">
           {lines.map((line) => (
@@ -581,15 +714,15 @@ function CartSidebar({
       )}
       <div className="mt-6 space-y-2 border-t border-border pt-4 text-sm">
         <div className="flex items-center justify-between text-muted-foreground">
-          <span>Sous-total</span>
+          <span>{c.subtotal}</span>
           <span>{subtotal} DH</span>
         </div>
         <div className="flex items-center justify-between text-muted-foreground">
-          <span>Livraison</span>
-          <span className="font-medium text-primary">Gratuite</span>
+          <span>{c.delivery}</span>
+          <span className="font-medium text-primary">{c.deliveryFree}</span>
         </div>
         <div className="flex items-center justify-between font-display text-base font-bold text-foreground">
-          <span>Total</span>
+          <span>{c.total}</span>
           <span>{subtotal} DH</span>
         </div>
       </div>

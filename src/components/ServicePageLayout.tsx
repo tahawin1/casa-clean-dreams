@@ -9,12 +9,66 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-import { services, type ServiceContent } from "@/data/services";
+import { getService, getServices } from "@/data/services";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { useLanguage, type Lang } from "@/i18n/LanguageContext";
 
-export function ServicePageLayout({ service }: { service: ServiceContent }) {
-  const others = services.filter((item) => item.slug !== service.slug);
+const COPY: Record<
+  Lang,
+  {
+    breadcrumbHome: string;
+    breadcrumbServices: string;
+    quote: string;
+    call: string;
+    express: string;
+    delivery: string;
+    address: string;
+    detailsEyebrow: string;
+    detailsTitle: string;
+    discoverEyebrow: string;
+    discoverTitle: string;
+    backHome: string;
+    ctaTitle: string;
+  }
+> = {
+  fr: {
+    breadcrumbHome: "Accueil",
+    breadcrumbServices: "Services",
+    quote: "Demander un devis",
+    call: "Appeler",
+    express: "Express 6h",
+    delivery: "Ramassage & livraison gratuite",
+    address: "237 Bd Mohamed Zerktouni, Casablanca",
+    detailsEyebrow: "Détails du service",
+    detailsTitle: "Ce que comprend notre service",
+    discoverEyebrow: "À découvrir aussi",
+    discoverTitle: "Nos autres services de pressing à Casablanca",
+    backHome: "Retour à l'accueil du pressing Pressing Zerktouni",
+    ctaTitle: "Prêt à confier vos vêtements à des experts ?",
+  },
+  en: {
+    breadcrumbHome: "Home",
+    breadcrumbServices: "Services",
+    quote: "Request a quote",
+    call: "Call",
+    express: "6h express",
+    delivery: "Free pickup & delivery",
+    address: "237 Bd Mohamed Zerktouni, Casablanca",
+    detailsEyebrow: "Service details",
+    detailsTitle: "What's included in this service",
+    discoverEyebrow: "You may also like",
+    discoverTitle: "Our other dry cleaning services in Casablanca",
+    backHome: "Back to the Pressing Zerktouni home page",
+    ctaTitle: "Ready to trust your clothes to experts?",
+  },
+};
+
+export function ServicePageLayout({ slug }: { slug: string }) {
+  const { lang } = useLanguage();
+  const c = COPY[lang];
+  const service = getService(slug, lang);
+  const others = getServices(lang).filter((item) => item.slug !== service.slug);
 
   return (
     <div className="min-h-screen bg-background">
@@ -24,11 +78,11 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
       <nav aria-label="Fil d'Ariane" className="border-b border-border bg-brand-50">
         <div className="container-tight flex items-center gap-2 py-3 text-sm text-muted-foreground">
           <Link to="/" className="hover:text-primary">
-            Accueil
+            {c.breadcrumbHome}
           </Link>
           <ChevronRight className="h-3.5 w-3.5" />
           <Link to="/services" className="hover:text-primary">
-            Services
+            {c.breadcrumbServices}
           </Link>
           <ChevronRight className="h-3.5 w-3.5" />
           <span className="text-foreground">{service.navTitle}</span>
@@ -48,7 +102,7 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600"
               >
-                Demander un devis
+                {c.quote}
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <a
@@ -56,18 +110,18 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-base font-medium text-foreground transition-colors hover:bg-muted"
               >
                 <Phone className="h-4 w-4" />
-                Appeler
+                {c.call}
               </a>
             </div>
             <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
               <span className="flex items-center gap-2">
-                <Zap className="h-4 w-4 text-primary" /> Express 6h
+                <Zap className="h-4 w-4 text-primary" /> {c.express}
               </span>
               <span className="flex items-center gap-2">
-                <Truck className="h-4 w-4 text-primary" /> Ramassage & livraison gratuite
+                <Truck className="h-4 w-4 text-primary" /> {c.delivery}
               </span>
               <span className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-primary" /> 237 Bd Mohamed Zerktouni, Casablanca
+                <MapPin className="h-4 w-4 text-primary" /> {c.address}
               </span>
             </div>
           </div>
@@ -87,10 +141,10 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
       <section className="py-16 lg:py-24">
         <div className="container-tight">
           <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
-            Détails du service
+            {c.detailsEyebrow}
           </span>
           <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl">
-            Ce que comprend notre service
+            {c.detailsTitle}
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {service.items.map((item) => (
@@ -117,10 +171,10 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
       <section className="py-16 lg:py-24">
         <div className="container-tight">
           <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
-            À découvrir aussi
+            {c.discoverEyebrow}
           </span>
           <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl">
-            Nos autres services de pressing à Casablanca
+            {c.discoverTitle}
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {others.map((item) => (
@@ -153,7 +207,7 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
               to="/"
               className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
             >
-              Retour à l'accueil du pressing Pressing Zerktouni
+              {c.backHome}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -163,14 +217,14 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
       <section className="border-t border-border bg-brand-50 py-16 lg:py-20">
         <div className="container-tight flex flex-col items-center gap-6 text-center">
           <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-            Prêt à confier vos vêtements à des experts ?
+            {c.ctaTitle}
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600"
             >
-              Demander un devis
+              {c.quote}
               <ArrowRight className="h-4 w-4" />
             </Link>
             <a

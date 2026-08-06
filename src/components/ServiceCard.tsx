@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 
 import type { ServicePath } from "@/data/services";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function ServiceCard({
   image,
@@ -16,6 +17,7 @@ export function ServiceCard({
   description: string;
   to: ServicePath;
 }) {
+  const { lang } = useLanguage();
   return (
     <Link to={to} className="group block overflow-hidden rounded-2xl border border-border bg-card text-card-foreground shadow-sm transition-all hover:shadow-lg hover:shadow-brand-900/5">
       <div className="aspect-[4/3] overflow-hidden">
@@ -35,7 +37,7 @@ export function ServiceCard({
         <h3 className="font-display text-lg font-semibold text-foreground">{title}</h3>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
         <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
-          En savoir plus
+          {lang === "fr" ? "En savoir plus" : "Learn more"}
           <ChevronRight className="h-4 w-4" />
         </span>
       </div>
