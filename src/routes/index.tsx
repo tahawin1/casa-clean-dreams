@@ -23,6 +23,7 @@ import promoFidelite from "@/assets/promo-fidelite.jpg";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ServiceCard } from "@/components/ServiceCard";
+import { ProcessStepsTimeline } from "@/components/ProcessSteps";
 
 const SITE_URL = "https://casa-clean-dreams.lovable.app";
 const PAGE_TITLE = "Pressing Zerktouni Casablanca | Nettoyage à Sec 6h";
@@ -120,12 +121,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-const USPS = [
-  { icon: <Zap className="h-5 w-5" />, title: "Service express 6h" },
-  { icon: <Truck className="h-5 w-5" />, title: "Ramassage & livraison gratuite" },
-  { icon: <Award className="h-5 w-5" />, title: "Expertise depuis 2010" },
-];
 
 function Index() {
   return (
@@ -338,38 +333,28 @@ function Index() {
         </div>
       </section>
 
-      {/* Why choose us — teaser */}
+      {/* Comment ça marche — teaser */}
       <section className="bg-brand-50 py-16 lg:py-20">
         <div className="container-tight">
-          <div className="flex flex-col items-center gap-4 text-center">
+          <div className="mx-auto max-w-2xl text-center">
             <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
-              Pourquoi nous choisir
+              Comment ça marche
             </span>
-            <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
-              La propreté, sans compromis
+            <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">
+              Trois étapes simples
             </h2>
           </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            {USPS.map((usp) => (
-              <div
-                key={usp.title}
-                className="flex flex-col items-center gap-3 rounded-2xl bg-background p-6 text-center shadow-sm"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  {usp.icon}
-                </div>
-                <h3 className="font-display text-base font-semibold text-foreground">{usp.title}</h3>
-              </div>
-            ))}
+          <div className="mt-14">
+            <ProcessStepsTimeline />
           </div>
 
           <div className="mt-10 text-center">
             <Link
-              to="/avantages"
+              to="/processus"
               className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
             >
-              Découvrir nos avantages
+              Découvrir notre processus
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

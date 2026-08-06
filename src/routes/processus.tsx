@@ -1,16 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Phone, Package, Sparkles, PackageCheck } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { ProcessStepsTimeline } from "@/components/ProcessSteps";
 import { SITE_URL } from "@/data/services";
 import { buildPageHead } from "@/lib/service-head";
 
 const PAGE_TITLE = "Notre processus | Pressing Zerktouni Casablanca";
 const PAGE_DESCRIPTION =
-  "Découvrez comment fonctionne Pressing Zerktouni à Casablanca : dépôt en magasin, nettoyage expert, retour impeccable. Un processus simple en 3 étapes.";
+  "Découvrez comment fonctionne Pressing Zerktouni à Casablanca : choisissez vos articles, on vient les récupérer chez vous, livraison impeccable. Un processus simple en 3 étapes.";
 const PAGE_KEYWORDS =
-  "processus pressing Casablanca, comment fonctionne pressing Zerktouni, dépôt vêtements pressing Casablanca, étapes nettoyage pressing";
+  "processus pressing Casablanca, comment fonctionne pressing Zerktouni, ramassage pressing Casablanca, étapes nettoyage pressing";
 
 export const Route = createFileRoute("/processus")({
   head: () =>
@@ -41,34 +42,14 @@ function Processus() {
             Trois étapes simples
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            Déposez, nous nettoyons, vous récupérez. Un processus fluide pensé pour votre confort.
+            Choisissez, nous venons chercher, vous récupérez. Un processus fluide pensé pour votre confort.
           </p>
         </div>
       </section>
 
       <section className="py-16 lg:py-24">
         <div className="container-tight">
-          <div className="relative grid gap-12 sm:grid-cols-3 sm:gap-6">
-            <div
-              aria-hidden="true"
-              className="absolute left-[16.6%] right-[16.6%] top-8 hidden border-t-2 border-dashed border-primary/30 sm:block"
-            />
-            <ProcessStep
-              icon={<Package className="h-6 w-6" />}
-              title="Dépôt en magasin"
-              description="Apportez vos articles dans notre pressing au centre-ville de Casablanca. Nous établissons un diagnostic précis et un devis transparent."
-            />
-            <ProcessStep
-              icon={<Sparkles className="h-6 w-6" />}
-              title="Nettoyage expert"
-              description="Nos professionnels traitent chaque pièce selon sa matière et ses besoins spécifiques, avec des produits adaptés et respectueux."
-            />
-            <ProcessStep
-              icon={<PackageCheck className="h-6 w-6" />}
-              title="Retour impeccable"
-              description="Récupérez vos vêtements propres, repassés et emballés avec soin. Livraison disponible sur demande dans Casablanca."
-            />
-          </div>
+          <ProcessStepsTimeline />
         </div>
       </section>
 
@@ -97,26 +78,6 @@ function Processus() {
       </section>
 
       <SiteFooter />
-    </div>
-  );
-}
-
-function ProcessStep({
-  icon,
-  title,
-  description,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="relative flex flex-col items-center gap-3 text-center">
-      <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/25">
-        {icon}
-      </div>
-      <h3 className="font-display text-lg font-semibold text-foreground">{title}</h3>
-      <p className="max-w-xs text-sm text-muted-foreground">{description}</p>
     </div>
   );
 }
