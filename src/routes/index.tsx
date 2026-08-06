@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 import heroImage from "@/assets/hero-pressing.jpg";
+import heroVideo from "@/assets/hero-video.mp4";
 import serviceVetements from "@/assets/service-vetements.jpg";
 import serviceCostumes from "@/assets/service-costumes.jpg";
 import serviceLinge from "@/assets/service-linge.jpg";
@@ -131,15 +132,25 @@ function Index() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative overflow-hidden gradient-hero">
-        <div className="container-tight grid gap-12 py-20 lg:grid-cols-2 lg:items-center lg:py-28">
-          <div className="flex flex-col gap-6">
-            <h1 className="font-display text-4xl font-bold leading-[1.1] text-foreground sm:text-5xl lg:text-6xl">
+      <section className="relative flex min-h-[560px] items-center overflow-hidden lg:min-h-[640px]">
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src={heroVideo}
+          poster={heroImage}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-900/85 via-brand-900/60 to-brand-900/30" />
+        <div className="container-tight relative py-20 lg:py-28">
+          <div className="flex max-w-xl flex-col gap-6">
+            <h1 className="font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl lg:text-6xl">
               Pressing Zerktouni à Casablanca,{" "}
               <span className="text-primary">soin premium</span>
             </h1>
 
-            <p className="max-w-xl text-lg text-muted-foreground">
+            <p className="max-w-xl text-lg text-white/85">
               Votre pressing sur le Boulevard Mohamed Zerktouni à Casablanca. Nettoyage à sec, repassage, blanchisserie, cuir, sacs et tapis avec service express 6h et livraison gratuite.
             </p>
             <div className="flex flex-wrap items-center gap-4">
@@ -152,13 +163,13 @@ function Index() {
               </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-base font-medium text-foreground transition-colors hover:bg-muted"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 py-3 text-base font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20"
               >
                 Nos services
                 <ChevronRight className="h-4 w-4" />
               </Link>
             </div>
-            <div className="flex flex-wrap items-center gap-6 pt-2 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-6 pt-2 text-sm text-white/80">
               <div className="flex items-center gap-2">
                 <Zap className="h-4 w-4 text-primary" />
                 <span>Express 6h</span>
@@ -172,17 +183,6 @@ function Index() {
                 <span>Qualité garantie</span>
               </div>
             </div>
-          </div>
-          <div className="relative">
-            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/20 to-transparent blur-3xl" />
-            <img
-              src={heroImage}
-              alt="Façade du pressing Pressing Zerktouni sur le Boulevard Mohamed Zerktouni à Casablanca"
-              width={1448}
-              height={1086}
-              className="relative rounded-2xl border border-white/50 shadow-2xl shadow-brand-900/10"
-              decoding="async"
-            />
           </div>
         </div>
       </section>
