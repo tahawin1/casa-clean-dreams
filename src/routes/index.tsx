@@ -10,8 +10,6 @@ import {
   Zap,
   Truck,
   Leaf,
-  Tag,
-  Gift,
 } from "lucide-react";
 
 import heroImage from "@/assets/hero-pressing.jpg";
@@ -20,6 +18,9 @@ import serviceVetements from "@/assets/service-vetements.jpg";
 import serviceCostumes from "@/assets/service-costumes.jpg";
 import serviceLinge from "@/assets/service-linge.jpg";
 import serviceCuir from "@/assets/service-cuir.jpg";
+import promoCostume from "@/assets/promo-costume.png";
+import promoCouture from "@/assets/promo-couture.webp";
+import promoFidelite from "@/assets/promo-fidelite.jpg";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -218,6 +219,44 @@ function Index() {
         </div>
       </section>
 
+      {/* Promotions */}
+      <section className="bg-brand-900 py-20 lg:py-28">
+        <div className="container-tight">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
+              Offres du moment
+            </span>
+            <h2 className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
+              Nos promotions exclusives
+            </h2>
+            <p className="mt-4 text-white/70">
+              Costumes et tailleurs à prix mini le mercredi et le vendredi, et un lavage gratuit tous les 4 lavages.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-8 md:grid-cols-3">
+            <img
+              src={promoCostume}
+              alt="Promo : lavage de costume homme à 45 DH le mercredi et le vendredi"
+              className="w-full rounded-2xl shadow-2xl"
+              loading="lazy"
+            />
+            <img
+              src={promoCouture}
+              alt="Promo : soin premium couture et retouche à 45 DH le mercredi et le vendredi"
+              className="w-full rounded-2xl shadow-2xl"
+              loading="lazy"
+            />
+            <img
+              src={promoFidelite}
+              alt="Offre fidélité : le 5ème lavage est offert après 4 lavages"
+              className="w-full rounded-2xl shadow-2xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Services preview */}
       <section className="py-20 lg:py-28">
         <div className="container-tight">
@@ -231,25 +270,6 @@ function Index() {
             <p className="mt-4 text-muted-foreground">
               Du linge quotidien aux pièces les plus délicates, nous prenons soin de vos vêtements et accessoires avec expertise.
             </p>
-          </div>
-
-          <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl bg-primary text-primary-foreground shadow-lg shadow-primary/25">
-            <div className="grid gap-6 px-6 py-8 text-center sm:grid-cols-2 sm:divide-x sm:divide-white/20 sm:px-10">
-              <div className="flex flex-col items-center gap-2 sm:pr-6">
-                <Tag className="h-6 w-6" />
-                <p className="font-display text-lg font-bold">Mercredi & vendredi</p>
-                <p className="text-sm text-primary-foreground/90">
-                  Nettoyage de costumes (hommes) et tailleurs (femmes) à <span className="font-bold">45 DH</span>
-                </p>
-              </div>
-              <div className="flex flex-col items-center gap-2 sm:pl-6">
-                <Gift className="h-6 w-6" />
-                <p className="font-display text-lg font-bold">Offre fidélité</p>
-                <p className="text-sm text-primary-foreground/90">
-                  4 lavages achetés, le <span className="font-bold">5ème est gratuit</span>
-                </p>
-              </div>
-            </div>
           </div>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
