@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AvantagesRouteImport } from './routes/avantages'
+import { Route as CommanderRouteImport } from './routes/commander'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ProcessusRouteImport } from './routes/processus'
+import { Route as TarifsRouteImport } from './routes/tarifs'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesCostumesCeremoniesRouteImport } from './routes/services.costumes-ceremonies'
 import { Route as ServicesCuirChaussuresRouteImport } from './routes/services.cuir-chaussures'
@@ -29,6 +31,11 @@ const AvantagesRoute = AvantagesRouteImport.update({
   path: '/avantages',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommanderRoute = CommanderRouteImport.update({
+  id: '/commander',
+  path: '/commander',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -37,6 +44,11 @@ const ContactRoute = ContactRouteImport.update({
 const ProcessusRoute = ProcessusRouteImport.update({
   id: '/processus',
   path: '/processus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TarifsRoute = TarifsRouteImport.update({
+  id: '/tarifs',
+  path: '/tarifs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -70,8 +82,10 @@ const ServicesPressingVetementsRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/avantages': typeof AvantagesRoute
+  '/commander': typeof CommanderRoute
   '/contact': typeof ContactRoute
   '/processus': typeof ProcessusRoute
+  '/tarifs': typeof TarifsRoute
   '/services/costumes-ceremonies': typeof ServicesCostumesCeremoniesRoute
   '/services/cuir-chaussures': typeof ServicesCuirChaussuresRoute
   '/services/linge-de-maison': typeof ServicesLingeDeMaisonRoute
@@ -81,8 +95,10 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/avantages': typeof AvantagesRoute
+  '/commander': typeof CommanderRoute
   '/contact': typeof ContactRoute
   '/processus': typeof ProcessusRoute
+  '/tarifs': typeof TarifsRoute
   '/services/costumes-ceremonies': typeof ServicesCostumesCeremoniesRoute
   '/services/cuir-chaussures': typeof ServicesCuirChaussuresRoute
   '/services/linge-de-maison': typeof ServicesLingeDeMaisonRoute
@@ -93,8 +109,10 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/avantages': typeof AvantagesRoute
+  '/commander': typeof CommanderRoute
   '/contact': typeof ContactRoute
   '/processus': typeof ProcessusRoute
+  '/tarifs': typeof TarifsRoute
   '/services/costumes-ceremonies': typeof ServicesCostumesCeremoniesRoute
   '/services/cuir-chaussures': typeof ServicesCuirChaussuresRoute
   '/services/linge-de-maison': typeof ServicesLingeDeMaisonRoute
@@ -106,8 +124,10 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/avantages'
+    | '/commander'
     | '/contact'
     | '/processus'
+    | '/tarifs'
     | '/services/costumes-ceremonies'
     | '/services/cuir-chaussures'
     | '/services/linge-de-maison'
@@ -117,8 +137,10 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/avantages'
+    | '/commander'
     | '/contact'
     | '/processus'
+    | '/tarifs'
     | '/services/costumes-ceremonies'
     | '/services/cuir-chaussures'
     | '/services/linge-de-maison'
@@ -128,8 +150,10 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/avantages'
+    | '/commander'
     | '/contact'
     | '/processus'
+    | '/tarifs'
     | '/services/costumes-ceremonies'
     | '/services/cuir-chaussures'
     | '/services/linge-de-maison'
@@ -140,8 +164,10 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AvantagesRoute: typeof AvantagesRoute
+  CommanderRoute: typeof CommanderRoute
   ContactRoute: typeof ContactRoute
   ProcessusRoute: typeof ProcessusRoute
+  TarifsRoute: typeof TarifsRoute
   ServicesCostumesCeremoniesRoute: typeof ServicesCostumesCeremoniesRoute
   ServicesCuirChaussuresRoute: typeof ServicesCuirChaussuresRoute
   ServicesLingeDeMaisonRoute: typeof ServicesLingeDeMaisonRoute
@@ -165,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AvantagesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/commander': {
+      id: '/commander'
+      path: '/commander'
+      fullPath: '/commander'
+      preLoaderRoute: typeof CommanderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -177,6 +210,13 @@ declare module '@tanstack/react-router' {
       path: '/processus'
       fullPath: '/processus'
       preLoaderRoute: typeof ProcessusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tarifs': {
+      id: '/tarifs'
+      path: '/tarifs'
+      fullPath: '/tarifs'
+      preLoaderRoute: typeof TarifsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -220,8 +260,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AvantagesRoute: AvantagesRoute,
+  CommanderRoute: CommanderRoute,
   ContactRoute: ContactRoute,
   ProcessusRoute: ProcessusRoute,
+  TarifsRoute: TarifsRoute,
   ServicesCostumesCeremoniesRoute: ServicesCostumesCeremoniesRoute,
   ServicesCuirChaussuresRoute: ServicesCuirChaussuresRoute,
   ServicesLingeDeMaisonRoute: ServicesLingeDeMaisonRoute,

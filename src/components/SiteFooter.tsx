@@ -52,6 +52,11 @@ export function SiteFooter() {
             <h3 className="font-display text-sm font-semibold text-foreground">Entreprise</h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li>
+                <Link to="/commander" className="hover:text-primary">
+                  Commander
+                </Link>
+              </li>
+              <li>
                 <Link to="/tarifs" className="hover:text-primary">
                   Tarifs
                 </Link>

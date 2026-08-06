@@ -48,10 +48,10 @@ export function SiteHeader() {
             05 22 36 36 34
           </a>
           <Link
-            to="/contact"
+            to="/commander"
             className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-brand-600"
           >
-            Devis gratuit
+            Commander
           </Link>
         </div>
 
@@ -79,9 +79,16 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              to="/commander"
+              className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Commander
+            </Link>
             <a
               href="tel:+212522363634"
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
+              className="inline-flex items-center justify-center rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground"
             >
               05 22 36 36 34
             </a>
