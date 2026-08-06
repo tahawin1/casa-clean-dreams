@@ -441,7 +441,7 @@ function Index() {
             <p className="max-w-xl text-lg text-white/85">{c.heroSubtitle}</p>
             <div className="flex flex-wrap items-center gap-4">
               <Link
-                to="/contact"
+                to="/commander"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl hover:shadow-primary/30"
               >
                 {c.quote}
