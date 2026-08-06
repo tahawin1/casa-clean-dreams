@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, Sparkles, ArrowRight, Gift } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Sparkles, ArrowRight, Gift, Tag } from "lucide-react";
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -50,32 +50,49 @@ function Contact() {
         </div>
       </section>
 
-      <section className="border-b border-border bg-brand-50 py-10">
+      <section className="border-b border-border bg-brand-50 py-12">
         <div className="container-tight">
-          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-              <Gift className="h-6 w-6" />
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="flex flex-col items-center gap-4 rounded-2xl bg-background p-6 text-center shadow-sm sm:p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Tag className="h-6 w-6" />
+              </div>
+              <h2 className="font-display text-xl font-semibold text-foreground sm:text-2xl">
+                Promo mercredi & vendredi
+              </h2>
+              <p className="text-muted-foreground">
+                Chaque mercredi et vendredi, profitez du nettoyage de vos{" "}
+                <span className="font-semibold text-foreground">costumes (hommes)</span> et{" "}
+                <span className="font-semibold text-foreground">tailleurs (femmes)</span> à{" "}
+                <span className="font-semibold text-foreground">45 DH</span> seulement. Offre valable uniquement ces deux jours, dans la limite des places disponibles.
+              </p>
             </div>
-            <h2 className="font-display text-xl font-semibold text-foreground sm:text-2xl">
-              Notre carte de fidélité
-            </h2>
-            <p className="text-muted-foreground">
-              Demandez votre carte de fidélité Pressing Zerktouni dès votre premier passage. Chaque lavage vous rapporte un cachet : après{" "}
-              <span className="font-semibold text-foreground">4 lavages tamponnés</span>, votre{" "}
-              <span className="font-semibold text-foreground">5ème lavage est offert</span>.
-            </p>
-            <div className="flex items-center gap-2">
-              {[1, 2, 3, 4].map((n) => (
-                <div
-                  key={n}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary/40 bg-background font-display text-sm font-bold text-primary"
-                >
-                  {n}
+
+            <div className="flex flex-col items-center gap-4 rounded-2xl bg-background p-6 text-center shadow-sm sm:p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <Gift className="h-6 w-6" />
+              </div>
+              <h2 className="font-display text-xl font-semibold text-foreground sm:text-2xl">
+                Notre carte de fidélité
+              </h2>
+              <p className="text-muted-foreground">
+                Demandez votre carte de fidélité dès votre premier passage. Chaque lavage vous rapporte un cachet : après{" "}
+                <span className="font-semibold text-foreground">4 lavages tamponnés</span>, votre{" "}
+                <span className="font-semibold text-foreground">5ème lavage est offert</span>.
+              </p>
+              <div className="flex items-center gap-2">
+                {[1, 2, 3, 4].map((n) => (
+                  <div
+                    key={n}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary/40 bg-background font-display text-sm font-bold text-primary"
+                  >
+                    {n}
+                  </div>
+                ))}
+                <span className="text-lg text-muted-foreground">+</span>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-center font-display text-[11px] font-bold leading-tight text-primary-foreground">
+                  Offert
                 </div>
-              ))}
-              <span className="text-lg text-muted-foreground">+</span>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-center font-display text-[11px] font-bold leading-tight text-primary-foreground">
-                Offert
               </div>
             </div>
           </div>
