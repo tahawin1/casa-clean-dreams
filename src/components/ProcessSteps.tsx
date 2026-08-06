@@ -38,6 +38,23 @@ const STEPS: Record<Lang, { icon: ReactNode; title: string; description: string 
       description: "Your clothes cleaned, pressed and carefully packed, delivered straight to your door.",
     },
   ],
+  ar: [
+    {
+      icon: <ShoppingBag className="h-6 w-6" />,
+      title: "اختاروا قطعكم",
+      description: "اختاروا القطع المراد تنظيفها وحددوا موعد الاستلام في بضع نقرات.",
+    },
+    {
+      icon: <Truck className="h-6 w-6" />,
+      title: "نأتي إليكم",
+      description: "فريقنا يستلم ملابسكم مجانا من منزلكم في الوقت الذي تختارونه.",
+    },
+    {
+      icon: <PackageCheck className="h-6 w-6" />,
+      title: "توصيل بلا عيوب",
+      description: "ملابسكم منظفة ومكوية ومغلفة بعناية، تُسلَّم مباشرة إلى باب منزلكم.",
+    },
+  ],
 };
 
 export function ProcessStepsTimeline() {

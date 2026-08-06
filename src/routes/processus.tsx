@@ -47,6 +47,13 @@ const COPY: Record<
     ctaTitle: "Ready to trust us with your clothes?",
     quote: "Request a quote",
   },
+  ar: {
+    eyebrow: "كيف نعمل",
+    title: "ثلاث خطوات بسيطة",
+    subtitle: "اختاروا، نستلم منكم، تسترجعون ملابسكم. مسار سلس مصمم لراحتكم.",
+    ctaTitle: "مستعدون لتوكيلنا بملابسكم؟",
+    quote: "اطلب عرض سعر",
+  },
 };
 
 function Processus() {
@@ -82,7 +89,7 @@ function Processus() {
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600"
             >
               {c.quote}
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
             <a
               href="tel:+212522363634"

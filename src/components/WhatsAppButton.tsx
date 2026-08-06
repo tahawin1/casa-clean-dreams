@@ -4,11 +4,13 @@ import { useLanguage } from "@/i18n/LanguageContext";
 const GREETING = {
   fr: "Bonjour, je souhaite avoir des informations sur vos services de pressing.",
   en: "Hello, I'd like some information about your dry cleaning services.",
+  ar: "مرحبا، أود الحصول على معلومات حول خدمات الغسيل والكي لديكم.",
 };
 
 const ARIA_LABEL = {
   fr: "Contactez-nous sur WhatsApp",
   en: "Contact us on WhatsApp",
+  ar: "تواصلوا معنا عبر واتساب",
 };
 
 export function WhatsAppButton() {

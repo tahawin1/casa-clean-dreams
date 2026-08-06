@@ -155,6 +155,50 @@ const COPY: Record<
     messagePlaceholder: "Describe what you need...",
     submit: "Send my request",
   },
+  ar: {
+    eyebrow: "التواصل والعنوان",
+    title: "تفضلوا بزيارتنا",
+    subtitle: "يقع برسينغنا في قلب وسط مدينة الدار البيضاء، ويسهل الوصول إليه. نحن في خدمتكم لتلبية جميع احتياجاتكم.",
+    promoTitle: "عرض الأربعاء والجمعة",
+    promoText: ({ costume, tailleur, price }) => (
+      <>
+        كل أربعاء وجمعة، استفيدوا من تنظيف <span className="font-semibold text-foreground">{costume}</span> و
+        <span className="font-semibold text-foreground">{tailleur}</span> بـ
+        <span className="font-semibold text-foreground">{price}</span> فقط. العرض ساري في هذين اليومين فقط، وفي حدود
+        الأماكن المتاحة.
+      </>
+    ),
+    loyaltyTitle: "بطاقة الولاء لدينا",
+    loyaltyText: ({ washes, free }) => (
+      <>
+        اطلبوا بطاقة الولاء الخاصة بكم منذ أول زيارة. كل غسلة تمنحكم ختما: بعد{" "}
+        <span className="font-semibold text-foreground">{washes}</span>، تحصلون على{" "}
+        <span className="font-semibold text-foreground">{free}</span>.
+      </>
+    ),
+    offered: "مجاني",
+    addressTitle: "العنوان",
+    hoursTitle: "ساعات العمل",
+    hours: "الاثنين – السبت: 8:00 – 20:00",
+    closed: "الأحد: مغلق",
+    phoneTitle: "الهاتف",
+    emailTitle: "البريد الإلكتروني",
+    directions: "الاتجاهات",
+    formTitle: "اطلبوا عرض سعر مجاني",
+    formSubtitle: "املأوا هذه الاستمارة وسنتواصل معكم في أقرب وقت.",
+    sentTitle: "تم إرسال الطلب!",
+    sentText: "شكرا لتواصلكم معنا. سيتصل بكم فريقنا في أقرب وقت ممكن.",
+    sendAnother: "إرسال طلب جديد",
+    nameLabel: "الاسم",
+    namePlaceholder: "اسمكم",
+    phoneLabel: "الهاتف",
+    phonePlaceholder: "06 12 34 56 78",
+    serviceLabel: "الخدمة المطلوبة",
+    serviceOptions: ["كي وتنظيف الملابس", "البدلات والمناسبات", "بياضات المنزل", "الجلد والأحذية", "أخرى"],
+    messageLabel: "الرسالة",
+    messagePlaceholder: "صفوا احتياجاتكم...",
+    submit: "إرسال طلبي",
+  },
 };
 
 function Contact() {
@@ -191,8 +235,9 @@ function Contact() {
               <h2 className="font-display text-xl font-semibold text-foreground sm:text-2xl">{c.promoTitle}</h2>
               <p className="text-muted-foreground">
                 {c.promoText({
-                  costume: lang === "fr" ? "costumes (hommes)" : "suits (men)",
-                  tailleur: lang === "fr" ? "tailleurs (femmes)" : "skirt suits (women)",
+                  costume: lang === "fr" ? "costumes (hommes)" : lang === "ar" ? "بدلات (رجالية)" : "suits (men)",
+                  tailleur:
+                    lang === "fr" ? "tailleurs (femmes)" : lang === "ar" ? "تياءير (نسائية)" : "skirt suits (women)",
                   price: "45 DH",
                 })}
               </p>
@@ -205,8 +250,8 @@ function Contact() {
               <h2 className="font-display text-xl font-semibold text-foreground sm:text-2xl">{c.loyaltyTitle}</h2>
               <p className="text-muted-foreground">
                 {c.loyaltyText({
-                  washes: lang === "fr" ? "4 lavages tamponnés" : "4 stamped washes",
-                  free: lang === "fr" ? "5ème lavage est offert" : "5th wash is free",
+                  washes: lang === "fr" ? "4 lavages tamponnés" : lang === "ar" ? "4 غسلات مختومة" : "4 stamped washes",
+                  free: lang === "fr" ? "5ème lavage est offert" : lang === "ar" ? "الغسلة الخامسة مجانية" : "5th wash is free",
                 })}
               </p>
               <div className="flex items-center gap-2">
@@ -383,7 +428,7 @@ function Contact() {
                     className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl"
                   >
                     {c.submit}
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-4 w-4 rtl:rotate-180" />
                   </button>
                 </form>
               )}

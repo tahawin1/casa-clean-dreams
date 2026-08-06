@@ -95,6 +95,33 @@ const COPY: Record<
     ctaTitle: "Discover our 3-step process",
     ctaButton: "Our process",
   },
+  ar: {
+    eyebrow: "لماذا تختاروننا",
+    title: "نظافة بلا تنازلات",
+    subtitle: "نجمع بين الخبرة التقليدية والتقنيات الحديثة لنقدم نتيجة مثالية في كل مرة.",
+    items: [
+      {
+        title: "خدمة سريعة 6 ساعات",
+        description: "هل لديكم حاجة مستعجلة؟ استفيدوا من خدمتنا السريعة لاسترجاع ملابسكم خلال 6 ساعات بالضبط.",
+      },
+      {
+        title: "استلام وتوصيل مجاني",
+        description: "نأتي لاستلام قطعكم ونعيدها نظيفة ومكوية، دون أي رسوم توصيل إضافية.",
+      },
+      {
+        title: "خبرة منذ 2010",
+        description: "منذ 2010، يتقن فريقنا المؤهل تقنيات التنظيف المناسبة لكل نوع قماش.",
+      },
+    ],
+    categories: [
+      { title: "الملابس اليومية", description: "قمصان، سراويل، فساتين، تنانير" },
+      { title: "القطع الحساسة", description: "حرير، صوف، كشمير، دانتيل" },
+      { title: "الكميات الكبيرة", description: "شراشف، لحف، ستائر، مفارش" },
+      { title: "الجلود والفراء", description: "سترات، حقائب، أحذية، أحزمة" },
+    ],
+    ctaTitle: "اكتشفوا كيف نعمل في 3 خطوات",
+    ctaButton: "كيف نعمل",
+  },
 };
 
 function Avantages() {
@@ -161,7 +188,7 @@ function Avantages() {
             className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600"
           >
             {c.ctaButton}
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4 rtl:rotate-180" />
           </Link>
         </div>
       </section>

@@ -153,6 +153,61 @@ const COPY = {
     },
     dateLocale: "en-GB",
   },
+  ar: {
+    stepLabels: ["العناصر", "الجدولة", "معلوماتكم", "الملخص"],
+    heroEyebrow: "اطلب الآن",
+    heroTitle: "قدّموا طلبكم",
+    heroSubtitle: "اختاروا قطعكم، حددوا موعد الاستلام، هذا كل شيء.",
+    articlesTitle: "ماذا تريدون تنظيفه؟",
+    washLabel: "غسيل + كي",
+    ironLabel: "كي فقط",
+    removeAria: "إزالة",
+    addAria: "إضافة",
+    planningTitle: "متى تريدون الاستلام؟",
+    planningSubtitle: "نحن مفتوحون من الاثنين إلى السبت، من 8 صباحا إلى 8 مساء.",
+    dateLabel: "تاريخ الاستلام",
+    slotLabel: "الفترة المفضلة",
+    sundayWarning: "نحن مغلقون يوم الأحد — الرجاء اختيار يوم آخر.",
+    contactTitle: "معلوماتكم",
+    contactSubtitle: "لكي نتمكن من القدوم لاستلام قطعكم.",
+    nameLabel: "الاسم الكامل",
+    namePlaceholder: "اسمكم",
+    phoneLabel: "الهاتف",
+    phonePlaceholder: "06 12 34 56 78",
+    addressLabel: "عنوان الاستلام",
+    addressPlaceholder: "الشارع، العمارة، الطابق، الحي...",
+    notesLabel: "ملاحظات (اختياري)",
+    notesPlaceholder: "تعليمات خاصة...",
+    summaryTitle: "ملخص طلبكم",
+    pickupLabel: "الاستلام",
+    contactInfoLabel: "معلومات التواصل",
+    notesPrefix: "ملاحظات",
+    confirmButton: "تأكيد الإرسال عبر واتساب",
+    confirmNote: "سيتم توجيهكم إلى واتساب مع طلبكم جاهزا للإرسال: لن يبقى سوى الضغط على زر الإرسال.",
+    prev: "السابق",
+    next: "التالي",
+    cartTitle: "سلتكم",
+    article: "منتج",
+    articles: "منتجات",
+    emptyCart: "لم يتم اختيار أي منتج",
+    subtotal: "المجموع الفرعي",
+    delivery: "التوصيل",
+    deliveryFree: "مجاني",
+    total: "المجموع",
+    msg: {
+      title: "طلب جديد — برسينغ الزرقطوني",
+      items: "المنتجات:",
+      subtotal: "المجموع الفرعي",
+      delivery: "التوصيل",
+      free: "مجاني",
+      pickup: "موعد الاستلام المطلوب",
+      name: "الاسم",
+      phone: "الهاتف",
+      address: "العنوان",
+      notes: "ملاحظات",
+    },
+    dateLocale: "ar-MA",
+  },
 } satisfies Record<Lang, Record<string, unknown>>;
 
 function parsePrice(price: string): number | null {
@@ -280,7 +335,7 @@ function Commander() {
                     onClick={() => setStep((s) => Math.max(1, s - 1))}
                     className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
                   >
-                    <ChevronLeft className="h-4 w-4" />
+                    <ChevronLeft className="h-4 w-4 rtl:rotate-180" />
                     {c.prev}
                   </button>
                 ) : (
@@ -294,7 +349,7 @@ function Commander() {
                     className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-md shadow-primary/25 transition-all hover:bg-brand-600 disabled:cursor-not-allowed disabled:opacity-40"
                   >
                     {c.next}
-                    <ChevronRight className="h-4 w-4" />
+                    <ChevronRight className="h-4 w-4 rtl:rotate-180" />
                   </button>
                 )}
               </div>

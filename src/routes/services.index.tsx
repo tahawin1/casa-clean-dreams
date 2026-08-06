@@ -117,6 +117,35 @@ const COPY: Record<
     ctaTitle: "A question about one of our services?",
     quote: "Request a quote",
   },
+  ar: {
+    eyebrow: "خدماتنا",
+    title: "خدمات شاملة لجميع أقمشتكم",
+    subtitle:
+      "من الغسيل اليومي إلى القطع الأكثر حساسية، يعتني برسينغ الزرقطوني بملابسكم وإكسسواراتكم بخبرة عالية، في شارع محمد الزرقطوني بالدار البيضاء.",
+    cards: [
+      {
+        title: "كي وتنظيف الملابس",
+        description:
+          "تنظيف جاف وكي لقمصانكم وسراويلكم وفساتينكم وملابسكم اليومية. خدمة سريعة 6 ساعات وتوصيل مجاني.",
+      },
+      {
+        title: "البدلات والمناسبات",
+        description:
+          "عناية متخصصة بالبدلات والسموكينغ وفساتين السهرة والقفاطين والتقاشيط. معالجة راقية وتغليف دقيق.",
+      },
+      {
+        title: "بياضات المنزل والسجاد",
+        description:
+          "تنظيف وكي الشراشف واللحف والستائر والمفارش ومناشف الحمام. تنظيف السجاد وسجاد الصلاة عند الطلب.",
+      },
+      {
+        title: "الجلد والحقائب والأحذية",
+        description: "تنظيف وترميم وحماية من الماء لأحذيتكم وحقائبكم وستراتكم وإكسسواراتكم الجلدية.",
+      },
+    ],
+    ctaTitle: "لديكم سؤال حول إحدى خدماتنا؟",
+    quote: "اطلب عرض سعر",
+  },
 };
 
 function ServicesIndex() {
@@ -181,7 +210,7 @@ function ServicesIndex() {
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600"
             >
               {c.quote}
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
             <a
               href="tel:+212522363634"

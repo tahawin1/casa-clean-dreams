@@ -25,11 +25,21 @@ const NAV_LINKS: Record<Lang, { to: string; label: string }[]> = {
     { to: "/processus", label: "Process" },
     { to: "/contact", label: "Contact" },
   ],
+  ar: [
+    { to: "/", label: "الرئيسية" },
+    { to: "/services", label: "الخدمات" },
+    { to: "/tarifs", label: "الأسعار" },
+    { to: "/commander", label: "اطلب الآن" },
+    { to: "/avantages", label: "مميزاتنا" },
+    { to: "/processus", label: "كيف نعمل" },
+    { to: "/contact", label: "اتصل بنا" },
+  ],
 };
 
 const COPY: Record<Lang, { order: string; open: string; close: string }> = {
   fr: { order: "Commander", open: "Ouvrir le menu", close: "Fermer le menu" },
   en: { order: "Order now", open: "Open menu", close: "Close menu" },
+  ar: { order: "اطلب الآن", open: "فتح القائمة", close: "إغلاق القائمة" },
 };
 
 export function SiteHeader() {

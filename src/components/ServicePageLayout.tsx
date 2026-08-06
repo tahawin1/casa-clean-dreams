@@ -62,6 +62,21 @@ const COPY: Record<
     backHome: "Back to the Pressing Zerktouni home page",
     ctaTitle: "Ready to trust your clothes to experts?",
   },
+  ar: {
+    breadcrumbHome: "الرئيسية",
+    breadcrumbServices: "الخدمات",
+    quote: "اطلب عرض سعر",
+    call: "اتصل بنا",
+    express: "خدمة سريعة 6 ساعات",
+    delivery: "استلام وتوصيل مجاني",
+    address: "237 شارع محمد الزرقطوني، الدار البيضاء",
+    detailsEyebrow: "تفاصيل الخدمة",
+    detailsTitle: "ما تتضمنه خدمتنا",
+    discoverEyebrow: "اكتشفوا أيضا",
+    discoverTitle: "خدمات التنظيف الأخرى لدينا في الدار البيضاء",
+    backHome: "العودة إلى الصفحة الرئيسية لبرسينغ الزرقطوني",
+    ctaTitle: "مستعدون لتوكيل ملابسكم إلى خبراء؟",
+  },
 };
 
 export function ServicePageLayout({ slug }: { slug: string }) {
@@ -80,11 +95,11 @@ export function ServicePageLayout({ slug }: { slug: string }) {
           <Link to="/" className="hover:text-primary">
             {c.breadcrumbHome}
           </Link>
-          <ChevronRight className="h-3.5 w-3.5" />
+          <ChevronRight className="h-3.5 w-3.5 rtl:rotate-180" />
           <Link to="/services" className="hover:text-primary">
             {c.breadcrumbServices}
           </Link>
-          <ChevronRight className="h-3.5 w-3.5" />
+          <ChevronRight className="h-3.5 w-3.5 rtl:rotate-180" />
           <span className="text-foreground">{service.navTitle}</span>
         </div>
       </nav>
@@ -103,7 +118,7 @@ export function ServicePageLayout({ slug }: { slug: string }) {
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600"
               >
                 {c.quote}
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 rtl:rotate-180" />
               </Link>
               <a
                 href="tel:+212522363634"
@@ -208,7 +223,7 @@ export function ServicePageLayout({ slug }: { slug: string }) {
               className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
             >
               {c.backHome}
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
           </div>
         </div>
@@ -225,7 +240,7 @@ export function ServicePageLayout({ slug }: { slug: string }) {
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600"
             >
               {c.quote}
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
             <a
               href="tel:+212522363634"

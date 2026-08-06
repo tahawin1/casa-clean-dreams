@@ -169,6 +169,85 @@ const PRICE_CATEGORIES_EN: PriceCategory[] = [
   },
 ];
 
+const PRICE_CATEGORIES_AR: PriceCategory[] = [
+  {
+    title: "ملابس يومية",
+    description: "قمصان، سراويل، بدلات، سترات، فساتين وأكثر — تنظيف جاف وكي دقيق لملابسكم اليومية.",
+    icon: <Shirt className="h-5 w-5" />,
+    items: [
+      { name: "سروال", wash: "19 DH", iron: "14 DH" },
+      { name: "سروال بدلة", wash: "22 DH", iron: "16 DH" },
+      { name: "قميص على علاقة", wash: "18 DH", iron: "12 DH" },
+      { name: "قميص مطوي", wash: "22 DH", iron: "14 DH" },
+      { name: "صديري بدلة", wash: "18 DH", iron: "12 DH" },
+      { name: "بدلة", wash: "49 DH", iron: "31 DH" },
+      { name: "تايور بتنورة", wash: "49 DH", iron: "31 DH" },
+      { name: "تايور بسروال", wash: "49 DH", iron: "31 DH" },
+      { name: "سترة", wash: "26 DH", iron: "17 DH" },
+      { name: "بولوفر", wash: "22 DH", iron: "14 DH" },
+      { name: "بولوفر مزخرف", wash: "28 DH", iron: "14 DH" },
+      { name: "فستان", wash: "38 DH", iron: "20 DH" },
+      { name: "تنورة", wash: "22 DH", iron: "14 DH" },
+      { name: "تنورة طويلة", wash: "28 DH", iron: "16 DH" },
+      { name: "تنورة مثنية", wash: "32 DH", iron: "16 DH" },
+      { name: "جمبسوت", wash: "44 DH", iron: "28 DH" },
+      { name: "بلوزة حرير", wash: "28 DH", iron: "16 DH" },
+      { name: "معطف", wash: "44 DH", iron: "28 DH" },
+      { name: "معطف واق من المطر", wash: "64 DH", iron: "20 DH" },
+      { name: "قميص داخلي", wash: "13 DH", iron: "9 DH" },
+      { name: "شورت", wash: "16 DH", iron: "9 DH" },
+      { name: "سترة منفوخة", wash: "50 DH", iron: "—" },
+      { name: "سترة منفوخة بالريش", wash: "60 DH", iron: "—" },
+      { name: "جاكيت", wash: "40 DH", iron: "18 DH" },
+      { name: "قميص بولو", wash: "18 DH", iron: "12 DH" },
+      { name: "تي شيرت", wash: "18 DH", iron: "12 DH" },
+      { name: "ربطة عنق", wash: "15 DH", iron: "7 DH" },
+    ],
+  },
+  {
+    title: "ملابس تقليدية",
+    description: "التقشيطة، القفطان، الجلابة، الڭندورة والجابادور تعالج بعناية خاصة للحفاظ على الأقمشة والتطريز.",
+    icon: <Sparkles className="h-5 w-5" />,
+    items: [
+      { name: "تقشيطة تقليدية · ابتداء من", wash: "150 DH", iron: "60 DH" },
+      { name: "جلابة · ابتداء من", wash: "39 DH", iron: "20 DH" },
+      { name: "ڭندورة · ابتداء من", wash: "44 DH", iron: "27 DH" },
+      { name: "جابادور", wash: "44 DH", iron: "28 DH" },
+      { name: "جابادور ثلاثي", wash: "72 DH", iron: "38 DH" },
+      { name: "قفطان بسيط", wash: "96 DH", iron: "60 DH" },
+      { name: "قفطان فاخر", wash: "120 DH", iron: "60 DH" },
+      { name: "قفطان ثلاثي", wash: "160 DH", iron: "80 DH" },
+    ],
+  },
+  {
+    title: "بياضات المنزل",
+    description: "الشراشف، أغطية اللحف، أغطية السرير والبطانيات تُغسل بعمق ثم تُكوى.",
+    icon: <BedDouble className="h-5 w-5" />,
+    items: [
+      { name: "غطاء لحاف · ابتداء من", wash: "60 DH", iron: "35 DH" },
+      { name: "شرشف مسطح · ابتداء من", wash: "20 DH", iron: "30 DH" },
+      { name: "شرشف بأطراف مطاطية · ابتداء من", wash: "20 DH", iron: "30 DH" },
+      { name: "غطاء سرير · ابتداء من", wash: "55 DH", iron: "28 DH" },
+      { name: "بطانية", wash: "70 DH", iron: "—" },
+      { name: "لحاف صناعي · ابتداء من", wash: "150 DH", iron: "—" },
+    ],
+  },
+  {
+    title: "المفروشات",
+    description: "الستائر، الستائر الشفافة، المفارش والسجاد تُنظف بالمتر المربع، في المنزل أو في الورشة.",
+    icon: <Sofa className="h-5 w-5" />,
+    items: [
+      { name: "مفرش طاولة", wash: "30 DH / m²", iron: "15 DH / m²" },
+      { name: "ستارة · ابتداء من", wash: "20 DH / m²", iron: "15 DH / m²" },
+      { name: "ستارة شفافة · ابتداء من", wash: "15 DH / m²", iron: "11 DH / m²" },
+      { name: "سجادة · ابتداء من", wash: "40 DH / m²", iron: "—" },
+      { name: "غطاء أريكة", wash: "10 DH / ml", iron: "10 DH / ml" },
+    ],
+  },
+];
+
 export function getPriceCategories(lang: Lang): PriceCategory[] {
-  return lang === "en" ? PRICE_CATEGORIES_EN : PRICE_CATEGORIES_FR;
+  if (lang === "en") return PRICE_CATEGORIES_EN;
+  if (lang === "ar") return PRICE_CATEGORIES_AR;
+  return PRICE_CATEGORIES_FR;
 }

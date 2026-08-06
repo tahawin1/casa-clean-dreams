@@ -53,6 +53,21 @@ const COPY: Record<
     privacy: "Privacy policy",
     legal: "Legal notice",
   },
+  ar: {
+    tagline: "برسينغكم الفاخر في وسط مدينة الدار البيضاء. جودة وسرعة في خدمة ملابسكم.",
+    servicesTitle: "الخدمات",
+    companyTitle: "الشركة",
+    order: "اطلب الآن",
+    pricing: "الأسعار",
+    advantages: "مميزاتنا",
+    process: "كيف نعمل",
+    contact: "اتصل بنا",
+    jobs: "التوظيف",
+    contactTitle: "اتصل بنا",
+    rights: "جميع الحقوق محفوظة.",
+    privacy: "سياسة الخصوصية",
+    legal: "الإشعار القانوني",
+  },
 };
 
 export function SiteFooter() {

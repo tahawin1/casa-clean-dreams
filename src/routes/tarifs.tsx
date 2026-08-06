@@ -70,6 +70,19 @@ const COPY: Record<
     ctaTitle: "A question about our pricing?",
     quote: "Request a quote",
   },
+  ar: {
+    eyebrow: "الخدمات",
+    title: "الأسعار",
+    subtitle: "أسعار شفافة لكل قطعة. بدون رسوم خفية.",
+    intro:
+      "ينظف برسينغ الزرقطوني ويغسل ويكوي ملابسكم اليومية وأزياءكم التقليدية وبياضات منزلكم ومفروشاتكم، مع خدمة استلام وتوصيل مجانية إلى المنزل. كل قطعة متوفرة بصيغتين: غسيل وكي، أو كي فقط.",
+    orderNow: "اطلب الآن",
+    washCol: "غسيل وكي",
+    ironCol: "كي فقط",
+    note: "الأسعار المذكورة بـ«ابتداء من» والأسعار بالمتر المربع هي تقديرية؛ يتم تأكيد السعر النهائي عند الاستلام، بعد معاينة القطعة.",
+    ctaTitle: "لديكم سؤال حول أسعارنا؟",
+    quote: "اطلب عرض سعر",
+  },
 };
 
 function Tarifs() {
@@ -95,7 +108,7 @@ function Tarifs() {
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl"
             >
               {c.orderNow}
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
           </div>
         </div>
@@ -119,14 +132,14 @@ function Tarifs() {
 
               <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
                 <div className="overflow-x-auto">
-                  <table className="w-full min-w-[520px] border-collapse text-left">
+                  <table className="w-full min-w-[520px] border-collapse text-left rtl:text-right">
                     <thead>
                       <tr className="border-b border-border">
                         <th className="px-5 py-3" />
-                        <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                        <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wide text-muted-foreground rtl:text-left">
                           {c.washCol}
                         </th>
-                        <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                        <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wide text-muted-foreground rtl:text-left">
                           {c.ironCol}
                         </th>
                       </tr>
@@ -138,8 +151,8 @@ function Tarifs() {
                           className={index !== category.items.length - 1 ? "border-b border-border" : ""}
                         >
                           <td className="px-5 py-3 text-sm text-foreground">{item.name}</td>
-                          <td className="px-5 py-3 text-right text-sm font-bold text-primary">{item.wash}</td>
-                          <td className="px-5 py-3 text-right text-sm font-bold text-primary">{item.iron}</td>
+                          <td className="px-5 py-3 text-right text-sm font-bold text-primary rtl:text-left">{item.wash}</td>
+                          <td className="px-5 py-3 text-right text-sm font-bold text-primary rtl:text-left">{item.iron}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -162,7 +175,7 @@ function Tarifs() {
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600"
             >
               {c.quote}
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
             <a
               href="tel:+212522363634"

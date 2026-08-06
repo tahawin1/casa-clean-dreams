@@ -37,8 +37,8 @@ export function ServiceCard({
         <h3 className="font-display text-lg font-semibold text-foreground">{title}</h3>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
         <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
-          {lang === "fr" ? "En savoir plus" : "Learn more"}
-          <ChevronRight className="h-4 w-4" />
+          {lang === "fr" ? "En savoir plus" : lang === "ar" ? "اعرف المزيد" : "Learn more"}
+          <ChevronRight className="h-4 w-4 rtl:rotate-180" />
         </span>
       </div>
     </Link>

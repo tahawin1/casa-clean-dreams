@@ -329,6 +329,85 @@ const COPY: Record<
     ctaTitle: "Ready to trust your clothes to experts?",
     ctaSubtitle: "Request your free quote or contact us directly: we'll get back to you quickly.",
   },
+  ar: {
+    heroTitle: (
+      <>
+        برسينغ الزرقطوني بالدار البيضاء، <span className="text-primary">عناية فاخرة</span>
+      </>
+    ),
+    heroSubtitle:
+      "برسينغكم في شارع محمد الزرقطوني بالدار البيضاء. تنظيف جاف، كي، غسيل، جلد، حقائب وسجاد مع خدمة سريعة 6 ساعات وتوصيل مجاني.",
+    quote: "اطلب عرض سعر",
+    ourServices: "خدماتنا",
+    express: "خدمة سريعة 6 ساعات",
+    pickupFree: "استلام وتوصيل مجاني",
+    qualityGuaranteed: "جودة مضمونة",
+    trustSince: "منذ 2010",
+    trustSinceSub: "في خدمتكم بشارع محمد الزرقطوني",
+    trustExpress: "خدمة سريعة 6 ساعات",
+    trustExpressSub: "خدمة فائقة السرعة متوفرة",
+    trustFree: "مجاني",
+    trustFreeSub: "استلام وتوصيل إلى المنزل",
+    promoEyebrow: "عروضنا الحالية",
+    promoTitle: "عروضنا الحصرية",
+    promoSubtitle: "بدلات وتياءير بأفضل الأسعار يوم الأربعاء والجمعة، وغسلة مجانية كل 4 غسلات.",
+    promoBadgeDays: "أربعاء وجمعة",
+    promoBadgeLoyalty: "الولاء",
+    promoAlt1: "عرض: تنظيف بدلة رجالية بـ45 درهم يوم الأربعاء والجمعة",
+    promoAlt2: "عرض: خياطة وتفصيل راقٍ بـ45 درهم يوم الأربعاء والجمعة",
+    promoAlt3: "عرض الولاء: الغسلة الخامسة مجانية بعد 4 غسلات",
+    promoCta: "استفيدوا من العرض",
+    servicesEyebrow: "خدماتنا",
+    servicesTitle: "خدمات شاملة لجميع أقمشتكم",
+    servicesSubtitle: "من الغسيل اليومي إلى القطع الأكثر حساسية، نعتني بملابسكم وإكسسواراتكم بخبرة عالية.",
+    services: [
+      {
+        title: "كي وتنظيف الملابس",
+        description:
+          "تنظيف جاف وكي لقمصانكم وسراويلكم وفساتينكم وملابسكم اليومية. خدمة سريعة 6 ساعات وتوصيل مجاني.",
+      },
+      {
+        title: "البدلات والمناسبات",
+        description:
+          "عناية متخصصة بالبدلات والسموكينغ وفساتين السهرة والقفاطين والتقاشيط. معالجة راقية وتغليف دقيق.",
+      },
+      {
+        title: "بياضات المنزل والسجاد",
+        description:
+          "تنظيف وكي الشراشف واللحف والستائر والمفارش ومناشف الحمام. تنظيف السجاد وسجاد الصلاة عند الطلب.",
+      },
+      {
+        title: "الجلد والحقائب والأحذية",
+        description: "تنظيف وترميم وحماية من الماء لأحذيتكم وحقائبكم وستراتكم وإكسسواراتكم الجلدية.",
+      },
+    ],
+    seeAllServices: "شاهدوا كل خدماتنا",
+    howEyebrow: "كيف نعمل",
+    howTitle: "ثلاث خطوات بسيطة",
+    discoverProcess: "اكتشفوا كيف نعمل",
+    reviewsEyebrow: "آراء عملائنا",
+    reviewsTitle: "يثقون بنا",
+    testimonials: [
+      {
+        quote:
+          "خدمة لا تشوبها شائبة وسريعة. بدلاتي تعالج دائما بعناية كبيرة. أفضل برسينغ في وسط مدينة الدار البيضاء.",
+        author: "كريم ب.",
+        role: "مستشار",
+      },
+      {
+        quote: "أوكل فساتين السهرة وبياضات منزلي منذ سنوات. جودة ثابتة وفريق محترف جدا.",
+        author: "سلمى م.",
+        role: "محامية",
+      },
+      {
+        quote: "ترميم أحذيتي الجلدية كان مذهلا. كأنها جديدة تماما. أنصح بشدة!",
+        author: "يوسف ت.",
+        role: "رائد أعمال",
+      },
+    ],
+    ctaTitle: "مستعدون لتوكيل ملابسكم إلى خبراء؟",
+    ctaSubtitle: "اطلبوا عرض السعر المجاني أو تواصلوا معنا مباشرة: نرد عليكم بسرعة.",
+  },
 };
 
 function Index() {
@@ -364,14 +443,14 @@ function Index() {
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl hover:shadow-primary/30"
               >
                 {c.quote}
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 rtl:rotate-180" />
               </Link>
               <Link
                 to="/services"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-6 py-3 text-base font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20"
               >
                 {c.ourServices}
-                <ChevronRight className="h-4 w-4" />
+                <ChevronRight className="h-4 w-4 rtl:rotate-180" />
               </Link>
             </div>
             <div className="flex flex-wrap items-center gap-6 pt-2 text-sm text-white/80">
@@ -474,7 +553,7 @@ function Index() {
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl"
             >
               {c.promoCta}
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
           </div>
         </div>
@@ -528,7 +607,7 @@ function Index() {
               className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
             >
               {c.seeAllServices}
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
           </div>
         </div>
@@ -554,7 +633,7 @@ function Index() {
               className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
             >
               {c.discoverProcess}
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </Link>
           </div>
         </div>
@@ -590,7 +669,7 @@ function Index() {
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-background px-6 py-3 text-base font-medium text-foreground shadow-lg transition-all hover:bg-muted"
               >
                 {c.quote}
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 rtl:rotate-180" />
               </Link>
               <a
                 href="tel:+212522363634"
