@@ -78,8 +78,8 @@ export const Route = createFileRoute("/")({
           },
           geo: {
             "@type": "GeoCoordinates",
-            latitude: "33.5750",
-            longitude: "-7.6315",
+            latitude: "33.5903249",
+            longitude: "-7.6359013",
           },
           openingHoursSpecification: {
             "@type": "OpeningHoursSpecification",
