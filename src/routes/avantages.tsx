@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Zap, Truck, Award, Leaf, Shirt, Sparkles, BedDouble, Footprints, ArrowRight } from "lucide-react";
+import { Zap, Truck, Award, Shirt, Sparkles, BedDouble, Footprints, ArrowRight } from "lucide-react";
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -8,9 +8,9 @@ import { buildPageHead } from "@/lib/service-head";
 
 const PAGE_TITLE = "Nos avantages | Pressing Zerktouni Casablanca";
 const PAGE_DESCRIPTION =
-  "Pourquoi choisir Pressing Zerktouni à Casablanca : service express 6h, ramassage et livraison gratuite, expertise depuis 2010, engagement écologique.";
+  "Pourquoi choisir Pressing Zerktouni à Casablanca : service express 6h, ramassage et livraison gratuite, expertise depuis 2010.";
 const PAGE_KEYWORDS =
-  "avantages pressing Casablanca, pressing express 6h Casablanca, ramassage livraison pressing gratuit, pressing écologique Casablanca, pressing Zerktouni depuis 2010";
+  "avantages pressing Casablanca, pressing express 6h Casablanca, ramassage livraison pressing gratuit, pressing Zerktouni depuis 2010";
 
 export const Route = createFileRoute("/avantages")({
   head: () =>
@@ -64,11 +64,6 @@ function Avantages() {
                 icon={<Award className="h-5 w-5" />}
                 title="Expertise depuis 2010"
                 description="Depuis 2010, notre équipe qualifiée maîtrise les techniques de nettoyage adaptées à chaque matière."
-              />
-              <AdvantageItem
-                icon={<Leaf className="h-5 w-5" />}
-                title="Engagement écologique"
-                description="Nous utilisons des produits doux et des procédés économes en eau pour préserver vos textiles et l'environnement."
               />
             </div>
             <div className="relative rounded-2xl bg-gradient-to-br from-brand-100 to-brand-200 p-8">

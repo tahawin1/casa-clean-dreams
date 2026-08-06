@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, Package, Sparkles, PackageCheck } from "lucide-react";
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -48,19 +48,23 @@ function Processus() {
 
       <section className="py-16 lg:py-24">
         <div className="container-tight">
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="relative grid gap-12 sm:grid-cols-3 sm:gap-6">
+            <div
+              aria-hidden="true"
+              className="absolute left-[16.6%] right-[16.6%] top-8 hidden border-t-2 border-dashed border-primary/30 sm:block"
+            />
             <ProcessStep
-              step="01"
+              icon={<Package className="h-6 w-6" />}
               title="Dépôt en magasin"
               description="Apportez vos articles dans notre pressing au centre-ville de Casablanca. Nous établissons un diagnostic précis et un devis transparent."
             />
             <ProcessStep
-              step="02"
+              icon={<Sparkles className="h-6 w-6" />}
               title="Nettoyage expert"
               description="Nos professionnels traitent chaque pièce selon sa matière et ses besoins spécifiques, avec des produits adaptés et respectueux."
             />
             <ProcessStep
-              step="03"
+              icon={<PackageCheck className="h-6 w-6" />}
               title="Retour impeccable"
               description="Récupérez vos vêtements propres, repassés et emballés avec soin. Livraison disponible sur demande dans Casablanca."
             />
@@ -98,21 +102,21 @@ function Processus() {
 }
 
 function ProcessStep({
-  step,
+  icon,
   title,
   description,
 }: {
-  step: string;
+  icon: React.ReactNode;
   title: string;
   description: string;
 }) {
   return (
-    <div className="relative rounded-2xl border border-border bg-card p-8 text-center shadow-sm">
-      <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground">
-        {step}
+    <div className="relative flex flex-col items-center gap-3 text-center">
+      <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/25">
+        {icon}
       </div>
       <h3 className="font-display text-lg font-semibold text-foreground">{title}</h3>
-      <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+      <p className="max-w-xs text-sm text-muted-foreground">{description}</p>
     </div>
   );
 }

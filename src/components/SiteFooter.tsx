@@ -17,7 +17,7 @@ export function SiteFooter() {
               </span>
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
-              Votre pressing premium au centre-ville de Casablanca. Qualité, rapidité et écologie au service de vos vêtements.
+              Votre pressing premium au centre-ville de Casablanca. Qualité et rapidité au service de vos vêtements.
             </p>
             <div className="mt-4 flex gap-3">
               <a

@@ -9,7 +9,6 @@ import {
   ArrowRight,
   Zap,
   Truck,
-  Leaf,
 } from "lucide-react";
 
 import heroImage from "@/assets/hero-pressing.jpg";
@@ -126,7 +125,6 @@ const USPS = [
   { icon: <Zap className="h-5 w-5" />, title: "Service express 6h" },
   { icon: <Truck className="h-5 w-5" />, title: "Ramassage & livraison gratuite" },
   { icon: <Award className="h-5 w-5" />, title: "Expertise depuis 2010" },
-  { icon: <Leaf className="h-5 w-5" />, title: "Engagement écologique" },
 ];
 
 function Index() {
@@ -352,7 +350,7 @@ function Index() {
             </h2>
           </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {USPS.map((usp) => (
               <div
                 key={usp.title}
