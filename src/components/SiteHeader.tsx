@@ -7,8 +7,8 @@ import logoImage from "@/assets/logo.png";
 const NAV_LINKS = [
   { to: "/", label: "Accueil" },
   { to: "/services", label: "Services" },
-  { to: "/commander", label: "Commander" },
   { to: "/tarifs", label: "Tarifs" },
+  { to: "/commander", label: "Commander" },
   { to: "/avantages", label: "Avantages" },
   { to: "/processus", label: "Processus" },
   { to: "/contact", label: "Contact" },
