@@ -130,6 +130,7 @@ const COPY: Record<
   {
     heroTitle: React.ReactNode;
     heroSubtitle: string;
+    heroCta: string;
     quote: string;
     ourServices: string;
     express: string;
@@ -173,6 +174,7 @@ const COPY: Record<
     ),
     heroSubtitle:
       "Votre pressing sur le Boulevard Mohamed Zerktouni à Casablanca. Nettoyage à sec, repassage, blanchisserie, cuir, sacs et tapis avec service express 6h et livraison gratuite.",
+    heroCta: "Commander",
     quote: "Demander un devis",
     ourServices: "Nos services",
     express: "Express 6h",
@@ -257,6 +259,7 @@ const COPY: Record<
     ),
     heroSubtitle:
       "Your dry cleaner on Boulevard Mohamed Zerktouni in Casablanca. Dry cleaning, ironing, laundry, leather, bags and rugs with 6h express service and free delivery.",
+    heroCta: "Order now",
     quote: "Request a quote",
     ourServices: "Our services",
     express: "Express 6h",
@@ -339,6 +342,7 @@ const COPY: Record<
     ),
     heroSubtitle:
       "برسينغكم في شارع محمد الزرقطوني بالدار البيضاء. تنظيف جاف، كي، غسيل، جلد، حقائب وسجاد مع خدمة سريعة 6 ساعات وتوصيل مجاني.",
+    heroCta: "اطلب الآن",
     quote: "اطلب عرض سعر",
     ourServices: "خدماتنا",
     express: "خدمة سريعة 6 ساعات",
@@ -444,7 +448,7 @@ function Index() {
                 to="/commander"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl hover:shadow-primary/30"
               >
-                {c.quote}
+                {c.heroCta}
                 <ArrowRight className="h-4 w-4 rtl:rotate-180" />
               </Link>
               <Link
