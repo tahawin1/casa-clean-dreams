@@ -335,7 +335,7 @@ function Contact() {
               <div className="mt-8 overflow-hidden rounded-2xl border border-border shadow-sm">
                 <iframe
                   title="Carte de localisation du pressing – 237 Bd Mohamed Zerktouni, Casablanca"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=-7.6459%2C33.5828%2C-7.6259%2C33.5978&layer=mapnik&marker=33.5903249%2C-7.6359013"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-7.6457%2C33.5829%2C-7.6257%2C33.5979&layer=mapnik&marker=33.590421%2C-7.63566"
                   className="h-[320px] w-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
