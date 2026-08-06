@@ -7,6 +7,7 @@ import logoImage from "@/assets/logo.png";
 const NAV_LINKS = [
   { to: "/", label: "Accueil" },
   { to: "/services", label: "Services" },
+  { to: "/tarifs", label: "Tarifs" },
   { to: "/avantages", label: "Avantages" },
   { to: "/processus", label: "Processus" },
   { to: "/contact", label: "Contact" },
