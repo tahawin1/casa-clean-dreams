@@ -85,8 +85,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Pressing Zerktouni Casablanca | Nettoyage à Sec 24h" },
       { property: "og:description", content: "Votre pressing Zerktouni à Casablanca. Nettoyage à sec, repassage, blanchisserie, cuir, tapis et entretien des sacs. Express 6h et livraison gratuite." },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://www.pressingzerktouni.com/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@PressingZerktouni" },
+      { name: "twitter:image", content: "https://www.pressingzerktouni.com/og-image.jpg" },
     ],
     links: [
       {

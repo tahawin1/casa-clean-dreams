@@ -25,9 +25,11 @@ export function buildPageHead(
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "fr_MA" },
       { property: "og:url", content: url },
+      { property: "og:image", content: `${siteUrl}/og-image.jpg` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: opts.title },
       { name: "twitter:description", content: opts.description },
+      { name: "twitter:image", content: `${siteUrl}/og-image.jpg` },
     ],
     links: [{ rel: "canonical", href: url }],
     scripts: [
@@ -67,9 +69,11 @@ export function buildServiceHead(service: ServiceContent, siteUrl: string) {
       { property: "og:type", content: "article" },
       { property: "og:locale", content: "fr_MA" },
       { property: "og:url", content: url },
+      { property: "og:image", content: `${siteUrl}/og-image.jpg` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: service.title },
       { name: "twitter:description", content: service.description },
+      { name: "twitter:image", content: `${siteUrl}/og-image.jpg` },
     ],
     links: [{ rel: "canonical", href: url }],
     scripts: [
