@@ -110,29 +110,6 @@ export function ServicePageLayout({ service }: { service: ServiceContent }) {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="bg-brand-50 py-16 lg:py-24">
-        <div className="container-tight max-w-3xl">
-          <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-            Questions fréquentes
-          </h2>
-          <div className="mt-8 grid gap-4">
-            {service.faq.map((entry) => (
-              <div
-                key={entry.question}
-                className="rounded-xl border border-border bg-background p-6"
-              >
-                <h3 className="font-display text-base font-semibold text-foreground">
-                  {entry.question}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {entry.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Internal links */}
       <section className="py-16 lg:py-24">

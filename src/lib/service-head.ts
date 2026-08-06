@@ -121,18 +121,6 @@ export function buildServiceHead(service: ServiceContent, siteUrl: string) {
           ],
         }),
       },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: service.faq.map((entry) => ({
-            "@type": "Question",
-            name: entry.question,
-            acceptedAnswer: { "@type": "Answer", text: entry.answer },
-          })),
-        }),
-      },
     ],
   };
 }
