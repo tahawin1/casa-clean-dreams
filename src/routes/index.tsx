@@ -235,24 +235,49 @@ function Index() {
           </div>
 
           <div className="mt-14 grid gap-8 md:grid-cols-3">
-            <img
-              src={promoCostume}
-              alt="Promo : lavage de costume homme à 45 DH le mercredi et le vendredi"
-              className="w-full rounded-2xl shadow-2xl"
-              loading="lazy"
-            />
-            <img
-              src={promoCouture}
-              alt="Promo : soin premium couture et retouche à 45 DH le mercredi et le vendredi"
-              className="w-full rounded-2xl shadow-2xl"
-              loading="lazy"
-            />
-            <img
-              src={promoFidelite}
-              alt="Offre fidélité : le 5ème lavage est offert après 4 lavages"
-              className="w-full rounded-2xl shadow-2xl"
-              loading="lazy"
-            />
+            <div className="group relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/30 hover:ring-2 hover:ring-primary/60">
+              <span className="absolute left-4 top-4 z-10 rounded-full bg-white px-3 py-1 font-display text-xs font-bold uppercase tracking-wide text-brand-900 shadow-md">
+                Mer & Ven
+              </span>
+              <img
+                src={promoCostume}
+                alt="Promo : lavage de costume homme à 45 DH le mercredi et le vendredi"
+                className="w-full transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div className="group relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/30 hover:ring-2 hover:ring-primary/60">
+              <span className="absolute left-4 top-4 z-10 rounded-full bg-white px-3 py-1 font-display text-xs font-bold uppercase tracking-wide text-brand-900 shadow-md">
+                Mer & Ven
+              </span>
+              <img
+                src={promoCouture}
+                alt="Promo : soin premium couture et retouche à 45 DH le mercredi et le vendredi"
+                className="w-full transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div className="group relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/30 hover:ring-2 hover:ring-primary/60">
+              <span className="absolute left-4 top-4 z-10 rounded-full bg-white px-3 py-1 font-display text-xs font-bold uppercase tracking-wide text-brand-900 shadow-md">
+                Fidélité
+              </span>
+              <img
+                src={promoFidelite}
+                alt="Offre fidélité : le 5ème lavage est offert après 4 lavages"
+                className="w-full transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl"
+            >
+              Profiter de l'offre
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
