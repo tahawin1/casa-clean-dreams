@@ -4,7 +4,7 @@ import serviceLinge from "@/assets/service-linge.jpg";
 import serviceCuir from "@/assets/service-cuir.jpg";
 import type { Lang } from "@/i18n/LanguageContext";
 
-export const SITE_URL = "https://casa-clean-dreams.lovable.app";
+export const SITE_URL = "https://www.pressingzerktouni.com";
 
 export type ServicePath =
   | "/services/pressing-vetements"

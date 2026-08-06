@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://casa-clean-dreams.lovable.app/sitemap.xml
+Sitemap: https://www.pressingzerktouni.com/sitemap.xml
