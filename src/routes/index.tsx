@@ -143,7 +143,7 @@ function Index() {
           playsInline
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-900/85 via-brand-900/60 to-brand-900/30" />
-        <div className="container-tight relative py-20 lg:py-28">
+        <div className="container-tight relative grid gap-10 py-20 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:py-28">
           <div className="flex max-w-xl flex-col gap-6">
             <h1 className="font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl lg:text-6xl">
               Pressing Zerktouni à Casablanca,{" "}
@@ -183,6 +183,17 @@ function Index() {
                 <span>Qualité garantie</span>
               </div>
             </div>
+          </div>
+          <div className="relative mx-auto w-full max-w-sm lg:ml-auto lg:mr-0">
+            <div className="absolute -inset-4 rounded-[2rem] bg-white/10 blur-2xl" />
+            <img
+              src={heroImage}
+              alt="Façade du pressing Pressing Zerktouni sur le Boulevard Mohamed Zerktouni à Casablanca"
+              width={1448}
+              height={1086}
+              className="relative rounded-2xl border-4 border-white/80 shadow-2xl"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
