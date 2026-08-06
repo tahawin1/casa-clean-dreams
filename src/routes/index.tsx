@@ -10,6 +10,8 @@ import {
   Zap,
   Truck,
   Leaf,
+  Tag,
+  Gift,
 } from "lucide-react";
 
 import heroImage from "@/assets/hero-pressing.jpg";
@@ -229,6 +231,25 @@ function Index() {
             <p className="mt-4 text-muted-foreground">
               Du linge quotidien aux pièces les plus délicates, nous prenons soin de vos vêtements et accessoires avec expertise.
             </p>
+          </div>
+
+          <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl bg-primary text-primary-foreground shadow-lg shadow-primary/25">
+            <div className="grid gap-6 px-6 py-8 text-center sm:grid-cols-2 sm:divide-x sm:divide-white/20 sm:px-10">
+              <div className="flex flex-col items-center gap-2 sm:pr-6">
+                <Tag className="h-6 w-6" />
+                <p className="font-display text-lg font-bold">Mercredi & vendredi</p>
+                <p className="text-sm text-primary-foreground/90">
+                  Nettoyage de costumes (hommes) et tailleurs (femmes) à <span className="font-bold">45 DH</span>
+                </p>
+              </div>
+              <div className="flex flex-col items-center gap-2 sm:pl-6">
+                <Gift className="h-6 w-6" />
+                <p className="font-display text-lg font-bold">Offre fidélité</p>
+                <p className="text-sm text-primary-foreground/90">
+                  4 lavages achetés, le <span className="font-bold">5ème est gratuit</span>
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
