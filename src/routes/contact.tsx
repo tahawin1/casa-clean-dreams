@@ -4,23 +4,27 @@ import { MapPin, Phone, Mail, Clock, Sparkles, ArrowRight, Gift, Tag } from "luc
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SITE_URL } from "@/data/services";
+import { buildPageHead } from "@/lib/service-head";
 
-const SITE_URL = "https://casa-clean-dreams.lovable.app/contact";
 const PAGE_TITLE = "Contact | Pressing Zerktouni Casablanca";
 const PAGE_DESCRIPTION =
   "Contactez Pressing Zerktouni au 237 Boulevard Mohamed Zerktouni, Casablanca. Devis gratuit, téléphone, email et itinéraire.";
+const PAGE_KEYWORDS =
+  "contact pressing Casablanca, adresse pressing Zerktouni, téléphone pressing Casablanca, devis pressing gratuit Casablanca";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: PAGE_TITLE },
-      { name: "description", content: PAGE_DESCRIPTION },
-      { property: "og:title", content: PAGE_TITLE },
-      { property: "og:description", content: PAGE_DESCRIPTION },
-      { property: "og:type", content: "website" },
-    ],
-    links: [{ rel: "canonical", href: SITE_URL }],
-  }),
+  head: () =>
+    buildPageHead(SITE_URL, {
+      path: "/contact",
+      title: PAGE_TITLE,
+      description: PAGE_DESCRIPTION,
+      keywords: PAGE_KEYWORDS,
+      breadcrumb: [
+        { name: "Accueil", path: "/" },
+        { name: "Contact", path: "/contact" },
+      ],
+    }),
   component: Contact,
 });
 
