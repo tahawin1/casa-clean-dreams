@@ -17,7 +17,7 @@ import serviceVetements from "@/assets/service-vetements.jpg";
 import serviceCostumes from "@/assets/service-costumes.jpg";
 import serviceLinge from "@/assets/service-linge.jpg";
 import serviceCuir from "@/assets/service-cuir.jpg";
-import promoCostume from "@/assets/promo-costume.png";
+import promoCostume from "@/assets/promo-costume.jpg";
 import promoCouture from "@/assets/promo-couture.webp";
 import promoFidelite from "@/assets/promo-fidelite.jpg";
 import { SiteHeader } from "@/components/SiteHeader";

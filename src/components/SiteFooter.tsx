@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Facebook } from "lucide-react";
 
-import logoImage from "@/assets/logo.png";
+import logoImage from "@/assets/logo.webp";
 import { getServices } from "@/data/services";
 import { useLanguage, type Lang } from "@/i18n/LanguageContext";
 
