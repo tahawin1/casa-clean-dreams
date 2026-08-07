@@ -3,6 +3,7 @@ import { ArrowRight, Phone } from "lucide-react";
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Reveal } from "@/components/Reveal";
 import { SITE_URL } from "@/data/services";
 import { getPriceCategories } from "@/data/pricing";
 import { buildPageHead } from "@/lib/service-head";
@@ -117,7 +118,7 @@ function Tarifs() {
       <section className="py-16 lg:py-24">
         <div className="container-tight flex flex-col gap-12">
           {categories.map((category) => (
-            <div key={category.title}>
+            <Reveal key={category.title}>
               <div className="flex items-start gap-4">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   {category.icon}
@@ -159,7 +160,7 @@ function Tarifs() {
                   </table>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
 
           <p className="text-center text-sm text-muted-foreground">{c.note}</p>
@@ -167,12 +168,12 @@ function Tarifs() {
       </section>
 
       <section className="border-t border-border bg-brand-50 py-16 lg:py-20">
-        <div className="container-tight flex flex-col items-center gap-6 text-center">
+        <Reveal className="container-tight flex flex-col items-center gap-6 text-center">
           <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">{c.ctaTitle}</h2>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:scale-[1.03] active:scale-[0.97]"
             >
               {c.quote}
               <ArrowRight className="h-4 w-4 rtl:rotate-180" />
@@ -185,7 +186,7 @@ function Tarifs() {
               05 22 36 36 34
             </a>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <SiteFooter />

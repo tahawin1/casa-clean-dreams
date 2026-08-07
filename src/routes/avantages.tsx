@@ -3,6 +3,7 @@ import { Zap, Truck, Award, Shirt, Sparkles, BedDouble, Footprints, ArrowRight }
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Reveal } from "@/components/Reveal";
 import { SITE_URL } from "@/data/services";
 import { buildPageHead } from "@/lib/service-head";
 import { useLanguage, type Lang } from "@/i18n/LanguageContext";
@@ -151,12 +152,13 @@ function Avantages() {
               {c.items.map((item, index) => {
                 const Icon = icons[index]!;
                 return (
-                  <AdvantageItem
-                    key={item.title}
-                    icon={<Icon className="h-5 w-5" />}
-                    title={item.title}
-                    description={item.description}
-                  />
+                  <Reveal key={item.title} delay={index * 100}>
+                    <AdvantageItem
+                      icon={<Icon className="h-5 w-5" />}
+                      title={item.title}
+                      description={item.description}
+                    />
+                  </Reveal>
                 );
               })}
             </div>
@@ -165,13 +167,13 @@ function Avantages() {
                 {c.categories.map((category, index) => {
                   const Icon = categoryIcons[index]!;
                   return (
-                    <div key={category.title} className="rounded-xl bg-background p-6 shadow-sm card-lift">
+                    <Reveal key={category.title} delay={index * 100} className="rounded-xl bg-background p-6 shadow-sm card-lift">
                       <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                         <Icon className="h-5 w-5" />
                       </div>
                       <h3 className="font-display text-base font-semibold text-foreground">{category.title}</h3>
                       <p className="mt-1 text-sm text-muted-foreground">{category.description}</p>
-                    </div>
+                    </Reveal>
                   );
                 })}
               </div>
@@ -181,16 +183,16 @@ function Avantages() {
       </section>
 
       <section className="border-t border-border bg-brand-50 py-16 lg:py-20">
-        <div className="container-tight flex flex-col items-center gap-6 text-center">
+        <Reveal className="container-tight flex flex-col items-center gap-6 text-center">
           <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">{c.ctaTitle}</h2>
           <Link
             to="/processus"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:scale-[1.03] active:scale-[0.97]"
           >
             {c.ctaButton}
             <ArrowRight className="h-4 w-4 rtl:rotate-180" />
           </Link>
-        </div>
+        </Reveal>
       </section>
 
       <SiteFooter />

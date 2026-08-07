@@ -24,6 +24,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ProcessStepsTimeline } from "@/components/ProcessSteps";
+import { Reveal } from "@/components/Reveal";
 import { useLanguage, type Lang } from "@/i18n/LanguageContext";
 
 const SITE_URL = "https://www.pressingzerktouni.com";
@@ -451,7 +452,7 @@ function Index() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 to="/commander"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl hover:shadow-primary/30"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.03] active:scale-[0.97]"
               >
                 {c.heroCta}
                 <ArrowRight className="h-4 w-4 rtl:rotate-180" />
@@ -496,34 +497,34 @@ function Index() {
       {/* Trust bar */}
       <section className="border-y border-border bg-background">
         <div className="container-tight grid gap-8 py-10 sm:grid-cols-3">
-          <div className="text-center">
+          <Reveal className="text-center">
             <div className="font-display text-3xl font-bold text-primary">{c.trustSince}</div>
             <p className="mt-1 text-sm text-muted-foreground">{c.trustSinceSub}</p>
-          </div>
-          <div className="text-center">
+          </Reveal>
+          <Reveal delay={100} className="text-center">
             <div className="font-display text-3xl font-bold text-primary">{c.trustExpress}</div>
             <p className="mt-1 text-sm text-muted-foreground">{c.trustExpressSub}</p>
-          </div>
-          <div className="text-center">
+          </Reveal>
+          <Reveal delay={200} className="text-center">
             <div className="font-display text-3xl font-bold text-primary">{c.trustFree}</div>
             <p className="mt-1 text-sm text-muted-foreground">{c.trustFreeSub}</p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Promotions */}
       <section className="bg-brand-900 py-20 lg:py-28">
         <div className="container-tight">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
               {c.promoEyebrow}
             </span>
             <h2 className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">{c.promoTitle}</h2>
             <p className="mt-4 text-white/70">{c.promoSubtitle}</p>
-          </div>
+          </Reveal>
 
           <div className="mt-14 grid gap-8 md:grid-cols-3">
-            <div className="group relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/30 hover:ring-2 hover:ring-primary/60">
+            <Reveal className="group relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/30 hover:ring-2 hover:ring-primary/60">
               <span className="absolute left-4 top-4 z-10 rounded-full bg-white px-3 py-1 font-display text-xs font-bold uppercase tracking-wide text-brand-900 shadow-md">
                 {c.promoBadgeDays}
               </span>
@@ -533,8 +534,8 @@ function Index() {
                 className="w-full transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
-            </div>
-            <div className="group relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/30 hover:ring-2 hover:ring-primary/60">
+            </Reveal>
+            <Reveal delay={100} className="group relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/30 hover:ring-2 hover:ring-primary/60">
               <span className="absolute left-4 top-4 z-10 rounded-full bg-white px-3 py-1 font-display text-xs font-bold uppercase tracking-wide text-brand-900 shadow-md">
                 {c.promoBadgeDays}
               </span>
@@ -544,8 +545,8 @@ function Index() {
                 className="w-full transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
-            </div>
-            <div className="group relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/30 hover:ring-2 hover:ring-primary/60">
+            </Reveal>
+            <Reveal delay={200} className="group relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-primary/30 hover:ring-2 hover:ring-primary/60">
               <span className="absolute left-4 top-4 z-10 rounded-full bg-white px-3 py-1 font-display text-xs font-bold uppercase tracking-wide text-brand-900 shadow-md">
                 {c.promoBadgeLoyalty}
               </span>
@@ -555,13 +556,13 @@ function Index() {
                 className="w-full transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
-            </div>
+            </Reveal>
           </div>
 
           <div className="mt-10 text-center">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-brand-600 hover:shadow-xl hover:scale-[1.03] active:scale-[0.97]"
             >
               {c.promoCta}
               <ArrowRight className="h-4 w-4 rtl:rotate-180" />
@@ -573,43 +574,51 @@ function Index() {
       {/* Services preview */}
       <section className="py-20 lg:py-28">
         <div className="container-tight">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
               {c.servicesEyebrow}
             </span>
             <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">{c.servicesTitle}</h2>
             <p className="mt-4 text-muted-foreground">{c.servicesSubtitle}</p>
-          </div>
+          </Reveal>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <ServiceCard
-              image={serviceVetements}
-              icon={<Shirt className="h-5 w-5" />}
-              to="/services/pressing-vetements"
-              title={c.services[0]!.title}
-              description={c.services[0]!.description}
-            />
-            <ServiceCard
-              image={serviceCostumes}
-              icon={<Sparkles className="h-5 w-5" />}
-              to="/services/costumes-ceremonies"
-              title={c.services[1]!.title}
-              description={c.services[1]!.description}
-            />
-            <ServiceCard
-              image={serviceLinge}
-              icon={<BedDouble className="h-5 w-5" />}
-              to="/services/linge-de-maison"
-              title={c.services[2]!.title}
-              description={c.services[2]!.description}
-            />
-            <ServiceCard
-              image={serviceCuir}
-              icon={<Footprints className="h-5 w-5" />}
-              to="/services/cuir-chaussures"
-              title={c.services[3]!.title}
-              description={c.services[3]!.description}
-            />
+            <Reveal>
+              <ServiceCard
+                image={serviceVetements}
+                icon={<Shirt className="h-5 w-5" />}
+                to="/services/pressing-vetements"
+                title={c.services[0]!.title}
+                description={c.services[0]!.description}
+              />
+            </Reveal>
+            <Reveal delay={100}>
+              <ServiceCard
+                image={serviceCostumes}
+                icon={<Sparkles className="h-5 w-5" />}
+                to="/services/costumes-ceremonies"
+                title={c.services[1]!.title}
+                description={c.services[1]!.description}
+              />
+            </Reveal>
+            <Reveal delay={200}>
+              <ServiceCard
+                image={serviceLinge}
+                icon={<BedDouble className="h-5 w-5" />}
+                to="/services/linge-de-maison"
+                title={c.services[2]!.title}
+                description={c.services[2]!.description}
+              />
+            </Reveal>
+            <Reveal delay={300}>
+              <ServiceCard
+                image={serviceCuir}
+                icon={<Footprints className="h-5 w-5" />}
+                to="/services/cuir-chaussures"
+                title={c.services[3]!.title}
+                description={c.services[3]!.description}
+              />
+            </Reveal>
           </div>
 
           <div className="mt-10 text-center">
@@ -627,16 +636,16 @@ function Index() {
       {/* Comment ça marche — teaser */}
       <section className="bg-brand-50 py-16 lg:py-20">
         <div className="container-tight">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
               {c.howEyebrow}
             </span>
             <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">{c.howTitle}</h2>
-          </div>
+          </Reveal>
 
-          <div className="mt-14">
+          <Reveal delay={150} className="mt-14">
             <ProcessStepsTimeline />
-          </div>
+          </Reveal>
 
           <div className="mt-10 text-center">
             <Link
@@ -653,16 +662,18 @@ function Index() {
       {/* Testimonials */}
       <section className="border-y border-border py-20 lg:py-28">
         <div className="container-tight">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <span className="font-display text-sm font-semibold uppercase tracking-wider text-primary">
               {c.reviewsEyebrow}
             </span>
             <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-4xl">{c.reviewsTitle}</h2>
-          </div>
+          </Reveal>
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {c.testimonials.map((t) => (
-              <TestimonialCard key={t.author} quote={t.quote} author={t.author} role={t.role} />
+            {c.testimonials.map((t, index) => (
+              <Reveal key={t.author} delay={index * 100}>
+                <TestimonialCard quote={t.quote} author={t.author} role={t.role} />
+              </Reveal>
             ))}
           </div>
         </div>
@@ -671,13 +682,13 @@ function Index() {
       {/* CTA banner */}
       <section className="py-20 lg:py-28">
         <div className="container-tight">
-          <div className="flex flex-col items-center gap-6 rounded-3xl bg-primary px-6 py-14 text-center text-primary-foreground sm:px-16">
+          <Reveal className="flex flex-col items-center gap-6 rounded-3xl bg-primary px-6 py-14 text-center text-primary-foreground sm:px-16">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">{c.ctaTitle}</h2>
             <p className="max-w-xl text-primary-foreground/90">{c.ctaSubtitle}</p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-background px-6 py-3 text-base font-medium text-foreground shadow-lg transition-all hover:bg-muted"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-background px-6 py-3 text-base font-medium text-foreground shadow-lg transition-all hover:bg-muted hover:scale-[1.03] active:scale-[0.97]"
               >
                 {c.quote}
                 <ArrowRight className="h-4 w-4 rtl:rotate-180" />
@@ -689,7 +700,7 @@ function Index() {
                 05 22 36 36 34
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 

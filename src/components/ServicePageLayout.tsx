@@ -12,6 +12,7 @@ import {
 import { getService, getServices } from "@/data/services";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Reveal } from "@/components/Reveal";
 import { useLanguage, type Lang } from "@/i18n/LanguageContext";
 
 const COPY: Record<
@@ -162,9 +163,10 @@ export function ServicePageLayout({ slug }: { slug: string }) {
             {c.detailsTitle}
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {service.items.map((item) => (
-              <div
+            {service.items.map((item, index) => (
+              <Reveal
                 key={item.title}
+                delay={(index % 2) * 100}
                 className="rounded-2xl border border-border bg-card p-6 shadow-sm card-lift"
               >
                 <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -176,7 +178,7 @@ export function ServicePageLayout({ slug }: { slug: string }) {
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {item.text}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -192,29 +194,30 @@ export function ServicePageLayout({ slug }: { slug: string }) {
             {c.discoverTitle}
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
-            {others.map((item) => (
-              <Link
-                key={item.slug}
-                to={item.path}
-                className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all hover:shadow-lg"
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.navTitle}
-                    width={944}
-                    height={704}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="flex items-center justify-between p-5">
-                  <span className="font-display text-base font-semibold text-foreground">
-                    {item.navTitle}
-                  </span>
-                  <ArrowRight className="h-4 w-4 text-primary" />
-                </div>
-              </Link>
+            {others.map((item, index) => (
+              <Reveal key={item.slug} delay={index * 100}>
+                <Link
+                  to={item.path}
+                  className="group block overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all hover:shadow-lg"
+                >
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.navTitle}
+                      width={944}
+                      height={704}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex items-center justify-between p-5">
+                    <span className="font-display text-base font-semibold text-foreground">
+                      {item.navTitle}
+                    </span>
+                    <ArrowRight className="h-4 w-4 text-primary" />
+                  </div>
+                </Link>
+              </Reveal>
             ))}
           </div>
           <div className="mt-10">

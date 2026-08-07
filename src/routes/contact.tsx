@@ -4,6 +4,7 @@ import { MapPin, Phone, Mail, Clock, Sparkles, ArrowRight, Gift, Tag } from "luc
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Reveal } from "@/components/Reveal";
 import { SITE_URL } from "@/data/services";
 import { buildPageHead } from "@/lib/service-head";
 import { useLanguage, type Lang } from "@/i18n/LanguageContext";
@@ -228,7 +229,7 @@ function Contact() {
       <section className="border-b border-border bg-brand-50 py-12">
         <div className="container-tight">
           <div className="grid gap-8 md:grid-cols-2">
-            <div className="flex flex-col items-center gap-4 rounded-2xl bg-background p-6 text-center shadow-sm sm:p-8">
+            <Reveal className="flex flex-col items-center gap-4 rounded-2xl bg-background p-6 text-center shadow-sm sm:p-8">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                 <Tag className="h-6 w-6" />
               </div>
@@ -241,9 +242,9 @@ function Contact() {
                   price: "45 DH",
                 })}
               </p>
-            </div>
+            </Reveal>
 
-            <div className="flex flex-col items-center gap-4 rounded-2xl bg-background p-6 text-center shadow-sm sm:p-8">
+            <Reveal delay={100} className="flex flex-col items-center gap-4 rounded-2xl bg-background p-6 text-center shadow-sm sm:p-8">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                 <Gift className="h-6 w-6" />
               </div>
@@ -268,7 +269,7 @@ function Contact() {
                   {c.offered}
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
