@@ -217,7 +217,7 @@ const COPY: Record<
           "Nettoyage et repassage de draps, couettes, rideaux, nappes et linge de bain. Nettoyage de tapis et tapis de prière sur demande.",
       },
       {
-        title: "Cuir, sacs & chaussures",
+        title: "Sacs & chaussures",
         description:
           "Nettoyage, rénovation et imperméabilisation de vos chaussures, sacs, vestes et accessoires en cuir.",
       },
@@ -302,7 +302,7 @@ const COPY: Record<
           "Cleaning and ironing of sheets, duvets, curtains, tablecloths and bath linen. Rug and prayer rug cleaning on request.",
       },
       {
-        title: "Leather, bags & shoes",
+        title: "Bags & shoes",
         description: "Cleaning, restoration and waterproofing of your shoes, bags, jackets and leather accessories.",
       },
     ],
@@ -383,7 +383,7 @@ const COPY: Record<
           "تنظيف وكي الشراشف واللحف والستائر والمفارش ومناشف الحمام. تنظيف السجاد وسجاد الصلاة عند الطلب.",
       },
       {
-        title: "الجلد والحقائب والأحذية",
+        title: "الحقائب والأحذية",
         description: "تنظيف وترميم وحماية من الماء لأحذيتكم وحقائبكم وستراتكم وإكسسواراتكم الجلدية.",
       },
     ],

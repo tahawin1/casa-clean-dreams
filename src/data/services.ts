@@ -174,7 +174,7 @@ const SERVICES_FR: ServiceContent[] = [
   {
     slug: "cuir-chaussures",
     path: "/services/cuir-chaussures",
-    navTitle: "Cuir & chaussures",
+    navTitle: "Sacs & chaussures",
     h1: "Nettoyage cuir, sacs et chaussures à Casablanca",
     title: "Nettoyage Cuir, Sacs & Chaussures Casablanca | Pressing Zerktouni",
     description:
@@ -368,7 +368,7 @@ const SERVICES_EN: ServiceContent[] = [
   {
     slug: "cuir-chaussures",
     path: "/services/cuir-chaussures",
-    navTitle: "Leather & Shoes",
+    navTitle: "Bags & Shoes",
     h1: "Leather, Bag & Shoe Cleaning in Casablanca",
     title: "Leather, Bag & Shoe Cleaning Casablanca | Pressing Zerktouni",
     description:
@@ -553,7 +553,7 @@ const SERVICES_AR: ServiceContent[] = [
   {
     slug: "cuir-chaussures",
     path: "/services/cuir-chaussures",
-    navTitle: "الجلد والأحذية",
+    navTitle: "الحقائب والأحذية",
     h1: "تنظيف الجلد والحقائب والأحذية في الدار البيضاء",
     title: "تنظيف الجلد والحقائب والأحذية بالدار البيضاء | برسينغ الزرقطوني",
     description:
