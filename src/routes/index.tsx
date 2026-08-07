@@ -54,7 +54,10 @@ export const Route = createFileRoute("/")({
       { name: "twitter:description", content: PAGE_DESCRIPTION },
       { name: "twitter:image", content: `${SITE_URL}/og-image.jpg` },
     ],
-    links: [{ rel: "canonical", href: SITE_URL }],
+    links: [
+      { rel: "canonical", href: SITE_URL },
+      { rel: "preload", as: "video", href: heroVideo, type: "video/mp4" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -434,6 +437,7 @@ function Index() {
           loop
           muted
           playsInline
+          preload="auto"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-900/85 via-brand-900/60 to-brand-900/30" />
         <div className="container-tight relative grid gap-10 py-20 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:py-28">
