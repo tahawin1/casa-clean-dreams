@@ -145,7 +145,10 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-primary">
+                <a
+                  href="mailto:contact@pressingzerktouni.ma?subject=Candidature%20spontan%C3%A9e"
+                  className="hover:text-primary"
+                >
                   {c.jobs}
                 </a>
               </li>
@@ -171,12 +174,12 @@ export function SiteFooter() {
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row">
           <p>© 2026 Pressing Zerktouni. {c.rights}</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-primary">
+            <Link to="/politique-confidentialite" className="hover:text-primary">
               {c.privacy}
-            </a>
-            <a href="#" className="hover:text-primary">
+            </Link>
+            <Link to="/mentions-legales" className="hover:text-primary">
               {c.legal}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

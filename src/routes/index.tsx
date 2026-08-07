@@ -63,10 +63,11 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "DryCleaningOrLaundry",
+          "@type": ["LocalBusiness", "DryCleaningOrLaundry"],
           "@id": `${SITE_URL}/#pressing`,
           name: "Pressing Zerktouni",
           description: PAGE_DESCRIPTION,
+          image: `${SITE_URL}/og-image.jpg`,
           url: SITE_URL,
           telephone: "+212522363634",
           email: "contact@pressingzerktouni.ma",

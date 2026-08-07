@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AvantagesRouteImport } from './routes/avantages'
 import { Route as CommanderRouteImport } from './routes/commander'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as PolitiqueConfidentialiteRouteImport } from './routes/politique-confidentialite'
 import { Route as ProcessusRouteImport } from './routes/processus'
 import { Route as TarifsRouteImport } from './routes/tarifs'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -41,6 +43,17 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
+  id: '/mentions-legales',
+  path: '/mentions-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolitiqueConfidentialiteRoute =
+  PolitiqueConfidentialiteRouteImport.update({
+    id: '/politique-confidentialite',
+    path: '/politique-confidentialite',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProcessusRoute = ProcessusRouteImport.update({
   id: '/processus',
   path: '/processus',
@@ -84,6 +97,8 @@ export interface FileRoutesByFullPath {
   '/avantages': typeof AvantagesRoute
   '/commander': typeof CommanderRoute
   '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/processus': typeof ProcessusRoute
   '/tarifs': typeof TarifsRoute
   '/services/costumes-ceremonies': typeof ServicesCostumesCeremoniesRoute
@@ -97,6 +112,8 @@ export interface FileRoutesByTo {
   '/avantages': typeof AvantagesRoute
   '/commander': typeof CommanderRoute
   '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/processus': typeof ProcessusRoute
   '/tarifs': typeof TarifsRoute
   '/services/costumes-ceremonies': typeof ServicesCostumesCeremoniesRoute
@@ -111,6 +128,8 @@ export interface FileRoutesById {
   '/avantages': typeof AvantagesRoute
   '/commander': typeof CommanderRoute
   '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/politique-confidentialite': typeof PolitiqueConfidentialiteRoute
   '/processus': typeof ProcessusRoute
   '/tarifs': typeof TarifsRoute
   '/services/costumes-ceremonies': typeof ServicesCostumesCeremoniesRoute
@@ -126,6 +145,8 @@ export interface FileRouteTypes {
     | '/avantages'
     | '/commander'
     | '/contact'
+    | '/mentions-legales'
+    | '/politique-confidentialite'
     | '/processus'
     | '/tarifs'
     | '/services/costumes-ceremonies'
@@ -139,6 +160,8 @@ export interface FileRouteTypes {
     | '/avantages'
     | '/commander'
     | '/contact'
+    | '/mentions-legales'
+    | '/politique-confidentialite'
     | '/processus'
     | '/tarifs'
     | '/services/costumes-ceremonies'
@@ -152,6 +175,8 @@ export interface FileRouteTypes {
     | '/avantages'
     | '/commander'
     | '/contact'
+    | '/mentions-legales'
+    | '/politique-confidentialite'
     | '/processus'
     | '/tarifs'
     | '/services/costumes-ceremonies'
@@ -166,6 +191,8 @@ export interface RootRouteChildren {
   AvantagesRoute: typeof AvantagesRoute
   CommanderRoute: typeof CommanderRoute
   ContactRoute: typeof ContactRoute
+  MentionsLegalesRoute: typeof MentionsLegalesRoute
+  PolitiqueConfidentialiteRoute: typeof PolitiqueConfidentialiteRoute
   ProcessusRoute: typeof ProcessusRoute
   TarifsRoute: typeof TarifsRoute
   ServicesCostumesCeremoniesRoute: typeof ServicesCostumesCeremoniesRoute
@@ -203,6 +230,20 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentions-legales': {
+      id: '/mentions-legales'
+      path: '/mentions-legales'
+      fullPath: '/mentions-legales'
+      preLoaderRoute: typeof MentionsLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politique-confidentialite': {
+      id: '/politique-confidentialite'
+      path: '/politique-confidentialite'
+      fullPath: '/politique-confidentialite'
+      preLoaderRoute: typeof PolitiqueConfidentialiteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/processus': {
@@ -262,6 +303,8 @@ const rootRouteChildren: RootRouteChildren = {
   AvantagesRoute: AvantagesRoute,
   CommanderRoute: CommanderRoute,
   ContactRoute: ContactRoute,
+  MentionsLegalesRoute: MentionsLegalesRoute,
+  PolitiqueConfidentialiteRoute: PolitiqueConfidentialiteRoute,
   ProcessusRoute: ProcessusRoute,
   TarifsRoute: TarifsRoute,
   ServicesCostumesCeremoniesRoute: ServicesCostumesCeremoniesRoute,
