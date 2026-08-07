@@ -29,7 +29,7 @@ import { useLanguage, type Lang } from "@/i18n/LanguageContext";
 const SITE_URL = "https://www.pressingzerktouni.com";
 const PAGE_TITLE = "Pressing Zerktouni Casablanca | Nettoyage à Sec 6h";
 const PAGE_DESCRIPTION =
-  "Pressing Zerktouni à Casablanca, 237 Boulevard Mohamed Zerktouni. Depuis 2010, nettoyage à sec, repassage, costumes, linge de maison, cuir, sacs et tapis. Service express 6h, ramassage et livraison gratuite.";
+  "Pressing Zerktouni à Casablanca, 237 Boulevard Mohamed Zerktouni. Depuis 2010, nettoyage à sec, repassage, costumes, linge de maison, sacs et tapis. Service express 6h, ramassage et livraison gratuite.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -98,7 +98,7 @@ export const Route = createFileRoute("/")({
               "Nettoyage à sec de vêtements",
               "Costumes et tenues de cérémonie",
               "Linge de maison",
-              "Cuir, sacs et chaussures",
+              "Sacs et chaussures",
               "Tapis et tapis de prière",
               "Repassage",
               "Service express 6h",
@@ -173,7 +173,7 @@ const COPY: Record<
       </>
     ),
     heroSubtitle:
-      "Votre pressing sur le Boulevard Mohamed Zerktouni à Casablanca. Nettoyage à sec, repassage, blanchisserie, cuir, sacs et tapis avec service express 6h et livraison gratuite.",
+      "Votre pressing sur le Boulevard Mohamed Zerktouni à Casablanca. Nettoyage à sec, repassage, blanchisserie, sacs et tapis avec service express 6h et livraison gratuite.",
     heroCta: "Commander",
     quote: "Demander un devis",
     ourServices: "Nos services",
@@ -219,7 +219,7 @@ const COPY: Record<
       {
         title: "Sacs & chaussures",
         description:
-          "Nettoyage, rénovation et imperméabilisation de vos chaussures, sacs, vestes et accessoires en cuir.",
+          "Nettoyage, désodorisation et imperméabilisation de vos chaussures, sacs à main et sacs à dos.",
       },
     ],
     seeAllServices: "Voir tous nos services",
@@ -243,7 +243,7 @@ const COPY: Record<
       },
       {
         quote:
-          "La rénovation de mes chaussures en cuir a été bluffante. On dirait qu'elles sont neuves. Je recommande vivement !",
+          "Le nettoyage de mes baskets a été bluffant. On dirait qu'elles sont neuves. Je recommande vivement !",
         author: "Youssef T.",
         role: "Entrepreneur",
       },
@@ -258,7 +258,7 @@ const COPY: Record<
       </>
     ),
     heroSubtitle:
-      "Your dry cleaner on Boulevard Mohamed Zerktouni in Casablanca. Dry cleaning, ironing, laundry, leather, bags and rugs with 6h express service and free delivery.",
+      "Your dry cleaner on Boulevard Mohamed Zerktouni in Casablanca. Dry cleaning, ironing, laundry, bags and rugs with 6h express service and free delivery.",
     heroCta: "Order now",
     quote: "Request a quote",
     ourServices: "Our services",
@@ -303,7 +303,7 @@ const COPY: Record<
       },
       {
         title: "Bags & shoes",
-        description: "Cleaning, restoration and waterproofing of your shoes, bags, jackets and leather accessories.",
+        description: "Cleaning, deodorizing and waterproofing of your shoes, handbags and backpacks.",
       },
     ],
     seeAllServices: "See all our services",
@@ -326,7 +326,7 @@ const COPY: Record<
         role: "Lawyer",
       },
       {
-        quote: "The restoration of my leather shoes was stunning. They look brand new. Highly recommend!",
+        quote: "The cleaning of my sneakers was stunning. They look brand new. Highly recommend!",
         author: "Youssef T.",
         role: "Entrepreneur",
       },
@@ -341,7 +341,7 @@ const COPY: Record<
       </>
     ),
     heroSubtitle:
-      "برسينغكم في شارع محمد الزرقطوني بالدار البيضاء. تنظيف جاف، كي، غسيل، جلد، حقائب وسجاد مع خدمة سريعة 6 ساعات وتوصيل مجاني.",
+      "برسينغكم في شارع محمد الزرقطوني بالدار البيضاء. تنظيف جاف، كي، غسيل، حقائب وسجاد مع خدمة سريعة 6 ساعات وتوصيل مجاني.",
     heroCta: "اطلب الآن",
     quote: "اطلب عرض سعر",
     ourServices: "خدماتنا",
@@ -384,7 +384,7 @@ const COPY: Record<
       },
       {
         title: "الحقائب والأحذية",
-        description: "تنظيف وترميم وحماية من الماء لأحذيتكم وحقائبكم وستراتكم وإكسسواراتكم الجلدية.",
+        description: "تنظيف وإزالة الروائح وحماية من الماء لأحذيتكم وحقائب يدكم وحقائب ظهركم.",
       },
     ],
     seeAllServices: "شاهدوا كل خدماتنا",
@@ -406,7 +406,7 @@ const COPY: Record<
         role: "محامية",
       },
       {
-        quote: "ترميم أحذيتي الجلدية كان مذهلا. كأنها جديدة تماما. أنصح بشدة!",
+        quote: "تنظيف حذائي الرياضي كان مذهلا. كأنه جديد تماما. أنصح بشدة!",
         author: "يوسف ت.",
         role: "رائد أعمال",
       },

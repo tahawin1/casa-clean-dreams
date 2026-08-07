@@ -14,9 +14,9 @@ import { useLanguage, type Lang } from "@/i18n/LanguageContext";
 
 const PAGE_TITLE = "Nos services de pressing à Casablanca | Pressing Zerktouni";
 const PAGE_DESCRIPTION =
-  "Découvrez tous les services de Pressing Zerktouni à Casablanca : pressing vêtements, costumes & cérémonies, linge de maison, cuir, sacs & chaussures. Express 6h, ramassage et livraison gratuite.";
+  "Découvrez tous les services de Pressing Zerktouni à Casablanca : pressing vêtements, costumes & cérémonies, linge de maison, sacs & chaussures. Express 6h, ramassage et livraison gratuite.";
 const PAGE_KEYWORDS =
-  "services pressing Casablanca, pressing vêtements Zerktouni, nettoyage à sec Casablanca, blanchisserie Casablanca, nettoyage cuir chaussures Casablanca";
+  "services pressing Casablanca, pressing vêtements Zerktouni, nettoyage à sec Casablanca, blanchisserie Casablanca, nettoyage sacs chaussures Casablanca";
 
 export const Route = createFileRoute("/services/")({
   head: () => {
@@ -82,7 +82,7 @@ const COPY: Record<
       {
         title: "Sacs & chaussures",
         description:
-          "Nettoyage, rénovation et imperméabilisation de vos chaussures, sacs, vestes et accessoires en cuir.",
+          "Nettoyage, désodorisation et imperméabilisation de vos chaussures, sacs à main et sacs à dos.",
       },
     ],
     ctaTitle: "Une question sur un de nos services ?",
@@ -111,7 +111,7 @@ const COPY: Record<
       },
       {
         title: "Bags & shoes",
-        description: "Cleaning, restoration and waterproofing of your shoes, bags, jackets and leather accessories.",
+        description: "Cleaning, deodorizing and waterproofing of your shoes, handbags and backpacks.",
       },
     ],
     ctaTitle: "A question about one of our services?",
@@ -140,7 +140,7 @@ const COPY: Record<
       },
       {
         title: "الحقائب والأحذية",
-        description: "تنظيف وترميم وحماية من الماء لأحذيتكم وحقائبكم وستراتكم وإكسسواراتكم الجلدية.",
+        description: "تنظيف وإزالة الروائح وحماية من الماء لأحذيتكم وحقائب يدكم وحقائب ظهركم.",
       },
     ],
     ctaTitle: "لديكم سؤال حول إحدى خدماتنا؟",

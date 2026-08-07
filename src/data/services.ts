@@ -175,47 +175,46 @@ const SERVICES_FR: ServiceContent[] = [
     slug: "cuir-chaussures",
     path: "/services/cuir-chaussures",
     navTitle: "Sacs & chaussures",
-    h1: "Nettoyage cuir, sacs et chaussures à Casablanca",
-    title: "Nettoyage Cuir, Sacs & Chaussures Casablanca | Pressing Zerktouni",
+    h1: "Nettoyage sacs et chaussures à Casablanca",
+    title: "Nettoyage Sacs & Chaussures Casablanca | Pressing Zerktouni",
     description:
-      "Pressing Zerktouni : nettoyage, rénovation et imperméabilisation du cuir, des sacs et des chaussures à Casablanca. Teinture, cirage et soin par des spécialistes. Depuis 2010.",
+      "Pressing Zerktouni : nettoyage et entretien de vos sacs et chaussures à Casablanca. Détachage, désodorisation et imperméabilisation par des spécialistes. Depuis 2010.",
     keywords:
-      "nettoyage cuir Casablanca, rénovation veste cuir Casablanca, nettoyage sac cuir, nettoyage chaussures Casablanca, pressing Zerktouni",
+      "nettoyage sac Casablanca, nettoyage chaussures Casablanca, pressing sac à main, nettoyage baskets Casablanca, pressing Zerktouni",
     image: serviceCuir,
     intro:
-      "Le cuir demande un savoir-faire particulier. Vestes, sacs, chaussures, ceintures, daim et nubuck sont confiés à nos spécialistes de Pressing Zerktouni pour un nettoyage en profondeur suivi d'un nourrissage de la matière.",
+      "Sacs à main, sacs à dos, baskets et chaussures de ville : nos spécialistes de Pressing Zerktouni leur redonnent tout leur éclat grâce à un nettoyage en profondeur et un entretien adapté à chaque matière.",
     items: [
       {
         title: "Nettoyage en profondeur",
-        text: "Produits spécifiques cuir, daim et nubuck, sans dessécher ni ternir la matière.",
+        text: "Produits doux adaptés à chaque matière (toile, synthétique, daim) pour un nettoyage sans dommage.",
       },
       {
-        title: "Rénovation et teinture",
-        text: "Reprise des zones décolorées, éraflures et angles usés pour raviver la couleur d'origine.",
+        title: "Détachage ciblé",
+        text: "Traitement des taches tenaces sur vos sacs et chaussures avant un nettoyage complet.",
       },
       {
-        title: "Nourrissage et cirage",
-        text: "Application de baumes nourrissants pour garder un cuir souple et éviter les craquelures.",
+        title: "Désodorisation",
+        text: "Élimination des mauvaises odeurs pour des sacs et chaussures comme neufs.",
       },
       {
-        title: "Sacs et accessoires en cuir",
-        text: "Nettoyage et redorure des sacs à main, portefeuilles, ceintures et petits maroquineries.",
+        title: "Sacs et accessoires",
+        text: "Nettoyage et remise en état des sacs à main, sacs à dos, ceintures et petite maroquinerie.",
       },
       {
         title: "Imperméabilisation",
-        text: "Protection contre la pluie et les taches, particulièrement utile pour le daim et les chaussures.",
+        text: "Protection contre la pluie et les taches, particulièrement utile pour les baskets et chaussures de ville.",
       },
     ],
     faq: [
       {
-        question: "Combien de temps dure une rénovation de cuir ?",
-        answer:
-          "Comptez 3 à 5 jours ouvrés selon l'état de la pièce et le travail de teinture nécessaire.",
+        question: "Combien de temps dure le nettoyage d'un sac ou d'une paire de chaussures ?",
+        answer: "Comptez 2 à 4 jours ouvrés selon l'état de la pièce et le traitement nécessaire.",
       },
       {
-        question: "Pouvez-vous nettoyer des sacs en cuir ?",
+        question: "Pouvez-vous nettoyer les baskets et sacs à main ?",
         answer:
-          "Oui, nous traitons les sacs à main, portefeuilles et accessoires en cuir : nettoyage intérieur/extérieur, redorure et nourrissage.",
+          "Oui, nous traitons les sacs à main, sacs à dos, baskets et chaussures de ville : nettoyage intérieur/extérieur et désodorisation.",
       },
     ],
   },
@@ -369,46 +368,46 @@ const SERVICES_EN: ServiceContent[] = [
     slug: "cuir-chaussures",
     path: "/services/cuir-chaussures",
     navTitle: "Bags & Shoes",
-    h1: "Leather, Bag & Shoe Cleaning in Casablanca",
-    title: "Leather, Bag & Shoe Cleaning Casablanca | Pressing Zerktouni",
+    h1: "Bag & Shoe Cleaning in Casablanca",
+    title: "Bag & Shoe Cleaning Casablanca | Pressing Zerktouni",
     description:
-      "Pressing Zerktouni: cleaning, restoration and waterproofing of leather, bags and shoes in Casablanca. Dyeing, polishing and care by specialists. Since 2010.",
+      "Pressing Zerktouni: cleaning and care for your bags and shoes in Casablanca. Stain removal, deodorizing and waterproofing by specialists. Since 2010.",
     keywords:
-      "leather cleaning Casablanca, leather jacket restoration Casablanca, leather bag cleaning, shoe cleaning Casablanca, Zerktouni dry cleaner",
+      "bag cleaning Casablanca, shoe cleaning Casablanca, handbag dry cleaning, sneaker cleaning Casablanca, Zerktouni dry cleaner",
     image: serviceCuir,
     intro:
-      "Leather requires special expertise. Jackets, bags, shoes, belts, suede and nubuck are entrusted to our Pressing Zerktouni specialists for deep cleaning followed by conditioning of the material.",
+      "Handbags, backpacks, sneakers and dress shoes: our Pressing Zerktouni specialists restore their shine with deep cleaning and care suited to every material.",
     items: [
       {
         title: "Deep cleaning",
-        text: "Specific products for leather, suede and nubuck, without drying out or dulling the material.",
+        text: "Gentle products suited to every material (canvas, synthetic, suede) for damage-free cleaning.",
       },
       {
-        title: "Restoration and dyeing",
-        text: "Touch-up of faded areas, scuffs and worn edges to revive the original color.",
+        title: "Targeted stain removal",
+        text: "Treatment of stubborn stains on bags and shoes before a full clean.",
       },
       {
-        title: "Conditioning and polishing",
-        text: "Application of nourishing balms to keep leather supple and prevent cracking.",
+        title: "Deodorizing",
+        text: "Removal of unpleasant odors, leaving bags and shoes like new.",
       },
       {
-        title: "Leather bags and accessories",
-        text: "Cleaning and re-plating of handbags, wallets, belts and small leather goods.",
+        title: "Bags and accessories",
+        text: "Cleaning and restoration of handbags, backpacks, belts and small accessories.",
       },
       {
         title: "Waterproofing",
-        text: "Protection against rain and stains, particularly useful for suede and shoes.",
+        text: "Protection against rain and stains, especially useful for sneakers and dress shoes.",
       },
     ],
     faq: [
       {
-        question: "How long does a leather restoration take?",
-        answer: "Allow 3 to 5 business days depending on the item's condition and the dyeing work needed.",
+        question: "How long does cleaning a bag or pair of shoes take?",
+        answer: "Allow 2 to 4 business days depending on the item's condition and the treatment needed.",
       },
       {
-        question: "Can you clean leather bags?",
+        question: "Can you clean sneakers and handbags?",
         answer:
-          "Yes, we treat handbags, wallets and leather accessories: interior/exterior cleaning, re-plating and conditioning.",
+          "Yes, we treat handbags, backpacks, sneakers and dress shoes: interior/exterior cleaning and deodorizing.",
       },
     ],
   },
@@ -554,44 +553,44 @@ const SERVICES_AR: ServiceContent[] = [
     slug: "cuir-chaussures",
     path: "/services/cuir-chaussures",
     navTitle: "الحقائب والأحذية",
-    h1: "تنظيف الجلد والحقائب والأحذية في الدار البيضاء",
-    title: "تنظيف الجلد والحقائب والأحذية بالدار البيضاء | برسينغ الزرقطوني",
+    h1: "تنظيف الحقائب والأحذية في الدار البيضاء",
+    title: "تنظيف الحقائب والأحذية بالدار البيضاء | برسينغ الزرقطوني",
     description:
-      "برسينغ الزرقطوني: تنظيف وترميم وحماية من الماء للجلد والحقائب والأحذية بالدار البيضاء. صباغة، تلميع وعناية من طرف متخصصين. منذ 2010.",
-    keywords: "تنظيف الجلد الدار البيضاء, ترميم سترة جلدية الدار البيضاء, تنظيف حقيبة جلدية, تنظيف أحذية الدار البيضاء, برسينغ الزرقطوني",
+      "برسينغ الزرقطوني: تنظيف والعناية بحقائبكم وأحذيتكم بالدار البيضاء. إزالة البقع، إزالة الروائح والحماية من الماء من طرف متخصصين. منذ 2010.",
+    keywords: "تنظيف حقائب الدار البيضاء, تنظيف أحذية الدار البيضاء, تنظيف حقيبة يد, تنظيف سنيكرز الدار البيضاء, برسينغ الزرقطوني",
     image: serviceCuir,
     intro:
-      "الجلد يتطلب خبرة خاصة. السترات والحقائب والأحذية والأحزمة والسويدي والنوبوك توكل إلى متخصصي برسينغ الزرقطوني لتنظيف عميق يتبعه ترطيب للمادة.",
+      "حقائب اليد، حقائب الظهر، السنيكرز والأحذية الرسمية: يعيد متخصصو برسينغ الزرقطوني لها بريقها من خلال تنظيف عميق وعناية تناسب كل مادة.",
     items: [
       {
         title: "تنظيف عميق",
-        text: "منتجات خاصة بالجلد والسويدي والنوبوك، دون تجفيف أو إفقاد لمعان المادة.",
+        text: "منتجات لطيفة تناسب كل مادة (قماش، صناعي، سويدي) لتنظيف دون أي ضرر.",
       },
       {
-        title: "ترميم وصباغة",
-        text: "معالجة المناطق الباهتة والخدوش والزوايا المهترئة لإعادة إحياء اللون الأصلي.",
+        title: "إزالة بقع مستهدفة",
+        text: "معالجة البقع الصعبة على الحقائب والأحذية قبل التنظيف الكامل.",
       },
       {
-        title: "ترطيب وتلميع",
-        text: "وضع مراهم مغذية للحفاظ على مرونة الجلد وتجنب التشقق.",
+        title: "إزالة الروائح",
+        text: "التخلص من الروائح الكريهة لحقائب وأحذية تبدو كالجديدة.",
       },
       {
-        title: "الحقائب والإكسسوارات الجلدية",
-        text: "تنظيف وإعادة تذهيب حقائب اليد والمحافظ والأحزمة وصغائر الجلود.",
+        title: "الحقائب والإكسسوارات",
+        text: "تنظيف وإعادة تأهيل حقائب اليد وحقائب الظهر والأحزمة والإكسسوارات الصغيرة.",
       },
       {
         title: "الحماية من الماء",
-        text: "حماية من المطر والبقع، مفيدة بشكل خاص للسويدي والأحذية.",
+        text: "حماية من المطر والبقع، مفيدة بشكل خاص للسنيكرز والأحذية الرسمية.",
       },
     ],
     faq: [
       {
-        question: "كم من الوقت يستغرق ترميم الجلد؟",
-        answer: "احسبوا من 3 إلى 5 أيام عمل حسب حالة القطعة والعمل المطلوب في الصباغة.",
+        question: "كم يستغرق تنظيف حقيبة أو زوج أحذية؟",
+        answer: "احسبوا من 2 إلى 4 أيام عمل حسب حالة القطعة والمعالجة اللازمة.",
       },
       {
-        question: "هل يمكنكم تنظيف الحقائب الجلدية؟",
-        answer: "نعم، نعالج حقائب اليد والمحافظ والإكسسوارات الجلدية: تنظيف داخلي وخارجي، إعادة تذهيب وترطيب.",
+        question: "هل يمكنكم تنظيف السنيكرز وحقائب اليد؟",
+        answer: "نعم، نعالج حقائب اليد وحقائب الظهر والسنيكرز والأحذية الرسمية: تنظيف داخلي وخارجي وإزالة الروائح.",
       },
     ],
   },
