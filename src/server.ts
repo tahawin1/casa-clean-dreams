@@ -44,9 +44,28 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+const CANONICAL_HOST = "www.pressingzerktouni.com";
+
+// This same codebase gets auto-deployed to several throwaway hosts (a duplicate
+// Vercel project, Lovable's own preview hosting). Google has indexed those in
+// addition to the real domain, splitting SEO signals across near-duplicate pages.
+// Redirect those specific hosts to the canonical domain so there's only ever one
+// indexable version of each page.
+function isDuplicateHost(hostname: string): boolean {
+  return hostname.endsWith(".vercel.app") || hostname.endsWith(".lovable.app");
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const url = new URL(request.url);
+      if (isDuplicateHost(url.hostname)) {
+        url.protocol = "https:";
+        url.hostname = CANONICAL_HOST;
+        url.port = "";
+        return Response.redirect(url.toString(), 301);
+      }
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return await normalizeCatastrophicSsrResponse(response);
