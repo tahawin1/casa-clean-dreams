@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Check, ChevronLeft, ChevronRight, Minus, Plus, Calendar, User, MessageCircle } from "lucide-react";
 
 import { SiteHeader } from "@/components/SiteHeader";
@@ -239,6 +239,10 @@ function Commander() {
   const [address, setAddress] = useState("");
   const [notes, setNotes] = useState("");
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [step]);
+
   const cartLines = useMemo(() => Object.values(cart).filter((line) => line.quantity > 0), [cart]);
   const itemCount = cartLines.reduce((sum, line) => sum + line.quantity, 0);
   const subtotal = cartLines.reduce((sum, line) => sum + line.quantity * line.unitPrice, 0);
@@ -459,7 +463,7 @@ function ItemRow({
   return (
     <div className="flex flex-col gap-3 border-b border-border py-4 last:border-b-0 sm:flex-row sm:items-center sm:justify-between">
       <p className="text-sm font-medium text-foreground">{item.name}</p>
-      <div className="flex flex-wrap gap-3">
+      <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
         {washPrice !== null && (
           <QuantityChip
             label={c.washLabel}
@@ -506,7 +510,7 @@ function QuantityChip({
 }) {
   return (
     <div
-      className={`flex items-center gap-2 rounded-full border py-1 pl-3 pr-1 ${
+      className={`flex flex-col gap-1.5 rounded-xl border p-2 sm:flex-row sm:items-center sm:gap-2 sm:rounded-full sm:py-1 sm:pl-3 sm:pr-1 ${
         quantity > 0 ? "border-primary bg-primary/5" : "border-border"
       }`}
     >
@@ -514,24 +518,26 @@ function QuantityChip({
         <div className="font-medium text-foreground">{label}</div>
         <div className="text-muted-foreground">{price}</div>
       </div>
-      <button
-        type="button"
-        onClick={onDecrement}
-        disabled={quantity === 0}
-        aria-label={`${removeAria} ${label}`}
-        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-muted disabled:opacity-30"
-      >
-        <Minus className="h-3.5 w-3.5" />
-      </button>
-      <span className="w-4 shrink-0 text-center text-sm font-semibold text-foreground">{quantity}</span>
-      <button
-        type="button"
-        onClick={onIncrement}
-        aria-label={`${addAria} ${label}`}
-        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-colors hover:bg-brand-600"
-      >
-        <Plus className="h-3.5 w-3.5" />
-      </button>
+      <div className="flex shrink-0 items-center justify-between gap-1 sm:justify-start sm:gap-2">
+        <button
+          type="button"
+          onClick={onDecrement}
+          disabled={quantity === 0}
+          aria-label={`${removeAria} ${label}`}
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-muted disabled:opacity-30"
+        >
+          <Minus className="h-3.5 w-3.5" />
+        </button>
+        <span className="w-4 shrink-0 text-center text-sm font-semibold text-foreground">{quantity}</span>
+        <button
+          type="button"
+          onClick={onIncrement}
+          aria-label={`${addAria} ${label}`}
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-colors hover:bg-brand-600"
+        >
+          <Plus className="h-3.5 w-3.5" />
+        </button>
+      </div>
     </div>
   );
 }
