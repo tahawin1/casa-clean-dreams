@@ -53,10 +53,9 @@ const COPY = {
     removeAria: "Retirer",
     addAria: "Ajouter",
     planningTitle: "Quand souhaitez-vous le ramassage ?",
-    planningSubtitle: "Nous sommes ouverts du lundi au samedi, de 8h à 20h.",
+    planningSubtitle: "Nous sommes ouverts tous les jours, de 8h à 20h.",
     dateLabel: "Date de ramassage",
     slotLabel: "Créneau souhaité",
-    sundayWarning: "Nous sommes fermés le dimanche — merci de choisir un autre jour.",
     contactTitle: "Vos coordonnées",
     contactSubtitle: "Pour que nous puissions venir chercher vos articles.",
     nameLabel: "Nom complet",
@@ -109,10 +108,9 @@ const COPY = {
     removeAria: "Remove",
     addAria: "Add",
     planningTitle: "When would you like the pickup?",
-    planningSubtitle: "We're open Monday to Saturday, 8am to 8pm.",
+    planningSubtitle: "We're open every day, 8am to 8pm.",
     dateLabel: "Pickup date",
     slotLabel: "Preferred time slot",
-    sundayWarning: "We're closed on Sundays — please choose another day.",
     contactTitle: "Your details",
     contactSubtitle: "So we can come pick up your items.",
     nameLabel: "Full name",
@@ -164,10 +162,9 @@ const COPY = {
     removeAria: "إزالة",
     addAria: "إضافة",
     planningTitle: "متى تريدون الاستلام؟",
-    planningSubtitle: "نحن مفتوحون من الاثنين إلى السبت، من 8 صباحا إلى 8 مساء.",
+    planningSubtitle: "نحن مفتوحون كل أيام الأسبوع، من 8 صباحا إلى 8 مساء.",
     dateLabel: "تاريخ الاستلام",
     slotLabel: "الفترة المفضلة",
-    sundayWarning: "نحن مغلقون يوم الأحد — الرجاء اختيار يوم آخر.",
     contactTitle: "معلوماتكم",
     contactSubtitle: "لكي نتمكن من القدوم لاستلام قطعكم.",
     nameLabel: "الاسم الكامل",
@@ -555,7 +552,6 @@ function StepPlanning({
 }) {
   const { lang } = useLanguage();
   const c = COPY[lang];
-  const isSunday = pickupDate ? new Date(`${pickupDate}T00:00:00`).getDay() === 0 : false;
   return (
     <div>
       <h2 className="font-display text-xl font-bold text-foreground sm:text-2xl">{c.planningTitle}</h2>
@@ -573,7 +569,6 @@ function StepPlanning({
             onChange={(e) => setPickupDate(e.target.value)}
             className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring"
           />
-          {isSunday && <p className="mt-2 text-sm text-destructive">{c.sundayWarning}</p>}
         </div>
         <div>
           <label htmlFor="pickup-slot" className="text-sm font-medium text-foreground">

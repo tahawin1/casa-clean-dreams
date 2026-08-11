@@ -44,7 +44,6 @@ const COPY: Record<
     addressTitle: string;
     hoursTitle: string;
     hours: string;
-    closed: string;
     phoneTitle: string;
     emailTitle: string;
     directions: string;
@@ -90,8 +89,7 @@ const COPY: Record<
     offered: "Offert",
     addressTitle: "Adresse",
     hoursTitle: "Horaires d'ouverture",
-    hours: "Lundi – Samedi : 8h00 – 20h00",
-    closed: "Dimanche : Fermé",
+    hours: "Tous les jours : 8h00 – 20h00",
     phoneTitle: "Téléphone",
     emailTitle: "Email",
     directions: "Itinéraire",
@@ -136,8 +134,7 @@ const COPY: Record<
     offered: "Free",
     addressTitle: "Address",
     hoursTitle: "Opening hours",
-    hours: "Monday – Saturday: 8am – 8pm",
-    closed: "Sunday: Closed",
+    hours: "Every day: 8am – 8pm",
     phoneTitle: "Phone",
     emailTitle: "Email",
     directions: "Directions",
@@ -180,8 +177,7 @@ const COPY: Record<
     offered: "مجاني",
     addressTitle: "العنوان",
     hoursTitle: "ساعات العمل",
-    hours: "الاثنين – السبت: 8:00 – 20:00",
-    closed: "الأحد: مغلق",
+    hours: "كل أيام الأسبوع: 8:00 – 20:00",
     phoneTitle: "الهاتف",
     emailTitle: "البريد الإلكتروني",
     directions: "الاتجاهات",
@@ -298,11 +294,7 @@ function Contact() {
                   </div>
                   <div>
                     <h3 className="font-display text-base font-semibold text-foreground">{c.hoursTitle}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {c.hours}
-                      <br />
-                      {c.closed}
-                    </p>
+                    <p className="text-sm text-muted-foreground">{c.hours}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">

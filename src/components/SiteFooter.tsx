@@ -18,6 +18,7 @@ const COPY: Record<
     contact: string;
     jobs: string;
     contactTitle: string;
+    hours: string;
     rights: string;
     privacy: string;
     legal: string;
@@ -34,6 +35,7 @@ const COPY: Record<
     contact: "Contact",
     jobs: "Recrutement",
     contactTitle: "Contact",
+    hours: "Ouvert tous les jours : 8h00 – 20h00",
     rights: "Tous droits réservés.",
     privacy: "Politique de confidentialité",
     legal: "Mentions légales",
@@ -49,6 +51,7 @@ const COPY: Record<
     contact: "Contact",
     jobs: "Careers",
     contactTitle: "Contact",
+    hours: "Open every day: 8am – 8pm",
     rights: "All rights reserved.",
     privacy: "Privacy policy",
     legal: "Legal notice",
@@ -64,6 +67,7 @@ const COPY: Record<
     contact: "اتصل بنا",
     jobs: "التوظيف",
     contactTitle: "اتصل بنا",
+    hours: "مفتوح كل أيام الأسبوع: 8:00 – 20:00",
     rights: "جميع الحقوق محفوظة.",
     privacy: "سياسة الخصوصية",
     legal: "الإشعار القانوني",
@@ -168,6 +172,7 @@ export function SiteFooter() {
                   contact@pressingzerktouni.ma
                 </a>
               </li>
+              <li>{c.hours}</li>
             </ul>
           </div>
         </div>
