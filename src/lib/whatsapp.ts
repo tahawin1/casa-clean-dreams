@@ -1,4 +1,3 @@
-// TODO: replace with the real WhatsApp Business number (client will provide it).
 // Format: country code + number, digits only, no "+" or spaces.
 export const WHATSAPP_NUMBER = "212642833331";
 

@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { ArrowRight, Phone } from "lucide-react";
 
 import { SiteHeader } from "@/components/SiteHeader";
@@ -90,6 +91,8 @@ function Tarifs() {
   const { lang } = useLanguage();
   const c = COPY[lang];
   const categories = getPriceCategories(lang);
+  const [activeCategory, setActiveCategory] = useState(0);
+  const category = categories[activeCategory] ?? categories[0]!;
 
   return (
     <div className="min-h-screen bg-background">
@@ -116,52 +119,67 @@ function Tarifs() {
       </section>
 
       <section className="py-16 lg:py-24">
-        <div className="container-tight flex flex-col gap-12">
-          {categories.map((category) => (
-            <Reveal key={category.title}>
-              <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  {category.icon}
-                </div>
-                <div>
-                  <h2 className="font-display text-xl font-bold text-foreground sm:text-2xl">
-                    {category.title}
-                  </h2>
-                  <p className="mt-1 text-sm text-muted-foreground">{category.description}</p>
-                </div>
-              </div>
+        <div className="container-tight flex flex-col gap-8">
+          <div className="flex flex-wrap justify-center gap-2">
+            {categories.map((cat, index) => (
+              <button
+                key={cat.title}
+                type="button"
+                onClick={() => setActiveCategory(index)}
+                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  index === activeCategory
+                    ? "bg-primary text-primary-foreground"
+                    : "border border-border text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {cat.title}
+              </button>
+            ))}
+          </div>
 
-              <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-                <div className="overflow-x-auto">
-                  <table className="w-full min-w-[520px] border-collapse text-left rtl:text-right">
-                    <thead>
-                      <tr className="border-b border-border">
-                        <th className="px-5 py-3" />
-                        <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wide text-muted-foreground rtl:text-left">
-                          {c.washCol}
-                        </th>
-                        <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wide text-muted-foreground rtl:text-left">
-                          {c.ironCol}
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {category.items.map((item, index) => (
-                        <tr
-                          key={item.name}
-                          className={index !== category.items.length - 1 ? "border-b border-border" : ""}
-                        >
-                          <td className="px-5 py-3 text-sm text-foreground">{item.name}</td>
-                          <td className="px-5 py-3 text-right text-sm font-bold text-primary rtl:text-left">{item.wash}</td>
-                          <td className="px-5 py-3 text-right text-sm font-bold text-primary rtl:text-left">{item.iron}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+          <Reveal key={category.title}>
+            <div className="flex items-start gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                {category.icon}
               </div>
-            </Reveal>
-          ))}
+              <div>
+                <h2 className="font-display text-xl font-bold text-foreground sm:text-2xl">
+                  {category.title}
+                </h2>
+                <p className="mt-1 text-sm text-muted-foreground">{category.description}</p>
+              </div>
+            </div>
+
+            <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[520px] border-collapse text-left rtl:text-right">
+                  <thead>
+                    <tr className="border-b border-border">
+                      <th className="px-5 py-3" />
+                      <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wide text-muted-foreground rtl:text-left">
+                        {c.washCol}
+                      </th>
+                      <th className="px-5 py-3 text-right text-xs font-semibold uppercase tracking-wide text-muted-foreground rtl:text-left">
+                        {c.ironCol}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {category.items.map((item, index) => (
+                      <tr
+                        key={item.name}
+                        className={index !== category.items.length - 1 ? "border-b border-border" : ""}
+                      >
+                        <td className="px-5 py-3 text-sm text-foreground">{item.name}</td>
+                        <td className="px-5 py-3 text-right text-sm font-bold text-primary rtl:text-left">{item.wash}</td>
+                        <td className="px-5 py-3 text-right text-sm font-bold text-primary rtl:text-left">{item.iron}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </Reveal>
 
           <p className="text-center text-sm text-muted-foreground">{c.note}</p>
         </div>
