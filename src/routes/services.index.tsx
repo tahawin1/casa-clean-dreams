@@ -15,7 +15,7 @@ import { useLanguage, type Lang } from "@/i18n/LanguageContext";
 
 const PAGE_TITLE = "Nos services de pressing à Casablanca | Pressing Zerktouni";
 const PAGE_DESCRIPTION =
-  "Découvrez tous les services de Pressing Zerktouni à Casablanca : pressing vêtements, costumes & cérémonies, linge de maison, sacs & chaussures. Express 6h, ramassage et livraison gratuite.";
+  "Services de Pressing Zerktouni à Casablanca : vêtements, costumes & cérémonies, linge de maison, sacs & chaussures. Express 6h, ramassage et livraison gratuite.";
 const PAGE_KEYWORDS =
   "services pressing Casablanca, pressing vêtements Zerktouni, nettoyage à sec Casablanca, blanchisserie Casablanca, nettoyage sacs chaussures Casablanca";
 

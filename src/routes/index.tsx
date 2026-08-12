@@ -30,7 +30,7 @@ import { useLanguage, type Lang } from "@/i18n/LanguageContext";
 const SITE_URL = "https://www.pressingzerktouni.com";
 const PAGE_TITLE = "Pressing Zerktouni Casablanca | Nettoyage à Sec 6h";
 const PAGE_DESCRIPTION =
-  "Pressing Zerktouni à Casablanca, 237 Boulevard Mohamed Zerktouni. Depuis 2010, nettoyage à sec, repassage, costumes, linge de maison, sacs et tapis. Service express 6h, ramassage et livraison gratuite.";
+  "Pressing Zerktouni à Casablanca : nettoyage à sec, repassage, costumes, linge de maison. Service express 6h, ramassage et livraison gratuite.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

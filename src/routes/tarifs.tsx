@@ -10,9 +10,9 @@ import { getPriceCategories } from "@/data/pricing";
 import { buildPageHead } from "@/lib/service-head";
 import { useLanguage, type Lang } from "@/i18n/LanguageContext";
 
-const PAGE_TITLE = "Tarifs pressing & nettoyage à sec à Casablanca | Pressing Zerktouni";
+const PAGE_TITLE = "Tarifs pressing Casablanca | Pressing Zerktouni";
 const PAGE_DESCRIPTION =
-  "Tous les tarifs de Pressing Zerktouni à Casablanca : vêtements de ville, tenues traditionnelles, linge de maison et ameublement. Prix transparents, lavage + repassage ou repassage seul.";
+  "Tarifs de Pressing Zerktouni à Casablanca : vêtements, tenues traditionnelles, linge de maison. Prix transparents, lavage + repassage ou repassage seul.";
 const PAGE_KEYWORDS =
   "tarifs pressing Casablanca, prix pressing Casablanca, prix nettoyage à sec Casablanca, prix repassage Casablanca, tarif takchita caftan pressing";
 

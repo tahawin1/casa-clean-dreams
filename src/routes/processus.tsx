@@ -11,7 +11,7 @@ import { useLanguage, type Lang } from "@/i18n/LanguageContext";
 
 const PAGE_TITLE = "Notre processus | Pressing Zerktouni Casablanca";
 const PAGE_DESCRIPTION =
-  "Découvrez comment fonctionne Pressing Zerktouni à Casablanca : choisissez vos articles, on vient les récupérer chez vous, livraison impeccable. Un processus simple en 3 étapes.";
+  "Comment fonctionne Pressing Zerktouni à Casablanca : choisissez vos articles, on vient les récupérer, livraison impeccable. Un processus simple en 3 étapes.";
 const PAGE_KEYWORDS =
   "processus pressing Casablanca, comment fonctionne pressing Zerktouni, ramassage pressing Casablanca, étapes nettoyage pressing";
 
