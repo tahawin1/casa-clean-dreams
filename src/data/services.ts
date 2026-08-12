@@ -22,6 +22,7 @@ export type ServiceContent = {
   keywords: string;
   image: string;
   intro: string;
+  addon?: { title: string; text: string };
   items: { title: string; text: string }[];
   faq: { question: string; answer: string }[];
 };
@@ -40,6 +41,10 @@ const SERVICES_FR: ServiceContent[] = [
     image: serviceVetements,
     intro:
       "Depuis 2010, Pressing Zerktouni prend soin de vos chemises, pantalons, robes et vêtements du quotidien sur le Boulevard Mohamed Zerktouni, à Casablanca. Nettoyage, repassage et finition soignée, avec ramassage et livraison gratuits à domicile.",
+    addon: {
+      title: "Retouche & couture",
+      text: "Pressing Zerktouni est votre pressing et blanchisserie complet à Casablanca depuis 2010 : nettoyage à sec, lavage, repassage, linge de maison, tapis, et bien plus. En plus de ce service complet, nos couturiers expérimentés réalisent aussi vos ourlets, ajustements de taille et petites retouches, pour que chaque pièce retrouve une coupe impeccable. Commandez directement depuis notre site en quelques clics, et profitez du ramassage et de la livraison gratuits à domicile : vous n'avez rien à vous déplacer, on s'occupe de tout, du retrait de vos vêtements jusqu'à leur retour prêts à porter. Un service soigné et fiable, à l'image de la qualité qui fait la réputation de Pressing Zerktouni.",
+    },
     items: [
       {
         title: "Nettoyage à sec professionnel",
@@ -184,6 +189,10 @@ const SERVICES_FR: ServiceContent[] = [
     image: serviceCuir,
     intro:
       "Sacs à main, sacs à dos, baskets et chaussures de ville : nos spécialistes de Pressing Zerktouni leur redonnent tout leur éclat grâce à un nettoyage en profondeur et un entretien adapté à chaque matière.",
+    addon: {
+      title: "Cirage & petite réparation",
+      text: "Pressing Zerktouni est votre pressing et blanchisserie complet à Casablanca depuis 2010 : nettoyage à sec, lavage, repassage, linge de maison, tapis, sacs et chaussures. Vos chaussures de ville et vos baskets méritent le même soin que vos vêtements : nos spécialistes assurent le cirage professionnel, le changement de talons et les petites réparations pour prolonger leur durée de vie et leur redonner tout leur éclat. Comme pour tous nos services, la commande se fait simplement en ligne sur notre site, avec ramassage et livraison gratuits à domicile — un gain de temps précieux pour un résultat impeccable.",
+    },
     items: [
       {
         title: "Nettoyage en profondeur",
@@ -234,6 +243,10 @@ const SERVICES_EN: ServiceContent[] = [
     image: serviceVetements,
     intro:
       "Since 2010, Pressing Zerktouni has taken care of your shirts, trousers, dresses and everyday clothes on Boulevard Mohamed Zerktouni, Casablanca. Cleaning, pressing and careful finishing, with free home pickup and delivery.",
+    addon: {
+      title: "Alterations & Tailoring",
+      text: "Pressing Zerktouni is your complete dry cleaning and laundry business in Casablanca since 2010: dry cleaning, washing, ironing, home linen, rugs, and more. In addition to this full range of services, our experienced tailors also handle hemming, resizing and small alterations, so every piece fits perfectly. Order directly from our website in a few clicks, and enjoy free home pickup and delivery: you don't have to move a thing, we take care of everything, from picking up your clothes to bringing them back ready to wear. A careful, reliable service that reflects the quality behind Pressing Zerktouni's reputation.",
+    },
     items: [
       {
         title: "Professional dry cleaning",
@@ -377,6 +390,10 @@ const SERVICES_EN: ServiceContent[] = [
     image: serviceCuir,
     intro:
       "Handbags, backpacks, sneakers and dress shoes: our Pressing Zerktouni specialists restore their shine with deep cleaning and care suited to every material.",
+    addon: {
+      title: "Polishing & Minor Repairs",
+      text: "Pressing Zerktouni is your complete dry cleaning and laundry business in Casablanca since 2010: dry cleaning, washing, ironing, home linen, rugs, bags and shoes. Your dress shoes and sneakers deserve the same care as your clothes: our specialists handle professional polishing, heel replacement and minor repairs to extend their life and restore their shine. As with all our services, ordering is simple through our website, with free home pickup and delivery — a real time-saver for a flawless result.",
+    },
     items: [
       {
         title: "Deep cleaning",
@@ -426,6 +443,10 @@ const SERVICES_AR: ServiceContent[] = [
     image: serviceVetements,
     intro:
       "منذ سنة 2010، يعتني برسينغ الزرقطوني بقمصانكم وسراويلكم وفساتينكم وملابسكم اليومية في شارع محمد الزرقطوني بالدار البيضاء. تنظيف وكي وتشطيب دقيق، مع استلام وتوصيل مجاني إلى المنزل.",
+    addon: {
+      title: "التصليح والخياطة",
+      text: "برسينغ الزرقطوني هو مقصدكم الكامل للتنظيف والغسيل بالدار البيضاء منذ 2010: تنظيف جاف، غسيل، كي، بياضات المنزل، سجاد، وأكثر. بالإضافة إلى هذه الخدمة الشاملة، يقوم خياطونا ذوو الخبرة أيضًا بتقصير وتعديل المقاسات والتصليحات الصغيرة، ليستعيد كل قطعة قصتها المثالية. اطلبوا مباشرة من موقعنا الإلكتروني ببضع نقرات، واستفيدوا من الاستلام والتوصيل المجانيين إلى المنزل: لا داعي للتنقل، نتكفل بكل شيء من استلام ملابسكم إلى إعادتها جاهزة للارتداء. خدمة عناية وموثوقية تعكس الجودة التي يشتهر بها برسينغ الزرقطوني.",
+    },
     items: [
       {
         title: "تنظيف جاف احترافي",
@@ -561,6 +582,10 @@ const SERVICES_AR: ServiceContent[] = [
     image: serviceCuir,
     intro:
       "حقائب اليد، حقائب الظهر، السنيكرز والأحذية الرسمية: يعيد متخصصو برسينغ الزرقطوني لها بريقها من خلال تنظيف عميق وعناية تناسب كل مادة.",
+    addon: {
+      title: "التلميع والتصليحات الصغيرة",
+      text: "برسينغ الزرقطوني هو مقصدكم الكامل للتنظيف والغسيل بالدار البيضاء منذ 2010: تنظيف جاف، غسيل، كي، بياضات المنزل، سجاد، حقائب وأحذية. أحذيتكم الكلاسيكية والرياضية تستحق نفس العناية التي توليها لملابسكم: يقوم متخصصونا بالتلميع الاحترافي، تغيير الكعوب والتصليحات الصغيرة لإطالة عمرها واستعادة بريقها. كما هو الحال مع جميع خدماتنا، الطلب يتم ببساطة عبر موقعنا الإلكتروني، مع استلام وتوصيل مجانيين إلى المنزل — كسب حقيقي للوقت مقابل نتيجة لا تشوبها شائبة.",
+    },
     items: [
       {
         title: "تنظيف عميق",

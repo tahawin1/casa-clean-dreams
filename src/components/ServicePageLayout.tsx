@@ -184,6 +184,22 @@ export function ServicePageLayout({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {/* Complementary service */}
+      {service.addon && (
+        <section className="pb-16 lg:pb-24">
+          <div className="container-tight">
+            <Reveal className="rounded-2xl border border-primary/20 bg-brand-50 p-8 lg:p-10">
+              <h2 className="font-display text-xl font-bold text-foreground sm:text-2xl">
+                {service.addon.title}
+              </h2>
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                {service.addon.text}
+              </p>
+            </Reveal>
+          </div>
+        </section>
+      )}
+
       {/* Internal links */}
       <section className="py-16 lg:py-24">
         <div className="container-tight">
