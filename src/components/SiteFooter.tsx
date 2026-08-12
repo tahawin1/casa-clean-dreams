@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Facebook } from "lucide-react";
+import { Instagram, Facebook, Star } from "lucide-react";
+
+const GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=ChIJASrAMgDTpw0RA-R61XDqnzE";
 
 import logoImage from "@/assets/logo.png";
 import { getServices } from "@/data/services";
@@ -19,6 +21,7 @@ const COPY: Record<
     jobs: string;
     contactTitle: string;
     hours: string;
+    reviewCta: string;
     rights: string;
     privacy: string;
     legal: string;
@@ -36,6 +39,7 @@ const COPY: Record<
     jobs: "Recrutement",
     contactTitle: "Contact",
     hours: "Ouvert tous les jours : 8h00 – 20h00",
+    reviewCta: "Laisser un avis Google",
     rights: "Tous droits réservés.",
     privacy: "Politique de confidentialité",
     legal: "Mentions légales",
@@ -52,6 +56,7 @@ const COPY: Record<
     jobs: "Careers",
     contactTitle: "Contact",
     hours: "Open every day: 8am – 8pm",
+    reviewCta: "Leave a Google review",
     rights: "All rights reserved.",
     privacy: "Privacy policy",
     legal: "Legal notice",
@@ -68,6 +73,7 @@ const COPY: Record<
     jobs: "التوظيف",
     contactTitle: "اتصل بنا",
     hours: "مفتوح كل أيام الأسبوع: 8:00 – 20:00",
+    reviewCta: "اترك تقييمًا على Google",
     rights: "جميع الحقوق محفوظة.",
     privacy: "سياسة الخصوصية",
     legal: "الإشعار القانوني",
@@ -173,6 +179,17 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>{c.hours}</li>
+              <li>
+                <a
+                  href={GOOGLE_REVIEW_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-medium text-primary hover:underline"
+                >
+                  <Star className="h-4 w-4 fill-current" />
+                  {c.reviewCta}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
